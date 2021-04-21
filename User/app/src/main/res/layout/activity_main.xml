@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation">
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"
+        android:background="?android:attr/windowBackground"
+        android:id="@+id/bottom_navigation"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Người Dùng"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:textAlignment="center">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bùi Xuân Hiếu"
+            android:textSize="25sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"/>
+
+        <ImageButton
+            android:layout_width="197dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_heart" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="424dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="270dp"
+        android:text="Lịch sử mua hàng"
+        android:textSize="20sp"/>
+    <Button
+        android:layout_marginTop="340dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Chăm sóc khách hàng"
+        android:textSize="20sp"/>
+    <Button
+        android:layout_marginTop="410dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Đăng xuất"
+        android:textSize="20sp"/>
+</RelativeLayout>
