@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register_form"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng ký khách hàng"
+        android:textSize="40sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:autofillHints="no" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:autofillHints="no" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:hint="Địa chỉ"
+            android:inputType="text"
+            android:autofillHints="no" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:autofillHints="no" />
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:autofillHints="no" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tôi đồng ý với các điều khoản"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tạo tài khoản"
+            android:textSize="25sp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
