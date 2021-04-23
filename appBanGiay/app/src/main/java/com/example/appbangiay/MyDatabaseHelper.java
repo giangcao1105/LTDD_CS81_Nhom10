@@ -26,12 +26,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Khai báo bảng: Giày (MaGiay, LoaiGiay, Size giay, MauSac, SoLuong, Gia, CungCapBoi, ThuongHieu, XuatXu)
         String sql1 = "CREATE TABLE  tb_giay ("
-                + "MaGiay nvarchar PRIMARY KEY,"
+                + "MaGiay nvarchar PRIMARY KEY AUTOINCREMENT,"
                 + "LoaiGiay nvarchar,"
                 + "Size INTEGER,"
                 + "MauSac nvarchar,"
                 + "SoLuong INTEGER,"
-                + "Gia nvarchar,"
+                + "Gia INTEGER,"
                 + "CungCapBoi nvarchar,"
                 + "ThuongHieu nvarchar,"
                 + "XuatXu nvarchar)";
@@ -118,9 +118,42 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     // Giày
         // Thêm
+    public Boolean themGiay(String loaiGiay, String size, String mau, String sl, int gia, String nhacc, String thuonghieu, String xuatxu){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("LoaiGiay", loaiGiay);
+        contentValues.put("Size", size);
+        contentValues.put("MauSac", mau);
+        contentValues.put("SoLuong", sl);
+        contentValues.put("Gia", gia);
+        contentValues.put("CungCapBoi", nhacc);
+        contentValues.put("ThuongHieu", thuonghieu);
+        contentValues.put("XuatXu", xuatxu);
 
+        long result = DB.insert("tb_giay", null, contentValues);
+        return result != -1;
+    }
         // Sửa
+        public Boolean suaGiay(String maGiay, String loaiGiay, String size, String mau, String sl, int gia, String nhacc, String thuonghieu, String xuatxu){
+            SQLiteDatabase DB = this.getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("LoaiGiay", loaiGiay);
+            contentValues.put("Size", size);
+            contentValues.put("MauSac", mau);
+            contentValues.put("SoLuong", sl);
+            contentValues.put("Gia", gia);
+            contentValues.put("CungCapBoi", nhacc);
+            contentValues.put("ThuongHieu", thuonghieu);
+            contentValues.put("XuatXu", xuatxu);
 
+            Cursor cursor = DB.rawQuery("Select * from tb_taikhoan where MaGiay = ?", new String[]{maGiay});
+            if(cursor.getCount() > 0) {
+                long result = DB.update("tb_giay", contentValues, "MaGiay=?", new String[]{maGiay});
+                return result != -1;
+            }else{
+                return false;
+            }
+        }
         // Xóa
 
         // Xem chi tiết
@@ -130,7 +163,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     // Tài khoản
         // Thêm
-    public Boolean themTaiKhoan(String tk, String mk, String loaiTK){
+   public Boolean themTaiKhoan(String tk, String mk, String loaiTK){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("TK", tk);
@@ -141,36 +174,32 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
         // Sửa
-        public Boolean suaTaiKhoan(String tk, String mk){
-            SQLiteDatabase DB = this.getWritableDatabase();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("MK", mk);
+   public Boolean suaTaiKhoan(String tk, String mk){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("MK", mk);
 
-            Cursor cursor = DB.rawQuery("Select * from tb_taikhoan where TK = ?", new String[]{tk});
-            if(cursor.getCount() > 0) {
-                long result = DB.update("tb_taikhoan", contentValues, "TK=?", new String[]{tk});
-                if (result == -1) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }else{
-                return false;
-            }
+        Cursor cursor = DB.rawQuery("Select * from tb_taikhoan where TK = ?", new String[]{tk});
+        if(cursor.getCount() > 0) {
+            long result = DB.update("tb_taikhoan", contentValues, "TK=?", new String[]{tk});
+            return result != -1;
+        }else{
+            return false;
         }
+   }
         // Xóa
-        public Boolean xoaTaiKhoan(String tk){
-            boolean result = true ;
-            SQLiteDatabase db = this.getWritableDatabase();
-            try{
-                db.delete("tb_taikhoan", "TK=?", new String[]{tk});
-            } catch (Exception ex) {
-                result = false;
-            } finally {
-                db.close();
-                return result;
-            }
+   public Boolean xoaTaiKhoan(String tk){
+        boolean result = true ;
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{
+            db.delete("tb_taikhoan", "TK=?", new String[]{tk});
+        } catch (Exception ex) {
+            result = false;
+        } finally {
+            db.close();
+            return result;
         }
+   }
 
     //    KhachHang
         // Thêm
