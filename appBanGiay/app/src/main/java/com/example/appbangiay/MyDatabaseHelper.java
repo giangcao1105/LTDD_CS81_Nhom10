@@ -138,11 +138,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("LoaiTK", loaiTK);
 
         long result = DB.insert("tb_taikhoan", null, contentValues);
-        if(result == -1){
-            return false;
-        }else{
-            return true;
-        }
+        return result != -1;
     }
         // Sửa
         public Boolean suaTaiKhoan(String tk, String mk){
@@ -166,7 +162,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         public Boolean xoaTaiKhoan(String tk){
             boolean result = true ;
             SQLiteDatabase db = this.getWritableDatabase();
-            try {
+            try{
                 db.delete("tb_taikhoan", "TK=?", new String[]{tk});
             } catch (Exception ex) {
                 result = false;
