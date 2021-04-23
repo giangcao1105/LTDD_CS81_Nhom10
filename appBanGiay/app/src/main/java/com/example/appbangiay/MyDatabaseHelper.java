@@ -1,5 +1,6 @@
 package com.example.appbangiay;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -40,7 +41,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql2 ="CREATE TABLE  tb_taikhoan ("
                 + "TK nvarchar PRIMARY KEY,"
                 + "MK nvarchar,"
-                + "LoaiTK nvarchar)";
+                + "LoaiTK nvarchar NOT NULL)";
         db.execSQL(sql2);
 
         // Khai báo bảng: KhachHang(MaKH, HoTen, SDT, NgaySinh, Email, DiaChi) //KH cũng đóng vai trò như quản trị
@@ -53,7 +54,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "DiaChi nvarchar)";
         db.execSQL(sql3);
 
-        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaGiay, MaKM, MaThanhToan)
+        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaGiay, MaKM, MaThanhToan, Tien)
         String sql4 = "CREATE TABLE  tb_donhang ("
                 + "MaDH nvarchar PRIMARY KEY,"
                 + "KH nvarchar NOT NULL,"
@@ -61,7 +62,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "NgayGiaoHang DATETIME,"
                 + "MaGiay nvarchar,"
                 + "MaKM nvarchar,"
-                + "MaThanhToan nvarchar NOT NULL)";
+                + "MaThanhToan nvarchar NOT NULL,"
+                + "ThanhTien INTERGER)";
         db.execSQL(sql4);
 
         // Khai báo bảng: Khuyến Mãi(MaKM, TenKM)
@@ -96,7 +98,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS tb_giay");
+        db.execSQL("DROP TABLE IF EXISTS tb_taikhoan");
+        db.execSQL("DROP TABLE IF EXISTS tb_khachhang");
+        db.execSQL("DROP TABLE IF EXISTS tb_donhang");
+        db.execSQL("DROP TABLE IF EXISTS tb_khuyenmai");
+        db.execSQL("DROP TABLE IF EXISTS tb_hinhthucthanhtoan");
+        db.execSQL("DROP TABLE IF EXISTS tb_loi");
+        db.execSQL("DROP TABLE IF EXISTS tb_giohang");
 
+        onCreate(db);
     }
 
     //select
@@ -104,4 +115,110 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db= getWritableDatabase();
         return db.rawQuery(sql, null);
     }
+
+    // Giày
+        // Thêm
+
+        // Sửa
+
+        // Xóa
+
+        // Xem chi tiết
+
+        // Hiển thị danh sách
+
+
+    // Tài khoản
+        // Thêm
+    public Boolean themTaiKhoan(String tk, String mk, String loaiTK){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("TK", tk);
+        contentValues.put("MK", mk);
+        contentValues.put("LoaiTK", loaiTK);
+
+        long result = DB.insert("tb_taikhoan", null, contentValues);
+        if(result == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+        // Sửa
+        public Boolean suaTaiKhoan(String tk, String mk){
+            SQLiteDatabase DB = this.getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("MK", mk);
+
+            Cursor cursor = DB.rawQuery("Select * from tb_taikhoan where TK = ?", new String[]{tk});
+            if(cursor.getCount() > 0) {
+                long result = DB.update("tb_taikhoan", contentValues, "TK=?", new String[]{tk});
+                if (result == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }else{
+                return false;
+            }
+        }
+        // Xóa
+        public Boolean xoaTaiKhoan(String tk){
+            boolean result = true ;
+            SQLiteDatabase db = this.getWritableDatabase();
+            try {
+                db.delete("tb_taikhoan", "TK=?", new String[]{tk});
+            } catch (Exception ex) {
+                result = false;
+            } finally {
+                db.close();
+                return result;
+            }
+        }
+
+    //    KhachHang
+        // Thêm
+
+        // Sửa
+
+        // Xóa
+
+        // Xem chi tiết
+
+        // Hiển thị danh sách
+
+
+    // ĐơnHàng
+        // xem chi tiết đơn
+
+        // hiển thị danh sách
+
+
+    // Khuyến Mãi
+        // thêm
+
+        // sửa
+
+        // xóa
+
+        // hiển thị danh sách
+
+    // HinhThucThanhToan
+        // Thêm
+
+        // xóa
+
+
+    // Lỗi
+        //Thêm
+
+
+    // GioHang
+        // thêm
+
+        // sửa
+
+        // xóa
+
+
 }
