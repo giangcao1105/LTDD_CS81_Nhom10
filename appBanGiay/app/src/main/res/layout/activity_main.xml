@@ -32,8 +32,8 @@
             android:layout_marginTop="0dp"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:hint="Tài khoản"
-            android:inputType="text"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
             android:importantForAutofill="no" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:inputType="textPassword"
             android:autofillHints="no" />
 
-        <LinearLayout
+        <!-- <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -62,7 +62,7 @@
                 android:text="Nhớ mật khẩu"
                 android:textSize="20sp"/>
 
-        </LinearLayout>
+        </LinearLayout> -->
 
         <Button
             android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quên mật khẩu?"
