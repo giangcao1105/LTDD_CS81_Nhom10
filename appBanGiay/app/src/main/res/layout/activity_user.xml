@@ -34,10 +34,10 @@
         android:layout_height="150dp"
         android:orientation="horizontal"
         android:textAlignment="center">
-        <EditText
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Bùi Xuân Hiếu"
+            android:text="asdsssssssssssssssssssssssssssssssssss"
             android:textSize="25sp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="15dp"/>
