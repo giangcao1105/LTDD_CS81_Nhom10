@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">appBanGiay</string>
     <string name="todo">TODO</string>
+    <string name="title_activity_homepage_form">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
