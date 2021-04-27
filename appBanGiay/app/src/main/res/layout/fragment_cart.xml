@@ -3,15 +3,95 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.carts.CartFragment"
-    android:background="@android:color/darker_gray">
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Thanh Toán"
+        android:textSize="30dp"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_marginTop="45dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cart"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:text="597 Quang Trung Phường 11 Quận Gò Vấp"
+        android:textSize="25dp"/>
+    <TextView
+        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phương thức thanh toán"
+        android:textSize="30dp"/>
+
+    <RadioGroup
+        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical">
+        <RadioButton
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="COD"/>
+        <RadioButton
+            android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="VISA"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_marginTop="235dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phương thức vận chuyển"
+        android:textSize="30dp"/>
+    <RadioGroup
+        android:layout_marginTop="240dp"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical">
+        <RadioButton
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhanh (3-5h nội thành)"
+            android:textSize="20dp"/>
+        <RadioButton
+            android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bình Thường (3-5 ngày tỉnh lẻ)"
+            android:textSize="20dp"/>
+    </RadioGroup>
+
+    <EditText
+        android:layout_marginTop="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mã giảm giá:"
+        android:textSize="25dp"
+        android:background="@drawable/bg_edt"
+        android:gravity="center"/>
+    <Button
+        android:layout_marginTop="440dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XÁC NHẬN"
+        android:textSize="20dp"
+        android:background="@drawable/bg_edt"
+        android:gravity="center"/>
 
 </RelativeLayout>
