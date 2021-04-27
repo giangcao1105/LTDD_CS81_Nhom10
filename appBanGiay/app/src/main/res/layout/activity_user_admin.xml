@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Admin"
+        android:textSize="45sp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:textAlignment="center">
+        <TextView
+            android:id="@+id/txt_Admin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Admin1"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"/>
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_admin_panel_settings_24"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_QuanLyDoanhThu"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quản lý doanh thu"
+        android:textSize="25dp"/>
+    <Button
+        android:id="@+id/btn_PhanHoiTuKhachHang"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phản hồi từ khách hàng"
+        android:textSize="25dp"/>
+    <Button
+        android:id="@+id/btn_QuanLyKhoHang"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="Quản lý kho hàng"/>
+    <Button
+        android:id="@+id/btn_DangXuat"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="Đăng xuất"/>
+
+</LinearLayout>
