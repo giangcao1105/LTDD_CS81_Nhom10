@@ -361,8 +361,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public boolean kiemTraKhachHangTonTai(String taiKhoan)
     {
         SQLiteDatabase db= getWritableDatabase();
-        String sql = "SELECT count(*) FROM tb_khachhang WHERE SDT = '"+ taiKhoan +"'";
-        Cursor cursor = db.rawQuery(sql,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM tb_khachhang WHERE SDT = ?", new String[]{taiKhoan});
         if (cursor.getCount() > 0)
             return true;
         return false;
