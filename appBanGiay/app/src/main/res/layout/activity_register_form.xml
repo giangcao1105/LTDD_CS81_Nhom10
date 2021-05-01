@@ -22,6 +22,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/txtEmail"
             android:layout_marginTop="20dp"
             android:layout_marginStart="70dp"
             android:layout_width="250dp"
@@ -31,6 +32,7 @@
             android:autofillHints="no" />
 
         <EditText
+            android:id="@+id/txtSdt"
             android:layout_marginTop="20dp"
             android:layout_marginStart="70dp"
             android:layout_width="250dp"
@@ -40,6 +42,7 @@
             android:autofillHints="no" />
 
         <EditText
+            android:id="@+id/txtDiaChi"
             android:layout_marginTop="20dp"
             android:layout_marginStart="70dp"
             android:layout_width="250dp"
@@ -47,8 +50,8 @@
             android:hint="Địa chỉ"
             android:inputType="text"
             android:autofillHints="no" />
-
         <EditText
+            android:id="@+id/txtMatKhau"
             android:layout_marginTop="20dp"
             android:layout_marginStart="70dp"
             android:layout_width="250dp"
@@ -58,6 +61,7 @@
             android:autofillHints="no" />
 
         <EditText
+            android:id="@+id/txtNhapLaiMatKhau"
             android:layout_marginTop="20dp"
             android:layout_marginStart="70dp"
             android:layout_width="250dp"
@@ -66,26 +70,28 @@
             android:inputType="textPassword"
             android:autofillHints="no" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="30dp">-->
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"/>
+<!--            <CheckBox-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="50dp"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tôi đồng ý với các điều khoản"
-                android:textSize="20sp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Tôi đồng ý với các điều khoản"-->
+<!--                android:textSize="20sp"/>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <Button
+
+            android:id="@+id/btTaoTaiKhoan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tạo tài khoản"
