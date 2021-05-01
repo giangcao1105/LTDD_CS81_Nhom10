@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn lỗi cần hỗ trợ"
-        android:textSize="40dp"
+        android:text="Chọn mã sản phẩm bị lỗi"
+        android:textSize="30dp"
         android:gravity="center"
         android:layout_gravity="center"/>
 
@@ -27,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mô tả"
+        android:text="Mô tả lỗi"
         android:textSize="30dp"
         android:layout_gravity="center"/>
     <EditText
