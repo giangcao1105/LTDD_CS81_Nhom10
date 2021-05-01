@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }else {
                     if (db.ktraTaiKhoan(taiKhoan, matKhau)) {
-                        openHomePage();
+                        openHomePage(taiKhoan);
                     } else {
                         Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu không chính xác, vui lòng thử lại!", Toast.LENGTH_SHORT).show();
                     }
@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openHomePage() {
+    private void openHomePage(String tk) {
         Intent intent = new Intent(this, homepage_form.class);
+        intent.putExtra("TaiKhoan", tk);
         startActivity(intent);
     }
 }
