@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.appbangiay.ui.carts.CartFragment"
         android:label="Cart"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_notifications"
