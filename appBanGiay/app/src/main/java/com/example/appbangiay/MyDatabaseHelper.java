@@ -258,6 +258,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         return result;
     }
+
+    // kiem tra tài khoản tồn tại
     //------------------------------KhachHang-------------------------------------------------------
     // Thêm
     public Boolean themKhachHang(String maKH, String hoTen, String sdt, Date ngaySinh, String email, String diaChi){
@@ -354,7 +356,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_khachhang";
         return db.rawQuery(sql, null);
     }
-
+    // Kiểm tra khách hàng tồn tại
+    public boolean kiemTraKhachHangTonTai(String taiKhoan)
+    {
+        SQLiteDatabase db= getWritableDatabase();
+        String sql = "SELECT count(*) FROM tb_khachhang WHERE SDT = '"+ taiKhoan +"";
+        Cursor cursor = db.rawQuery(sql,null);
+        if (cursor.getCount() > 0)
+            return true;
+        return false;
+    }
     //------------------------------ĐơnHàng----------------------------------------------------------
     // xem chi tiết đơn
     public DonHang xemCTDH(int maDH){
