@@ -33,29 +33,31 @@ public class register_form extends AppCompatActivity {
                 String nhapLaiMatKhauTxt = nhapLaiMatKhau.getText().toString();
                 String sdtTxt = sdt.getText().toString();
 
-                if (diaChiTxt == "" || emailTxt == "" || matKhauTxt == "" ||nhapLaiMatKhauTxt == "" || sdtTxt == "")
-                    Toast.makeText(register_form.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_LONG).show();
+                if (diaChiTxt == "" || emailTxt == "" || matKhauTxt == "" ||nhapLaiMatKhauTxt == "" || sdtTxt == "") {
+                    Toast.makeText(register_form.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                }
                 else
                 {
                     Date sqlDate = new  Date(System.currentTimeMillis());
-                    boolean checkThemTaiKhoan =dbh.themTaiKhoan(sdtTxt,matKhauTxt,"user");
-                    boolean checkThemThongTin = dbh.themKhachHang(sdtTxt,"Nguyễn Văn A",sdtTxt, sqlDate,emailTxt,diaChiTxt);
-                    if(dbh.kiemTraKhachHangTonTai(sdtTxt)) {
-                        if (checkThemTaiKhoan || checkThemThongTin) {
-                            Toast.makeText(register_form.this, "Đăng kí thành công. Sẽ chuyển về giao diện đăng nhập trong 3s.", Toast.LENGTH_LONG).show();
+
+                    if(!(dbh.kiemTraKhachHangTonTai(sdtTxt))) {
+                        boolean checkThemTaiKhoan = dbh.themTaiKhoan(sdtTxt,matKhauTxt,"user");
+                        boolean checkThemThongTin = dbh.themKhachHang(sdtTxt,"Nguyễn Văn A",sdtTxt, sqlDate,emailTxt,diaChiTxt);
+                        if (checkThemTaiKhoan && checkThemThongTin) {
+                            Toast.makeText(register_form.this, "Đăng kí thành công. Sẽ chuyển về giao diện đăng nhập trong 3s.", Toast.LENGTH_SHORT).show();
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-//                            dangNhap();
+                            dangNhap();
                         } else {
-                            Toast.makeText(register_form.this, "Đăng kí không thành công. Vui lòng kiểm tra lại thông tin tài khoản.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(register_form.this, "Đăng kí không thành công. Vui lòng kiểm tra lại thông tin tài khoản.", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else
                     {
-                        Toast.makeText(register_form.this, "SĐT đã được đăng kí. Vui lòng sử dụng SĐT khác.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(register_form.this, "SĐT đã được đăng kí. Vui lòng sử dụng SĐT khác.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
