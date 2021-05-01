@@ -491,7 +491,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         long result = DB.insert("tb_loi", null, contentValues);
         return result != -1;
     }
-
     //------------------------------GioHang----------------------------------------------------------
     // thêm
     public Boolean themGioHang(String maKH, int maSP, int soLuong){
