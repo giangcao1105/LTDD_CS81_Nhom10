@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.appbangiay.ui.carts.CartFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_cart" />
+        android:label="Cart"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.appbangiay.ui.user.UserFragment"
-        android:label="@string/title_notifications"
+        android:label="User"
         tools:layout="@layout/fragment_user" />
 </navigation>
