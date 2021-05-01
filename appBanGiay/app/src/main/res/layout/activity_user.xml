@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".User"
     android:orientation="vertical">
 
     <FrameLayout
@@ -35,6 +35,7 @@
         android:orientation="horizontal"
         android:textAlignment="center">
         <TextView
+            android:id="@+id/txt_User"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Bui Xuan Hieu"
@@ -49,18 +50,21 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_LichSuMuaHang"
         android:layout_width="424dp"
         android:layout_height="60dp"
         android:layout_marginTop="270dp"
         android:text="Lịch sử mua hàng"
         android:textSize="20sp"/>
     <Button
+        android:id="@+id/btn_ChamSocKhachHang"
         android:layout_marginTop="340dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Chăm sóc khách hàng"
         android:textSize="20sp"/>
     <Button
+        android:id="@+id/btn_DangXuat1"
         android:layout_marginTop="410dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"

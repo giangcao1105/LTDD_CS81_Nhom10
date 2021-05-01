@@ -45,7 +45,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // Khai báo bảng: TaiKhoan(TK, MK, LoaiTK) //Mã tk là sdt khach hang
         String sql2 ="CREATE TABLE  tb_taikhoan ("
                 + "TK nvarchar PRIMARY KEY,"
-                + "MK nvarchar,"
+                + "MK nvarchar NOT NUll,"
                 + "LoaiTK nvarchar NOT NULL)";
         db.execSQL(sql2);
 
