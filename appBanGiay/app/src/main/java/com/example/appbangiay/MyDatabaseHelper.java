@@ -16,7 +16,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     // Khai báo tên và phiên bản database
     final static int DATABASE_VERSION = 1;
-    final static String DATABASE_NAME = "";
+    final static String DATABASE_NAME = "app_ban_giay.db";
 
     // Khai báo biến Context
     Context context;
@@ -85,7 +85,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // Khai báo bảng: Lỗi(MãLỗi, MaSP, MaKH, NộiDungLỗi, Trả lời, NgayPhanHoi)
         String sql7 = "CREATE TABLE  tb_loi ("
-                + "MaLoi int PRIMARY KEY AUTOINCREMENT,"
+                + "MaLoi INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "MaSP INTEGER NOT NULL,"
                 + "MaKH nvarchar NOT NULL,"
                 + "NoiDungLoi nvarchar NOT NULL,"
@@ -95,9 +95,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // Khai báo bảng:GioHang(MaKH,MaSP,SoLuong)
         String sql8 = "CREATE TABLE  tb_giohang ("
-                + "MaKH nvarchar PRIMARY KEY,"
-                + "MaSP INTEGER PRIMARY KEY,"
-                + "SoLuong INTEGER)";
+                + "MaKH nvarchar,"
+                + "MaSP INTEGER,"
+                + "SoLuong INTEGER,"
+                + "PRIMARY KEY (MaKH, MaSP))" ;
         db.execSQL(sql8);
     }
 
@@ -360,7 +361,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public boolean kiemTraKhachHangTonTai(String taiKhoan)
     {
         SQLiteDatabase db= getWritableDatabase();
-        String sql = "SELECT count(*) FROM tb_khachhang WHERE SDT = '"+ taiKhoan +"";
+        String sql = "SELECT count(*) FROM tb_khachhang WHERE SDT = '"+ taiKhoan +"'";
         Cursor cursor = db.rawQuery(sql,null);
         if (cursor.getCount() > 0)
             return true;
