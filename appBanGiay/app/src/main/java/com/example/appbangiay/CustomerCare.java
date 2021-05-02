@@ -1,6 +1,7 @@
 package com.example.appbangiay;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,12 +13,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.Date;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerCare extends AppCompatActivity {
-    private Spinner spinner;
-    EditText edtMoTaLoi;
+
+    EditText edtMoTaLoi,edtMaDH;
     Button btGui, btThoat;
     private List<String> list;
     MyDatabaseHelper dbh;
@@ -27,39 +30,27 @@ public class CustomerCare extends AppCompatActivity {
         setContentView(R.layout.activity_customercare);
         anhXa();
         dbh = new MyDatabaseHelper(this);
-        list = new ArrayList<>();
-        Cursor cursor =  dbh.layDSGiay();
-        cursor.moveToFirst();
-
-        while (cursor.isAfterLast()==false)
-        {
-            list.add(cursor.getString(1));
-            cursor.moveToNext();
-        }
-        ArrayAdapter spinnerAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, list);
-        spinner.setAdapter(spinnerAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String msg = "position :" + position + " value :" + list.get(position);
-                Toast.makeText(CustomerCare.this, msg, Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(CustomerCare.this, "onNothingSelected", Toast.LENGTH_SHORT).show();
-            }
-
-        });
+        Date sqlDate = new  Date(System.currentTimeMillis());
+//        boolean check = dbh.themDonHang("123","1","1",1,111111, sqlDate,sqlDate);
         btGui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(dbh.kiemTraDonHangTonTai(Integer.parseInt(edtMaDH.getText().toString())))
+                {
+                    dbh.themLoi(Integer.parseInt(edtMaDH.getText().toString()), "123",edtMoTaLoi.getText().toString());
+                    Toast.makeText(CustomerCare.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
 
+                }
+                else
+                {
+                    Toast.makeText(CustomerCare.this, "Đơn hàng không tồn tại. Vui lòng kiểm tra lại", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
     private void anhXa()
     {
-        spinner = findViewById(R.id.id_spinner);
+        edtMaDH = findViewById(R.id.edtMaDH);
         edtMoTaLoi = findViewById(R.id.edtMoTaLoi);
         btGui = findViewById(R.id.btGui);
         btThoat = findViewById(R.id.btThoat);
