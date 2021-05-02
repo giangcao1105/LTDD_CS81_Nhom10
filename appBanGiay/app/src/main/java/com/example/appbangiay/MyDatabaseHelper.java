@@ -286,7 +286,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public Boolean suaKhachHang(String maKH, String hoTen, String sdt, Date ngaySinh, String email, String diaChi){
         SQLiteDatabase DB = this.getWritableDatabase();
         boolean flag = true;
-        Cursor cursor0 = DB.rawQuery("Select * from tb_khachhang where SDT = ?", new String[]{sdt});
+        Cursor cursor0 = DB.rawQuery("Select * from tb_khachhang where SDT = ?", new String[]{maKH});
         if (cursor0.moveToFirst() &&cursor0 != null) {
             ContentValues contentValues0 = new ContentValues();
 //        contentValues0.put("TK", sdt);
@@ -303,7 +303,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             long result1 = DB.update("tb_taikhoan", contentValues1, "TK=?", new String[]{maKH});
 
             if(result != -1 && result1 != -1)
-            return result != -1;
+                return result != -1;
 
 
         }

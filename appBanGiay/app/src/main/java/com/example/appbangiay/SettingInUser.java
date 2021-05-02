@@ -87,7 +87,7 @@ public class SettingInUser extends AppCompatActivity {
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         if (db.kiemTraKhachHangTonTai(txtSDT))
-                                            Toast.makeText(SettingInUser.this, "Cập nhật thất bại, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SettingInUser.this, "Số điện thoại này đã tồn tại", Toast.LENGTH_SHORT).show();
                                         else {
                                             boolean result1 = true;
                                             result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
