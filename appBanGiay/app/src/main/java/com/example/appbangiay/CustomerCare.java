@@ -31,7 +31,7 @@ public class CustomerCare extends AppCompatActivity {
         anhXa();
         dbh = new MyDatabaseHelper(this);
         Date sqlDate = new  Date(System.currentTimeMillis());
-//        boolean check = dbh.themDonHang("123","1","1",1,111111, sqlDate,sqlDate);
+        boolean check = dbh.themDonHang("123","1","1",1,111111, sqlDate,sqlDate);
         btGui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
