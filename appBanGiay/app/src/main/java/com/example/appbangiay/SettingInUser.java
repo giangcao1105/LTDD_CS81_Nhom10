@@ -21,7 +21,7 @@ public class SettingInUser extends AppCompatActivity {
     EditText edtHoVaTen, edtNgaySinh, edtDiaChi, edtSDT, edtEmail;
     Button btnSua;
     MyDatabaseHelper db;
-    String maKH;
+    String maKH = "123";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

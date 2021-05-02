@@ -339,14 +339,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_khachhang where MaKH='"+ maKH +"'";
         Cursor cursor = db.rawQuery(sql, null);
 
-        if(cursor.getCount() > 0){
+        if(cursor != null && cursor.moveToFirst()){
             k.setMaKH(cursor.getString(cursor.getColumnIndex("MaKH")));
             k.setHoTen(cursor.getString(cursor.getColumnIndex("HoTen")));
             k.setDiaChi(cursor.getString(cursor.getColumnIndex("DiaChi")));
             k.setEmail(cursor.getString(cursor.getColumnIndex("Email")));
             k.setSDT(cursor.getString(cursor.getColumnIndex("SDT")));
-
-            k.setNgaySinh(Date.valueOf(cursor.getString(cursor.getColumnIndex("ThuongHieu"))));
+            k.setNgaySinh(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgaySinh"))));
         }
         return k;
     }
