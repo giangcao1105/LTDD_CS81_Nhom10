@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new MyDatabaseHelper(this);
-
+        db.onUpgrade(db.getWritableDatabase(), 1, 2);
         bt_register = findViewById(R.id.btn_register);
         bt_signIn = findViewById(R.id.btn_sign_in);
         edt_tk = findViewById(R.id.edt_tk);

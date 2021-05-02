@@ -42,6 +42,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RevenueManagement">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingInUser">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
