@@ -3,7 +3,7 @@
     package="com.example.appbangiay">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:hardwareAccelerated="false"
         android:largeHeap="true"
