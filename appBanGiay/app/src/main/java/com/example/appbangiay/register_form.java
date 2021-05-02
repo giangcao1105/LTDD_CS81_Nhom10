@@ -13,13 +13,14 @@ import android.widget.Toast;
 
 import java.sql.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
 public class register_form extends AppCompatActivity {
 
-    EditText diaChi, email, sdt, matKhau, nhapLaiMatKhau, ngaySinh;
+    EditText diaChi, email, sdt, matKhau, nhapLaiMatKhau, ngaySinh, hoTen;
     Button taoTaiKhoan;
     MyDatabaseHelper dbh;
     @Override
@@ -36,17 +37,26 @@ public class register_form extends AppCompatActivity {
                 String matKhauTxt = matKhau.getText().toString();
                 String nhapLaiMatKhauTxt = nhapLaiMatKhau.getText().toString();
                 String sdtTxt = sdt.getText().toString();
+                String hoTenTxt = hoTen.getText().toString();
+                String ngaySinhTxt = ngaySinh.getText().toString();
 
-                if (diaChiTxt.equals("") || emailTxt.equals("") || matKhauTxt.equals("") ||nhapLaiMatKhauTxt.equals("") || sdtTxt.equals("")) {
+                if (diaChiTxt.equals("") || emailTxt.equals("") || matKhauTxt.equals("") ||nhapLaiMatKhauTxt.equals("") || sdtTxt.equals("") || hoTenTxt.equals("")||ngaySinhTxt.equals("")) {
                     Toast.makeText(register_form.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Date sqlDate = new  Date(System.currentTimeMillis());
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                    java.util.Date date = null;
+                    try {
+                        date = sdf1.parse(ngaySinhTxt);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());
 
                     if(dbh.kiemTraKhachHangTonTai(sdtTxt)==false) {
                         boolean checkThemTaiKhoan = dbh.themTaiKhoan(sdtTxt,matKhauTxt,"user");
-                        boolean checkThemThongTin = dbh.themKhachHang(sdtTxt,"Nguyễn Văn A",sdtTxt, sqlDate,emailTxt,diaChiTxt);
+                        boolean checkThemThongTin = dbh.themKhachHang(sdtTxt,hoTenTxt,sdtTxt, sqlStartDate,emailTxt,diaChiTxt);
 
                         if (checkThemTaiKhoan && checkThemThongTin) {
                             Toast.makeText(register_form.this, "Đăng kí thành công. Sẽ chuyển về giao diện đăng nhập trong 3s.", Toast.LENGTH_SHORT).show();
@@ -87,6 +97,7 @@ public class register_form extends AppCompatActivity {
         nhapLaiMatKhau = findViewById(R.id.txtNhapLaiMatKhau);
         taoTaiKhoan = findViewById(R.id.btTaoTaiKhoan);
         ngaySinh = findViewById(R.id.txtNgaySinh);
+        hoTen = findViewById(R.id.txtHoTen);
     }
 
     private void dangNhap() {
