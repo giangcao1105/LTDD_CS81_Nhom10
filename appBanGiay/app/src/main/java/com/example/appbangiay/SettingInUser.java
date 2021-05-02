@@ -1,15 +1,21 @@
 package com.example.appbangiay;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class SettingInUser extends AppCompatActivity {
     EditText edtHoVaTen, edtNgaySinh, edtDiaChi, edtSDT, edtEmail;
@@ -38,20 +44,37 @@ public class SettingInUser extends AppCompatActivity {
         edtSDT.setText(txtSDT0);
         edtEmail.setText(txtEmail0);
 
+        edtNgaySinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chonNgay();
+            }
+        });
+
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String txtHoTen = edtHoVaTen.getText().toString();
                 String txtSDT = edtSDT.getText().toString();
-                String txtNgaySinh = edtNgaySinh.getText().toString();
                 String txtDiaChi = edtDiaChi.getText().toString();
                 String txtEmail = edtEmail.getText().toString();
+                String txtNgaySinh = edtNgaySinh.getText().toString();
+                SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+                Date date = null;
+                boolean flag = true;
 
-                if(txtHoTen.isEmpty() || txtDiaChi.isEmpty() || txtEmail.isEmpty() || txtNgaySinh.isEmpty() || txtSDT.isEmpty())
+                try {
+                    date = sdf1.parse(txtNgaySinh);
+                } catch (ParseException e) {
+                    flag = false;
+                }
+
+                if(txtHoTen.isEmpty() || txtDiaChi.isEmpty() || txtEmail.isEmpty() || txtNgaySinh.isEmpty() || txtSDT.isEmpty() || flag == false)
                 {
                     Toast.makeText(SettingInUser.this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }else{
                     boolean result = true;
+                    java.sql.Date dateNgaySinh = new java.sql.Date(date.getTime());
                     if(txtSDT0 == txtSDT)
                     {
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(SettingInUser.this);
@@ -63,7 +86,7 @@ public class SettingInUser extends AppCompatActivity {
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         boolean result1 = true;
-//                                        result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, txtNgaySinh, txtEmail, txtDiaChi);
+                                        result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
                                         if(result1){
                                             Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
                                         }else{
@@ -83,7 +106,7 @@ public class SettingInUser extends AppCompatActivity {
                         AlertDialog alert11 = builder1.create();
                         alert11.show();
                     }else{
-//                        result = db.suaKhachHang(maKH, txtHoTen, txtSDT, txtNgaySinh, txtEmail, txtDiaChi);
+                        result = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
                         if(result){
                             Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
                         }else{
@@ -104,5 +127,22 @@ public class SettingInUser extends AppCompatActivity {
         edtSDT = findViewById(R.id.edt_SDT);
         edtEmail = findViewById(R.id.edt_Email);
         btnSua = findViewById(R.id.btn_Sua);
+    }
+
+    private void chonNgay() {
+        final Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(year, month, dayOfMonth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                edtNgaySinh.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        }, nam, thang, ngay);
+        datePickerDialog.show();
     }
 }
