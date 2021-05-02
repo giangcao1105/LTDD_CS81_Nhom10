@@ -287,40 +287,62 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         boolean flag = true;
         Cursor cursor0 = DB.rawQuery("Select * from tb_khachhang where SDT = ?", new String[]{sdt});
-        if(cursor0 != null && cursor0.moveToFirst()) {
-            if (maKH != cursor0.getString(cursor0.getColumnIndex("MaKH"))) {
-                cursor0.close();
-                return false;
-            }
-        }else{
-            // thay sdt thì thay luôn tài khoản thành sdt tương ứng
+        if (cursor0.moveToFirst() &&cursor0 != null) {
             ContentValues contentValues0 = new ContentValues();
-            contentValues0.put("TK", "sdt");
-            long result = DB.update("tb_taikhoan", contentValues0, "TK=?", new String[]{sdt});
-            if(result == -1){
-                flag = false;
-            }
+//        contentValues0.put("TK", sdt);
+            contentValues0.put("MaKH", sdt);
+            contentValues0.put("HoTen", hoTen);
+            contentValues0.put("SDT", sdt);
+            contentValues0.put("NgaySinh", String.valueOf(ngaySinh));
+            contentValues0.put("Email", email);
+            contentValues0.put("DiaChi", diaChi);
+            long result = DB.update("tb_khachhang", contentValues0, "MaKH=?", new String[]{maKH});
+
+            ContentValues contentValues1 = new ContentValues();
+            contentValues1.put("TK", sdt);
+            long result1 = DB.update("tb_taikhoan", contentValues1, "TK=?", new String[]{maKH});
+
+            if(result != -1 && result1 != -1)
+            return result != -1;
+
+
         }
-        if(flag){
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("HoTen", hoTen);
-            contentValues.put("NgaySinh", String.valueOf(ngaySinh));
-            contentValues.put("Email", email);
-            contentValues.put("DiaChi", diaChi);
-            contentValues.put("SDT", sdt);
-            Cursor cursor = DB.rawQuery("Select * from tb_khachhang where MaKH = ?", new String[]{maKH});
-            if(cursor != null && cursor.moveToFirst()) {
-                long result = DB.update("tb_khachhang", contentValues, "MaKH=?", new String[]{maKH});
-                return result != -1;
-            }else{
-                cursor.close();
-                cursor0.close();
-                return false;
-            }
-        }else{
-            cursor0.close();
-            return false;
-        }
+        return false;
+
+//        if(cursor0 != null && cursor0.moveToFirst()) {
+//            if (maKH != cursor0.getString(cursor0.getColumnIndex("MaKH"))) {
+//                cursor0.close();
+//                return false;
+//            }
+//        }else{
+//            // thay sdt thì thay luôn tài khoản thành sdt tương ứng
+//            ContentValues contentValues0 = new ContentValues();
+//            contentValues0.put("TK", "sdt");
+//            long result = DB.update("tb_taikhoan", contentValues0, "TK=?", new String[]{sdt});
+//            if(result == -1){
+//                flag = false;
+//            }
+//        }
+//        if(flag){
+//            ContentValues contentValues = new ContentValues();
+//            contentValues.put("HoTen", hoTen);
+//            contentValues.put("NgaySinh", String.valueOf(ngaySinh));
+//            contentValues.put("Email", email);
+//            contentValues.put("DiaChi", diaChi);
+//            contentValues.put("SDT", sdt);
+//            Cursor cursor = DB.rawQuery("Select * from tb_khachhang where MaKH = ?", new String[]{maKH});
+//            if(cursor != null && cursor.moveToFirst()) {
+//                long result = DB.update("tb_khachhang", contentValues, "MaKH=?", new String[]{maKH});
+//                return result != -1;
+//            }else{
+//                cursor.close();
+//                cursor0.close();
+//                return false;
+//            }
+//        }else{
+//            cursor0.close();
+//            return false;
+//        }
     }
 
     // Xóa

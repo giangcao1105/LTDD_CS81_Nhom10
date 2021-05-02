@@ -43,7 +43,6 @@ public class SettingInUser extends AppCompatActivity {
         edtDiaChi.setText(txtDiaChi0);
         edtSDT.setText(txtSDT0);
         edtEmail.setText(txtEmail0);
-
         edtNgaySinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +53,8 @@ public class SettingInUser extends AppCompatActivity {
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                KhachHang k1 = db.xemCTKhach(maKH);
+                String sdt0 = k1.getSDT();
                 String txtHoTen = edtHoVaTen.getText().toString();
                 String txtSDT = edtSDT.getText().toString();
                 String txtDiaChi = edtDiaChi.getText().toString();
@@ -72,11 +73,11 @@ public class SettingInUser extends AppCompatActivity {
                 if(txtHoTen.isEmpty() || txtDiaChi.isEmpty() || txtEmail.isEmpty() || txtNgaySinh.isEmpty() || txtSDT.isEmpty() || flag == false)
                 {
                     Toast.makeText(SettingInUser.this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
-                }else{
+                }else {
                     boolean result = true;
                     java.sql.Date dateNgaySinh = new java.sql.Date(date.getTime());
-                    if(txtSDT0 == txtSDT)
-                    {
+                    //nếu sdt thay đổi
+                    if (!(sdt0.equals(txtSDT))) {
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(SettingInUser.this);
                         builder1.setMessage("Thay đổi số điện thoại sẽ thay đổi cả tài khoản đăng nhập của bạn. Tiếp tụ chứ?");
                         builder1.setCancelable(true);
@@ -85,12 +86,18 @@ public class SettingInUser extends AppCompatActivity {
                                 "Yes",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        boolean result1 = true;
-                                        result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
-                                        if(result1){
-                                            Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
-                                        }else{
+                                        if (db.kiemTraKhachHangTonTai(txtSDT))
                                             Toast.makeText(SettingInUser.this, "Cập nhật thất bại, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                                        else {
+                                            boolean result1 = true;
+                                            result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
+                                            if (result1) {
+                                                Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                                                maKH = edtSDT.getText().toString();
+
+                                            } else {
+                                                Toast.makeText(SettingInUser.this, "Cập nhật thất bại, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
                                     }
                                 });
@@ -105,16 +112,18 @@ public class SettingInUser extends AppCompatActivity {
 
                         AlertDialog alert11 = builder1.create();
                         alert11.show();
-                    }else{
+                    } else {
                         result = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
-                        if(result){
+                        if (result) {
                             Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
-                        }else{
+                            maKH = edtSDT.getText().toString();
+                        } else {
                             Toast.makeText(SettingInUser.this, "Cập nhật thất bại, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             }
+
         });
     }
 
