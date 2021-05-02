@@ -70,6 +70,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PurchaseHistory">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Cart">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GioHang">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
