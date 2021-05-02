@@ -146,15 +146,16 @@
         android:gravity="center"
         android:textSize="35sp"/>
 
-    <Button
-        android:id="@+id/btn_Thoat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_edt"
-        android:text="Thoát"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        app:backgroundTint="@color/black" />
+        <Button
+            android:id="@+id/btn_Sua"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_edt"
+            android:text="Sửa"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            app:backgroundTint="@color/black" />
+
 </LinearLayout>
