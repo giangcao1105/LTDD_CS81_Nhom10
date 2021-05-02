@@ -156,10 +156,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("Hinh", hinh);
 
         Cursor cursor = DB.rawQuery("Select * from tb_giay where MaGiay = ?", new String[]{maGiay + ""});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_giay", contentValues, "MaGiay=?", new String[]{maGiay + ""});
+            cursor.close();
             return result != -1;
         }else{
+            cursor.close();
             return false;
         }
     }
@@ -185,7 +187,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_giay where MaGiay='"+ maGiay +"'";
         Cursor cursor = db.rawQuery(sql, null);
 
-        if(cursor.getCount() > 0){
+        if(cursor != null && cursor.moveToFirst()){
             giay.setSize(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
             giay.setTenGiay(cursor.getString(cursor.getColumnIndex("TenGiay")));
             giay.setSize(Integer.parseInt(cursor.getString(cursor.getColumnIndex("Size"))));
@@ -197,6 +199,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             giay.setXuatXu(cursor.getString(cursor.getColumnIndex("XuatXu")));
             giay.setHinh(cursor.getString(cursor.getColumnIndex("Hinh")));
         }
+        cursor.close();
         return giay;
     }
     // Hiển thị danh sách
@@ -226,10 +229,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("MK", mk);
 
         Cursor cursor = DB.rawQuery("Select * from tb_taikhoan where TK = ?", new String[]{tk});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_taikhoan", contentValues, "TK=?", new String[]{tk});
+            cursor.close();
             return result != -1;
         }else{
+            cursor.close();
             return false;
         }
    }
@@ -253,10 +258,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from tb_taikhoan where TK = ? and MK = ?", new String[]{tk, mk});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             result = true;
         }
-
+        cursor.close();
         return result;
     }
 
@@ -282,8 +287,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         boolean flag = true;
         Cursor cursor0 = DB.rawQuery("Select * from tb_khachhang where SDT = ?", new String[]{sdt});
-        if(cursor0.getCount() > 0) {
+        if(cursor0 != null && cursor0.moveToFirst()) {
             if (maKH != cursor0.getString(cursor0.getColumnIndex("MaKH"))) {
+                cursor0.close();
                 return false;
             }
         }else{
@@ -303,13 +309,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             contentValues.put("DiaChi", diaChi);
             contentValues.put("SDT", sdt);
             Cursor cursor = DB.rawQuery("Select * from tb_khachhang where MaKH = ?", new String[]{maKH});
-            if(cursor.getCount() > 0) {
+            if(cursor != null && cursor.moveToFirst()) {
                 long result = DB.update("tb_khachhang", contentValues, "MaKH=?", new String[]{maKH});
                 return result != -1;
             }else{
+                cursor.close();
+                cursor0.close();
                 return false;
             }
         }else{
+            cursor0.close();
             return false;
         }
     }
@@ -328,6 +337,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             result = false;
         } finally {
             db.close();
+            cursor0.close();
             return result;
         }
     }
@@ -347,6 +357,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             k.setSDT(cursor.getString(cursor.getColumnIndex("SDT")));
             k.setNgaySinh(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgaySinh"))));
         }
+        cursor.close();
         return k;
     }
 
@@ -361,8 +372,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db= getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM tb_khachhang WHERE SDT = ?", new String[]{taiKhoan});
-        if (cursor.getCount() > 0)
+        if (cursor != null && cursor.moveToFirst())
+        {
+            cursor.close();
             return true;
+        }
+        cursor.close();
         return false;
     }
     //------------------------------ĐơnHàng----------------------------------------------------------
@@ -373,7 +388,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_donhang where MaDH="+ maDH;
         Cursor cursor = db.rawQuery(sql, null);
 
-        if(cursor.getCount() > 0){
+        if(cursor != null && cursor.moveToFirst()){
             don.setMaDH(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaDH"))));
             don.setKH(cursor.getString(cursor.getColumnIndex("KH")));
             don.setMaKM(cursor.getString(cursor.getColumnIndex("MaKM")));
@@ -383,6 +398,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             don.setNgayDatHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayDatHang"))));
             don.setNgayGiaoHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayGiaoHang"))));
         }
+        cursor.close();
         return don;
     }
     //thêm đơn hàng
@@ -415,8 +431,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db= getWritableDatabase();
         String sql = "Select * from tb_donhang WHERE MaDH = "+MaDH;
         Cursor cursor = db.rawQuery(sql,null);
-        if(cursor.getCount() > 0)
+        if(cursor != null && cursor.moveToFirst())
+        {
+            cursor.close();
             return true;
+        }
+        cursor.close();
         return false;
     }
     //------------------------------Khuyến Mãi--------------------------------------------------------
@@ -438,10 +458,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("TenKM", tenKM);
 
         Cursor cursor = DB.rawQuery("Select * from tb_khuyenmai where MaKM = ?", new String[]{maKM});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_khuyenmai", contentValues, "MaKM=?", new String[]{maKM});
+            cursor.close();
             return result != -1;
         }else{
+            cursor.close();
             return false;
         }
     }
@@ -522,10 +544,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("NgayPhanHoi", ngayPhanHoi.toString());
 
         Cursor cursor = DB.rawQuery("Select * from tb_loi where MaLoi", new String[]{maLoi + ""});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_loi", contentValues, "MaLoi = ?", new String[]{maLoi + ""});
+            cursor.close();
             return result != -1;
         }else{
+            cursor.close();
             return false;
         }
     }
@@ -535,7 +559,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         boolean result = true;
         Cursor cursor = DB.rawQuery("Select * from tb_giohang where MaKH = ? and MaSP = ?", new String[]{maKH, maSP + ""});
-        if(cursor.getCount() > 0){
+        if(cursor != null && cursor.moveToFirst()){
             int sl = Integer.parseInt(cursor.getString(cursor.getColumnIndex("SoLuong")));
             result = suaGioHang(maKH, maSP, soLuong + sl);
         }else {
@@ -546,6 +570,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             long result2 = DB.insert("tb_giohang", null, contentValues);
             result = result2 != -1;
         }
+        cursor.close();
         return result;
     }
 
@@ -556,10 +581,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("SoLuong", soLuong);
 
         Cursor cursor = DB.rawQuery("Select * from tb_giohang where MaKH = ? and MaSP = ?", new String[]{maKH, maSP + ""});
-        if(cursor.getCount() > 0) {
+        if(cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_giohang", contentValues, "MaKH = ? and MaSP = ?", new String[]{maKH, maSP + ""});
+            cursor.close();
             return result != -1;
         }else{
+            cursor.close();
             return false;
         }
     }
