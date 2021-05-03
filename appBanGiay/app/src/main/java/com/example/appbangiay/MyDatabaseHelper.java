@@ -242,13 +242,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         String sql = "Select MaGiay, count(*) from tb_donhang group by MaGiay order by count(*) desc limit 5";
         Cursor cursor = db.rawQuery(sql, null);
-        if(cursor != null) {
-            while (cursor.moveToFirst()) {
-                int mg = Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay")));
-                Giay giay = xemCTGiay(mg);
-                ds.add(giay);
-                id += giay.getMaGiay() + ", ";
-            }
+        while (cursor != null && cursor.moveToNext()) {
+            int mg = Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay")));
+            Giay giay = xemCTGiay(mg);
+            ds.add(giay);
+            id += giay.getMaGiay() + ", ";
         }
         cursor.close();
         int size;
@@ -268,12 +266,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             }
 
             Cursor cursor1 = db.rawQuery(sql1, null);
-            if(cursor != null) {
-                while (cursor1.moveToFirst()) {
-                    int mg1 = Integer.parseInt(cursor1.getString(cursor1.getColumnIndex("MaGiay")));
-                    Giay giay1 = xemCTGiay(mg1);
-                    ds.add(giay1);
-                }
+            while (cursor != null && cursor1.moveToNext()) {
+                int mg1 = Integer.parseInt(cursor1.getString(cursor1.getColumnIndex("MaGiay")));
+                Giay giay1 = xemCTGiay(mg1);
+                ds.add(giay1);
             }
             cursor1.close();
         }
@@ -288,7 +284,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         String sql = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
         Cursor cursor = db.rawQuery(sql, null);
-        while (cursor != null && cursor.moveToFirst()){
+        while (cursor != null && cursor.moveToNext()){
             Giay giay = xemCTGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
             ds.add(giay);
         }
