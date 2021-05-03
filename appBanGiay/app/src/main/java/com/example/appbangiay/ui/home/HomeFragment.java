@@ -1,6 +1,9 @@
 package com.example.appbangiay.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -34,20 +38,46 @@ public class HomeFragment extends Fragment {
 
         AnhXa(view);
         List<Giay> ds = db.lay5GiayBanChay();
-
+        List<Giay> ds1 = db.lay5GiayMoi();
+        List<Giay> ds2 = db.lay5GiayBanChay();
         if(!ds.isEmpty()) {
             tv_BS_1.setText(ds.get(0).getTenGiay());
             tv_BS_2.setText(ds.get(1).getTenGiay());
             tv_BS_3.setText(ds.get(2).getTenGiay());
             tv_BS_4.setText(ds.get(3).getTenGiay());
             tv_BS_5.setText(ds.get(4).getTenGiay());
-//
-////            String s = "R.drawable.adidas_advantage";
-////            ib_BS_1.setImageResource(Integer.parseInt(s));
-////            ib_BS_2 = (ImageButton) view.findViewById(R.id.ib_Best_Sale_2);
-////            ib_BS_3 = (ImageButton) view.findViewById(R.id.ib_Best_Sale_3);
-////            ib_BS_4 = (ImageButton) view.findViewById(R.id.ib_Best_Sale_4);
-//////            ib_BS_5 = (ImageButton) view.findViewById(R.id.ib_Best_Sale_5);
+
+//            ib_BS_1.setImageResource(Integer.valueOf(ds.get(0).getHinh()));
+//            ib_BS_2.setImageResource(Integer.valueOf(ds.get(1).getHinh()));
+//            ib_BS_3.setImageResource(Integer.valueOf(ds.get(2).getHinh()));
+//            ib_BS_4.setImageResource(Integer.valueOf(ds.get(3).getHinh()));
+//            ib_BS_5.setImageResource(Integer.valueOf(ds.get(4).getHinh()));
+        }
+        if(!ds1.isEmpty()) {
+            tv_BS2_1.setText(ds1.get(0).getTenGiay());
+            tv_BS2_2.setText(ds1.get(1).getTenGiay());
+            tv_BS2_3.setText(ds1.get(2).getTenGiay());
+            tv_BS2_4.setText(ds1.get(3).getTenGiay());
+            tv_BS2_5.setText(ds1.get(4).getTenGiay());
+
+//            ib_BS2_1.setImageResource(Integer.valueOf(ds1.get(0).getHinh()));
+//            ib_BS2_2.setImageResource(Integer.valueOf(ds1.get(1).getHinh()));
+//            ib_BS2_3.setImageResource(Integer.valueOf(ds1.get(2).getHinh()));
+//            ib_BS2_4.setImageResource(Integer.valueOf(ds1.get(3).getHinh()));
+//            ib_BS2_5.setImageResource(Integer.valueOf(ds1.get(4).getHinh()));
+        }
+        if(!ds2.isEmpty()) {
+            tv_BS3_1.setText(ds2.get(0).getTenGiay());
+            tv_BS3_2.setText(ds2.get(1).getTenGiay());
+            tv_BS3_3.setText(ds2.get(2).getTenGiay());
+            tv_BS3_4.setText(ds2.get(3).getTenGiay());
+            tv_BS3_5.setText(ds2.get(4).getTenGiay());
+
+//            ib_BS3_1.setImageResource(Integer.valueOf(ds2.get(0).getHinh()));
+//            ib_BS3_2.setImageResource(Integer.valueOf(ds2.get(1).getHinh()));
+//            ib_BS3_3.setImageResource(Integer.valueOf(ds2.get(2).getHinh()));
+//            ib_BS3_4.setImageResource(Integer.valueOf(ds2.get(3).getHinh()));
+//            ib_BS3_5.setImageResource(Integer.valueOf(ds2.get(4).getHinh()));
         }
         return view;
     }
