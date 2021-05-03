@@ -83,6 +83,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/tv_Best_Sale_1"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
@@ -91,6 +92,7 @@
                                             android:text="Adidas Advantage"/>
 
                                         <ImageButton
+                                            android:id="@+id/ib_Best_Sale_1"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:scaleType="centerCrop"
@@ -117,6 +119,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/tv_Best_Sale_2"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
@@ -125,6 +128,7 @@
                                             android:text="Adidas Advantage"/>
 
                                         <ImageButton
+                                            android:id="@+id/ib_Best_Sale_2"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:scaleType="centerCrop"
@@ -151,6 +155,7 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/tv_Best_Sale_3"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
@@ -159,6 +164,7 @@
                                             android:text="Adidas Advantage"/>
 
                                         <ImageButton
+                                            android:id="@+id/ib_Best_Sale_3"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:scaleType="centerCrop"
@@ -169,6 +175,76 @@
 
                                 </androidx.cardview.widget.CardView>
 
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="150dp"
+                                    android:layout_height="180dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:cardElevation="0dp"
+                                    android:elevation="0dp"
+                                    app:cardCornerRadius="9dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tv_Best_Sale_4"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="18sp"
+                                            android:layout_marginBottom="5dp"
+                                            android:textAlignment="center"
+                                            android:text="Adidas Advantage"/>
+
+                                        <ImageButton
+                                            android:id="@+id/ib_Best_Sale_4"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/adidas_core_black"/>
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="150dp"
+                                    android:layout_height="180dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    app:cardElevation="0dp"
+                                    android:elevation="0dp"
+                                    app:cardCornerRadius="9dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/tv_Best_Sale_5"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textSize="18sp"
+                                            android:layout_marginBottom="5dp"
+                                            android:textAlignment="center"
+                                            android:text="Adidas Advantage"/>
+
+                                        <ImageButton
+                                            android:id="@+id/ib_Best_Sale_5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/adidas_core_black"/>
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
                             </LinearLayout>
 
                         </HorizontalScrollView>
@@ -183,7 +259,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Best Sale"
+                        android:text="New Products"
                         android:textSize="30sp" />
 
                     <HorizontalScrollView
@@ -211,6 +287,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale2_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -219,6 +296,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale2_1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -245,6 +323,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale2_2"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -253,6 +332,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale2_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -279,6 +359,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale2_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -287,6 +368,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale2_3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -296,7 +378,76 @@
                                 </LinearLayout>
 
                             </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="150dp"
+                                android:layout_height="180dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="0dp"
+                                android:elevation="0dp"
+                                app:cardCornerRadius="9dp">
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tv_Best_Sale2_4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18sp"
+                                        android:layout_marginBottom="5dp"
+                                        android:textAlignment="center"
+                                        android:text="Adidas Advantage"/>
+
+                                    <ImageButton
+                                        android:id="@+id/ib_Best_Sale2_4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/adidas_originals_flex"/>
+
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="150dp"
+                                android:layout_height="180dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="0dp"
+                                android:elevation="0dp"
+                                app:cardCornerRadius="9dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tv_Best_Sale2_5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18sp"
+                                        android:layout_marginBottom="5dp"
+                                        android:textAlignment="center"
+                                        android:text="Adidas Advantage"/>
+
+                                    <ImageButton
+                                        android:id="@+id/ib_Best_Sale2_5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/adidas_originals_flex"/>
+
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                     </HorizontalScrollView>
@@ -339,6 +490,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale3_1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -347,6 +499,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale3_1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -373,6 +526,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale3_2"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -381,6 +535,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale3_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -407,6 +562,7 @@
                                     android:orientation="vertical">
 
                                     <TextView
+                                        android:id="@+id/tv_Best_Sale3_3"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
@@ -415,6 +571,7 @@
                                         android:text="Adidas Advantage"/>
 
                                     <ImageButton
+                                        android:id="@+id/ib_Best_Sale3_3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:scaleType="centerCrop"
@@ -424,7 +581,76 @@
                                 </LinearLayout>
 
                             </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="150dp"
+                                android:layout_height="180dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="0dp"
+                                android:elevation="0dp"
+                                app:cardCornerRadius="9dp">
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tv_Best_Sale3_4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18sp"
+                                        android:layout_marginBottom="5dp"
+                                        android:textAlignment="center"
+                                        android:text="Adidas Advantage"/>
+
+                                    <ImageButton
+                                        android:id="@+id/ib_Best_Sale3_4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/adidas_runfalcon_legend_ink"/>
+
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="150dp"
+                                android:layout_height="180dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardElevation="0dp"
+                                android:elevation="0dp"
+                                app:cardCornerRadius="9dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/tv_Best_Sale3_5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18sp"
+                                        android:layout_marginBottom="5dp"
+                                        android:textAlignment="center"
+                                        android:text="Adidas Advantage"/>
+
+                                    <ImageButton
+                                        android:id="@+id/ib_Best_Sale3_5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/adidas_runfalcon_legend_ink"/>
+
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                     </HorizontalScrollView>
