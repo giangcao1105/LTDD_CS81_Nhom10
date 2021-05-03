@@ -88,8 +88,7 @@
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
                                             android:layout_marginBottom="5dp"
-                                            android:textAlignment="center"
-                                            android:text="Adidas Advantage"/>
+                                            android:textAlignment="center"/>
 
                                         <ImageButton
                                             android:id="@+id/ib_Best_Sale_1"
@@ -124,8 +123,7 @@
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
                                             android:layout_marginBottom="5dp"
-                                            android:textAlignment="center"
-                                            android:text="Adidas Advantage"/>
+                                            android:textAlignment="center"/>
 
                                         <ImageButton
                                             android:id="@+id/ib_Best_Sale_2"
@@ -160,8 +158,7 @@
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
                                             android:layout_marginBottom="5dp"
-                                            android:textAlignment="center"
-                                            android:text="Adidas Advantage"/>
+                                            android:textAlignment="center"/>
 
                                         <ImageButton
                                             android:id="@+id/ib_Best_Sale_3"
@@ -196,8 +193,7 @@
                                             android:layout_height="wrap_content"
                                             android:textSize="18sp"
                                             android:layout_marginBottom="5dp"
-                                            android:textAlignment="center"
-                                            android:text="Adidas Advantage"/>
+                                            android:textAlignment="center"/>
 
                                         <ImageButton
                                             android:id="@+id/ib_Best_Sale_4"
@@ -328,15 +324,13 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale2_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/adidas_galaxy_5"/>
+                                        android:scaleType="centerCrop"/>
 
 
                                 </LinearLayout>
@@ -364,8 +358,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale2_3"
@@ -399,8 +392,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale2_4"
@@ -434,8 +426,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale2_5"
@@ -495,8 +486,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale3_1"
@@ -531,8 +521,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale3_2"
@@ -567,8 +556,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale3_3"
@@ -602,8 +590,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale3_4"
@@ -637,8 +624,7 @@
                                         android:layout_height="wrap_content"
                                         android:textSize="18sp"
                                         android:layout_marginBottom="5dp"
-                                        android:textAlignment="center"
-                                        android:text="Adidas Advantage"/>
+                                        android:textAlignment="center"/>
 
                                     <ImageButton
                                         android:id="@+id/ib_Best_Sale3_5"

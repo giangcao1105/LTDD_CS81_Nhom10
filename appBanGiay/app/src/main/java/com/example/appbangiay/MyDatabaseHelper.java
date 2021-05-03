@@ -10,6 +10,8 @@ import android.view.ViewDebug;
 import androidx.annotation.Nullable;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
@@ -181,14 +183,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Xem chi tiết
-    public Giay xemCTGiay(String maGiay){
+    public Giay xemCTGiay(int maGiay){
         SQLiteDatabase db= getWritableDatabase();
         Giay giay = new Giay();
-        String sql = "Select * from tb_giay where MaGiay='"+ maGiay +"'";
+        String sql = "Select * from tb_giay where MaGiay="+ maGiay;
         Cursor cursor = db.rawQuery(sql, null);
 
         if(cursor != null && cursor.moveToFirst()){
-            giay.setSize(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
+            giay.setMaGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
             giay.setTenGiay(cursor.getString(cursor.getColumnIndex("TenGiay")));
             giay.setSize(Integer.parseInt(cursor.getString(cursor.getColumnIndex("Size"))));
             giay.setMauSac(cursor.getString(cursor.getColumnIndex("MauSac")));
@@ -212,25 +214,88 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     //Khởi tạo 18 giày
     public void khoiTaoGiay(){
         boolean result;
-        result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_advantage");
-        result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "@drawable/adidas_andridge");
-        result = themGiay("Adidas core black", 39, "đen", 3, 1800000, "Adidas", "Adidas", "China", "@drawable/adidas_core_black");
-        result = themGiay("Adidas day jogger", 39, "đen", 3, 1000000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_day_jogger");
-        result = themGiay("Adidas galaxy 5", 39, "đen", 3, 6000000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_galaxy_5");
-        result = themGiay("Adidas niteball", 39, "đen", 3, 3500000, "Adidas", "Adidas", "UK", "@drawable/adidas_niteball");
-        result = themGiay("Adidas originals flex", 39, "đen", 3, 4900000, "Adidas", "Adidas", "China", "@drawable/adidas_originals_flex");
-        result = themGiay("Adidas ozweego", 39, "đen", 3, 5500000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_ozweego");
-        result = themGiay("Adidas pureboost rbl clear brown", 39, "đen", 3, 2500000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_pureboost_rbl_clear_brown");
-        result = themGiay("Adidas runfalco w real magenta", 39, "đen", 3, 2500000, "Adidas", "Adidas", "UK", "@drawable/adidas_runfalco_w_real_magenta");
-        result = themGiay("Adidas runfalco legend ink", 39, "đen", 3, 1900000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_runfalcon_legend_ink");
-        result = themGiay("Adidas sc prermiere", 39, "đen", 3, 1800000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_sc_premiere");
-        result = themGiay("Adidas silverred boost", 39, "đen", 3, 4500000, "Adidas", "Adidas", "UK", "@drawable/adidas_silverred_boost");
-        result = themGiay("Adidas stansmith green", 39, "đen", 3, 3500000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_stansmith_green");
-        result = themGiay("Adidas superstar", 39, "đen", 3, 1700000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_superstar");
-        result = themGiay("Adidas superstar bold", 39, "đen", 3, 2500000, "Adidas", "Adidas", "UK", "@drawable/adidas_superstar_bold");
-        result = themGiay("Adidas ultraboost 20 city pack", 39, "đen", 3, 3000000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_ultraboost_20_city_pack");
-        result = themGiay("Adidas ultraboost 4 dna 5th anniversary", 39, "đen", 3, 5100000, "Adidas", "Adidas", "VietNam", "@drawable/adidas_ultraboost_4_dna_5th_anniversary");
+        result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "R.id.adidas_advantage");
+        result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "R.id.adidas_andridge");
+        result = themGiay("Adidas core black", 39, "đen", 3, 1800000, "Adidas", "Adidas", "China", "R.id.adidas_core_black");
+        result = themGiay("Adidas day jogger", 39, "đen", 3, 1000000, "Adidas", "Adidas", "VietNam", "R.id.adidas_day_jogger");
+        result = themGiay("Adidas galaxy 5", 39, "đen", 3, 6000000, "Adidas", "Adidas", "VietNam", "R.id.adidas_galaxy_5");
+        result = themGiay("Adidas niteball", 39, "đen", 3, 3500000, "Adidas", "Adidas", "UK", "R.id.adidas_niteball");
+        result = themGiay("Adidas originals flex", 39, "đen", 3, 4900000, "Adidas", "Adidas", "China", "R.id.adidas_originals_flex");
+        result = themGiay("Adidas ozweego", 39, "đen", 3, 5500000, "Adidas", "Adidas", "VietNam", "R.id.adidas_ozweego");
+        result = themGiay("Adidas pureboost rbl clear brown", 39, "đen", 3, 2500000, "Adidas", "Adidas", "VietNam", "R.id.adidas_pureboost_rbl_clear_brown");
+        result = themGiay("Adidas runfalco w real magenta", 39, "đen", 3, 2500000, "Adidas", "Adidas", "UK", "R.id.adidas_runfalco_w_real_magenta");
+        result = themGiay("Adidas runfalco legend ink", 39, "đen", 3, 1900000, "Adidas", "Adidas", "VietNam", "R.id.adidas_runfalcon_legend_ink");
+        result = themGiay("Adidas sc prermiere", 39, "đen", 3, 1800000, "Adidas", "Adidas", "VietNam", "R.id.adidas_sc_premiere");
+        result = themGiay("Adidas silverred boost", 39, "đen", 3, 4500000, "Adidas", "Adidas", "UK", "R.id.adidas_silverred_boost");
+        result = themGiay("Adidas stansmith green", 39, "đen", 3, 3500000, "Adidas", "Adidas", "VietNam", "R.id.adidas_stansmith_green");
+        result = themGiay("Adidas superstar", 39, "đen", 3, 1700000, "Adidas", "Adidas", "VietNam", "R.id.adidas_superstar");
+        result = themGiay("Adidas superstar bold", 39, "đen", 3, 2500000, "Adidas", "Adidas", "UK", "R.id.adidas_superstar_bold");
+        result = themGiay("Adidas ultraboost 20 city pack", 39, "đen", 3, 3000000, "Adidas", "Adidas", "VietNam", "R.id.adidas_ultraboost_20_city_pack");
+        result = themGiay("Adidas ultraboost 4 dna 5th anniversary", 39, "đen", 3, 5100000, "Adidas", "Adidas", "VietNam", "R.id.adidas_ultraboost_4_dna_5th_anniversary");
         }
+
+    // Lấy 5 giày bán chạy
+    public List<Giay> lay5GiayBanChay(){
+        List<Giay> ds = new ArrayList<Giay>();
+        String id = "";
+        SQLiteDatabase db= getWritableDatabase();
+
+        String sql = "Select MaGiay, count(*) from tb_donhang group by MaGiay order by count(*) desc limit 5";
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor != null) {
+            while (cursor.moveToFirst()) {
+                int mg = Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay")));
+                Giay giay = xemCTGiay(mg);
+                ds.add(giay);
+                id += giay.getMaGiay() + ", ";
+            }
+        }
+        cursor.close();
+        int size;
+        if(ds.isEmpty())
+            size = 0;
+        else
+            size = ds.size();
+        if(size < 5)
+        {
+            String sql1;
+            if(size == 0){
+                sql1 = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
+            }else {
+                id += "asd";
+                id.replace(", asd", "");
+                sql1 = "Select MaGiay from tb_giay where MaGiay not in (" + id + ") group by MaGiay order by MaGiay desc limit " + (5 - size);
+            }
+
+            Cursor cursor1 = db.rawQuery(sql1, null);
+            if(cursor != null) {
+                while (cursor1.moveToFirst()) {
+                    int mg1 = Integer.parseInt(cursor1.getString(cursor1.getColumnIndex("MaGiay")));
+                    Giay giay1 = xemCTGiay(mg1);
+                    ds.add(giay1);
+                }
+            }
+            cursor1.close();
+        }
+
+        return  ds;
+    }
+
+    // Lấy 5 giày mới ra mắt
+    public List<Giay> lay5GiayMoi(){
+        List<Giay> ds = new ArrayList<Giay>();
+        SQLiteDatabase db= getWritableDatabase();
+
+        String sql = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor != null && cursor.moveToFirst()){
+            Giay giay = xemCTGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
+            ds.add(giay);
+        }
+        cursor.close();
+
+        return  ds;
+    }
     //------------------------------Tài khoản----------------------------------------------------------
     // Thêm
    public Boolean themTaiKhoan(String tk, String mk, String loaiTK){
