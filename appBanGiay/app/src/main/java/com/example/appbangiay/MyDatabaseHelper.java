@@ -562,6 +562,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return false;
     }
+    //xóa đơn hàng
+    public Boolean xoaDonHang(int maDH){
+        boolean result = true ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.delete("tb_donhang", "MaKM=?", new String[]{maDH + ""});
+        } catch (Exception ex) {
+            result = false;
+        } finally {
+            db.close();
+            return result;
+        }
+    }
     //------------------------------Khuyến Mãi--------------------------------------------------------
     // thêm
     public Boolean themKhuyenMai(String maKM, String tenKM){
