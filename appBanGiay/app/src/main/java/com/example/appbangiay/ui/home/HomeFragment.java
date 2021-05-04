@@ -26,7 +26,9 @@ import com.bumptech.glide.Glide;
 import com.example.appbangiay.Giay;
 import com.example.appbangiay.MainActivity;
 import com.example.appbangiay.MyDatabaseHelper;
+import com.example.appbangiay.Product;
 import com.example.appbangiay.R;
+import com.example.appbangiay.homepage_form;
 import com.example.appbangiay.register_form;
 
 import java.io.InputStream;
@@ -89,6 +91,94 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
 
         bt_See_More.setOnClickListener(this);
+
+        ib_BS_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds.get(0).getMaGiay());
+            }
+        });
+        ib_BS_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds.get(1).getMaGiay());
+            }
+        });
+        ib_BS_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds.get(2).getMaGiay());
+            }
+        });
+        ib_BS_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds.get(3).getMaGiay());
+            }
+        });
+        ib_BS_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds.get(4).getMaGiay());
+            }
+        });
+
+        ib_BS2_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds1.get(0).getMaGiay());
+            }
+        });
+        ib_BS2_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds1.get(1).getMaGiay());
+            }
+        });
+        ib_BS2_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds1.get(2).getMaGiay());
+            }
+        });
+        ib_BS2_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds1.get(3).getMaGiay());
+            }
+        });
+        ib_BS2_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds1.get(4).getMaGiay());
+            }
+        });
+
+        ib_BS3_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds2.get(0).getMaGiay());
+            }
+        });
+        ib_BS3_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds2.get(1).getMaGiay());
+            }
+        });
+        ib_BS3_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds2.get(2).getMaGiay());
+            }
+        });
+        ib_BS3_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProduct(ds2.get(3).getMaGiay());
+            }
+        });
+
         return view;
     }
 
@@ -142,6 +232,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(context0, register_form.class);
+        startActivity(intent);
+    }
+
+    private void openProduct(int maG) {
+        Intent intent = new Intent(context0, Product.class);
+        intent.putExtra("MaGiay", maG);
         startActivity(intent);
     }
 }
