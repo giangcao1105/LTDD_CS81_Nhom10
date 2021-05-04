@@ -19,10 +19,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.appbangiay.Giay;
 import com.example.appbangiay.MyDatabaseHelper;
 import com.example.appbangiay.R;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,11 +50,11 @@ public class HomeFragment extends Fragment {
             tv_BS_4.setText(ds.get(3).getTenGiay());
             tv_BS_5.setText(ds.get(4).getTenGiay());
 
-//            ib_BS_1.setImageResource(Integer.valueOf(ds.get(0).getHinh()));
-//            ib_BS_2.setImageResource(Integer.valueOf(ds.get(1).getHinh()));
-//            ib_BS_3.setImageResource(Integer.valueOf(ds.get(2).getHinh()));
-//            ib_BS_4.setImageResource(Integer.valueOf(ds.get(3).getHinh()));
-//            ib_BS_5.setImageResource(Integer.valueOf(ds.get(4).getHinh()));
+            Glide.with(this).load(ds.get(0).getHinh()).into(ib_BS_1);
+            Glide.with(this).load(ds.get(1).getHinh()).into(ib_BS_2);
+            Glide.with(this).load(ds.get(2).getHinh()).into(ib_BS_3);
+            Glide.with(this).load(ds.get(3).getHinh()).into(ib_BS_4);
+            Glide.with(this).load(ds.get(4).getHinh()).into(ib_BS_5);
         }
         if(!ds1.isEmpty()) {
             tv_BS2_1.setText(ds1.get(0).getTenGiay());
@@ -60,11 +63,11 @@ public class HomeFragment extends Fragment {
             tv_BS2_4.setText(ds1.get(3).getTenGiay());
             tv_BS2_5.setText(ds1.get(4).getTenGiay());
 
-//            ib_BS2_1.setImageResource(Integer.valueOf(ds1.get(0).getHinh()));
-//            ib_BS2_2.setImageResource(Integer.valueOf(ds1.get(1).getHinh()));
-//            ib_BS2_3.setImageResource(Integer.valueOf(ds1.get(2).getHinh()));
-//            ib_BS2_4.setImageResource(Integer.valueOf(ds1.get(3).getHinh()));
-//            ib_BS2_5.setImageResource(Integer.valueOf(ds1.get(4).getHinh()));
+            Glide.with(this).load(ds1.get(0).getHinh()).into(ib_BS2_1);
+            Glide.with(this).load(ds1.get(1).getHinh()).into(ib_BS2_2);
+            Glide.with(this).load(ds1.get(2).getHinh()).into(ib_BS2_3);
+            Glide.with(this).load(ds1.get(3).getHinh()).into(ib_BS2_4);
+            Glide.with(this).load(ds1.get(4).getHinh()).into(ib_BS2_5);
         }
         if(!ds2.isEmpty()) {
             tv_BS3_1.setText(ds2.get(0).getTenGiay());
@@ -73,11 +76,11 @@ public class HomeFragment extends Fragment {
             tv_BS3_4.setText(ds2.get(3).getTenGiay());
             tv_BS3_5.setText(ds2.get(4).getTenGiay());
 
-//            ib_BS3_1.setImageResource(Integer.valueOf(ds2.get(0).getHinh()));
-//            ib_BS3_2.setImageResource(Integer.valueOf(ds2.get(1).getHinh()));
-//            ib_BS3_3.setImageResource(Integer.valueOf(ds2.get(2).getHinh()));
-//            ib_BS3_4.setImageResource(Integer.valueOf(ds2.get(3).getHinh()));
-//            ib_BS3_5.setImageResource(Integer.valueOf(ds2.get(4).getHinh()));
+            Glide.with(this).load(ds2.get(0).getHinh()).into(ib_BS3_1);
+            Glide.with(this).load(ds2.get(1).getHinh()).into(ib_BS3_2);
+            Glide.with(this).load(ds2.get(2).getHinh()).into(ib_BS3_3);
+            Glide.with(this).load(ds2.get(3).getHinh()).into(ib_BS3_4);
+            Glide.with(this).load(ds2.get(4).getHinh()).into(ib_BS3_5);
         }
         return view;
     }
