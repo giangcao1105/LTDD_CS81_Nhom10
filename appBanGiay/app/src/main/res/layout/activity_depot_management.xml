@@ -52,190 +52,567 @@
 
            </LinearLayout>
 
-           <TableLayout
+           <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginVertical="40dp"
-               android:layout_marginHorizontal="30dp">
+               android:layout_height="wrap_content">
 
-               <TableRow android:padding="5dp" android:background="#f1f1f1">
 
-                   <TextView
+               <HorizontalScrollView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+                   <LinearLayout
                        android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                       android:layout_height="match_parent"
+                       android:orientation="vertical">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:text="Tên sản phẩm"/>
+                       <TableLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginVertical="40dp"
+                           android:layout_marginHorizontal="30dp">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"
-                       android:text="Ngày"/>
+                           <TableRow android:padding="5dp" android:background="#f1f1f1">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"
-                       android:text="Số lượng"/>
-               </TableRow>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
 
-               <TableRow >
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:text="ID"/>
 
-                   <CheckBox
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"
+                                   android:text="Tên giày"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"
+                                   android:text="Size"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"
+                                   android:text="Màu sắc"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
-               </TableRow>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"
+                                   android:text="Số lượng"
+                                   android:layout_marginLeft="5dp"/>
 
-               <TableRow >
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"
+                                   android:text="Giá"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <CheckBox
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"
+                                   android:text="Nhà cung cấp"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"
+                                   android:text="Thương hiệu"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"
+                                   android:text="Xuất xứ"
+                                   android:layout_marginLeft="5dp"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
-               </TableRow>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"
+                                   android:text="Hình"
+                                   android:layout_marginLeft="5dp"/>
 
-               <TableRow >
+                           </TableRow>
 
-                   <CheckBox
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                           <!-- đọc comment ở ô HÌNH-->
+                           <TableRow >
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"/>
+                               <CheckBox
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
-               </TableRow>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"/>
 
-               <TableRow >
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
 
-                   <CheckBox
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
-               </TableRow>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
 
-               <TableRow >
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
 
-                   <CheckBox
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="0"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_weight="4"
-                       android:textStyle="bold"
-                       android:gravity="center"/>
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
+                               <!-- ImageButton không khả thi -->
+<!--                               <ImageButton-->
+<!--                                   android:layout_width="30dp"-->
+<!--                                   android:layout_height="10dp"-->
+<!--                                   android:layout_weight="3"-->
+<!--                                   android:src="@drawable/adidas_runfalcon_legend_ink"-->
+<!--                                   android:scaleType="fitXY"/>-->
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:gravity="center"
-                       android:layout_weight="1"/>
-               </TableRow>
+                           </TableRow>
 
-           </TableLayout>
+                           <TableRow >
+
+                               <CheckBox
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <!-- ImageButton không khả thi -->
+                               <!--                               <ImageButton-->
+                               <!--                                   android:layout_width="30dp"-->
+                               <!--                                   android:layout_height="10dp"-->
+                               <!--                                   android:layout_weight="3"-->
+                               <!--                                   android:src="@drawable/adidas_runfalcon_legend_ink"-->
+                               <!--                                   android:scaleType="fitXY"/>-->
+
+                           </TableRow>
+
+                           <TableRow >
+
+                               <CheckBox
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <!-- ImageButton không khả thi -->
+                               <!--                               <ImageButton-->
+                               <!--                                   android:layout_width="30dp"-->
+                               <!--                                   android:layout_height="10dp"-->
+                               <!--                                   android:layout_weight="3"-->
+                               <!--                                   android:src="@drawable/adidas_runfalcon_legend_ink"-->
+                               <!--                                   android:scaleType="fitXY"/>-->
+
+                           </TableRow>
+
+                           <TableRow >
+
+                               <CheckBox
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <!-- ImageButton không khả thi -->
+                               <!--                               <ImageButton-->
+                               <!--                                   android:layout_width="30dp"-->
+                               <!--                                   android:layout_height="10dp"-->
+                               <!--                                   android:layout_weight="3"-->
+                               <!--                                   android:src="@drawable/adidas_runfalcon_legend_ink"-->
+                               <!--                                   android:scaleType="fitXY"/>-->
+
+                           </TableRow>
+
+                           <TableRow >
+
+                               <CheckBox
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="0"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:layout_weight="2"
+                                   android:textStyle="bold"
+                                   android:gravity="center"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="4"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="2"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <TextView
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="wrap_content"
+                                   android:textStyle="bold"
+                                   android:gravity="center"
+                                   android:layout_weight="3"/>
+
+                               <!-- ImageButton không khả thi -->
+                               <!--                               <ImageButton-->
+                               <!--                                   android:layout_width="30dp"-->
+                               <!--                                   android:layout_height="10dp"-->
+                               <!--                                   android:layout_weight="3"-->
+                               <!--                                   android:src="@drawable/adidas_runfalcon_legend_ink"-->
+                               <!--                                   android:scaleType="fitXY"/>-->
+
+                           </TableRow>
+
+                       </TableLayout>
+
+                   </LinearLayout>
+
+               </HorizontalScrollView>
+
+           </LinearLayout>
 
            <LinearLayout
                android:layout_width="match_parent"
