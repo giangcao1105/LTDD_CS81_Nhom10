@@ -442,7 +442,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Best Sale"
+                        android:text="All Products"
                         android:textSize="30sp" />
 
                     <HorizontalScrollView
@@ -606,19 +606,22 @@
                                     android:orientation="vertical">
 
                                     <TextView
-                                        android:id="@+id/tv_Best_Sale3_5"
                                         android:layout_width="match_parent"
                                         android:layout_height="30dp"
                                         android:layout_marginBottom="5dp"
                                         android:textAlignment="center"
                                         android:textSize="18sp" />
 
-                                    <ImageButton
-                                        android:id="@+id/ib_Best_Sale3_5"
+                                    <Button
+                                        android:id="@+id/bt_See_More"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:scaleType="centerCrop"/>
-
+                                        android:backgroundTint="#FFFFFF"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="15dp"
+                                        android:textSize="30dp"
+                                        android:textColor="@color/black"
+                                        android:text="See more" />
 
                                 </LinearLayout>
 

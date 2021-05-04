@@ -1,6 +1,7 @@
 package com.example.appbangiay;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -19,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class homepage_form extends AppCompatActivity {
 
+    // tài khoản truyền từ form login
+    String maKH;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,8 @@ public class homepage_form extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-
+        Intent intent = getIntent();
+        maKH = intent.getStringExtra("TaiKhoan");
 //        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
