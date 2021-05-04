@@ -580,12 +580,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //truy xuat don hang theo thang/nam
-    public List<RevenuewManagementModel> layThongTinDonHang(int thang, int nam)
+    public List<RevenuewManagementModel> layThongTinDonHang(String thoiGian1, String thoiGian2)
     {
         List<RevenuewManagementModel> list = new ArrayList<>();
         SQLiteDatabase db= getWritableDatabase();
-//        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang where Month(NgayGiaoHang) = "+ thang +" AND Year(NgayGiaoHang) = " + nam +" GROUP BY MaGiay";
-        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang GROUP BY MaGiay";
+        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang where "+thoiGian2+" < NgayGiaoHang AND NgayGiaoHang > "+thoiGian1+" GROUP BY MaGiay";
+//        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang GROUP BY MaGiay";
         Cursor cursor = db.rawQuery(sql, null);
         if(cursor != null) {
             cursor.moveToFirst();
@@ -595,8 +595,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 rmm = new RevenuewManagementModel((cursor.getString(cursor.getColumnIndex("MaGiay"))),(cursor.getString(cursor.getColumnIndex("SoLuong"))),(cursor.getString(cursor.getColumnIndex("TongTien"))));
                 list.add(rmm);
             }
+            return list;
         }
-        return list;
+        return null;
     }
     //------------------------------Khuyến Mãi--------------------------------------------------------
     // thêm
