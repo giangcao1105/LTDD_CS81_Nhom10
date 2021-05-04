@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:layout_height="wrap_content"
     android:stretchColumns="1,2,3"
-    tools:context=".RevenueManagement">
-
+    >
 
     <TableRow android:background="#0079D6" android:padding="5dp" android:layout_marginTop="15dp">
         <TextView
+            android:id="@+id/tenSP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Tên Sản Phẩm"
             android:layout_column="1"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/soLuong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Số lượng"
             android:layout_column="2"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/tongTien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Tổng tiền"
             android:layout_column="3"
             android:gravity="center"/>
     </TableRow>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:textSize="20dp"
-        android:text="In"/>
 </TableLayout>
