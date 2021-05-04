@@ -28,18 +28,18 @@ public class UserAdmin extends AppCompatActivity {
                 openDangXuat();
             }
         });
-//        btn_PhanHoiTuKhachHang.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openPhanHoiTuKhachHang()
-//            }
-//        });
-//        btn_QuanLyKhoHang.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openQuanLyDoanhThu();
-//            }
-//        });
+        btn_PhanHoiTuKhachHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPhanHoiTuKhachHang();
+            }
+        });
+        btn_QuanLyKhoHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openQuanLyDoanhThu();
+            }
+        });
     }
     private void AnhXa()
     {
@@ -53,14 +53,14 @@ public class UserAdmin extends AppCompatActivity {
         Intent intent = new Intent(this, RevenueManagement.class);
         startActivity(intent);
     }
-//    private void openPhanHoiTuKhachHang() {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
-//    }
-//    private void openQuanLyKhoHang() {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
-//    }
+    private void openPhanHoiTuKhachHang() {
+        Intent intent = new Intent(this, CustomerFeedback.class);
+        startActivity(intent);
+    }
+    private void openQuanLyKhoHang() {
+        Intent intent = new Intent(this, DepotManagement.class);
+        startActivity(intent);
+    }
     private void openDangXuat() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
