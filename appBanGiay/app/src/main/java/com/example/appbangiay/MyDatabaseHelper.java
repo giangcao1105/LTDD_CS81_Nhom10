@@ -264,7 +264,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 sql1 = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
             }else {
                 id += "asd";
-                id.replace(", asd", "");
+                id = id.replace(", asd", "");
                 sql1 = "Select MaGiay from tb_giay where MaGiay not in (" + id + ") group by MaGiay order by MaGiay desc limit " + (5 - size);
             }
 
@@ -546,6 +546,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return false;
+    }
+    //xóa đơn hàng
+    public Boolean xoaDonHang(int maDH){
+        boolean result = true ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.delete("tb_donhang", "MaKM=?", new String[]{maDH + ""});
+        } catch (Exception ex) {
+            result = false;
+        } finally {
+            db.close();
+            return result;
+        }
     }
     //------------------------------Khuyến Mãi--------------------------------------------------------
     // thêm
