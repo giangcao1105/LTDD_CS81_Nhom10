@@ -264,7 +264,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 sql1 = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
             }else {
                 id += "asd";
-                id.replace(", asd", "");
+                id = id.replace(", asd", "");
                 sql1 = "Select MaGiay from tb_giay where MaGiay not in (" + id + ") group by MaGiay order by MaGiay desc limit " + (5 - size);
             }
 
@@ -286,6 +286,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db= getWritableDatabase();
 
         String sql = "Select MaGiay from tb_giay group by MaGiay order by MaGiay desc limit 5";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor != null && cursor.moveToNext()){
+            Giay giay = xemCTGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
+            ds.add(giay);
+        }
+        cursor.close();
+
+        return  ds;
+    }
+    // Lấy 4 giày load lên all product
+    public List<Giay> lay4Giay(){
+        List<Giay> ds = new ArrayList<Giay>();
+        SQLiteDatabase db= getWritableDatabase();
+
+        String sql = "Select MaGiay from tb_giay group by MaGiay order by MaGiay limit 4";
         Cursor cursor = db.rawQuery(sql, null);
         while (cursor != null && cursor.moveToNext()){
             Giay giay = xemCTGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
