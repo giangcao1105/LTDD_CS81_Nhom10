@@ -15,33 +15,40 @@
         <ImageView
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/adidas_runfalcon_legend_ink"/>
+            android:id="@+id/iv_hinh"/>
 
         <TextView
+            android:id="@+id/tv_ten"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvTenGiay"
-            android:text="Adidas Runfalcon Lengend Ink"
             android:textSize="18sp"
             android:textColor="#000"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/iv_hinh"
+            android:layout_toEndOf="@+id/iv_hinh"
             android:layout_marginStart="10dp"/>
 
         <TextView
+            android:id="@+id/tv_thuong_hieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvGia"
             android:textSize="16sp"
-            android:text="2,100,000đ"
             android:textColor="#000"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/iv_hinh"
+            android:layout_toEndOf="@+id/iv_hinh"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/tvTenGiay"/>
-
+            android:layout_below="@+id/tv_ten"/>
+        <TextView
+            android:id="@+id/tv_gia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:layout_toRightOf="@+id/iv_hinh"
+            android:layout_toEndOf="@+id/iv_hinh"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_thuong_hieu"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

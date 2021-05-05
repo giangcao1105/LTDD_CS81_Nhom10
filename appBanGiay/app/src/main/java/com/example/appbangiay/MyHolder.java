@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyHolder extends RecyclerView.ViewHolder {
 
-    ImageView mImageView;
-    TextView mTenGiay, mGia;
+    ImageView iv_Hinh;
+    TextView tv_Ten, tv_Gia,tv_Thuong_Hieu;
 
     public MyHolder(@NonNull View itemView) {
         super(itemView);
 
-        this.mImageView = itemView.findViewById(R.id.imageView);
-        this.mTenGiay = itemView.findViewById(R.id.tvTenGiay);
-        this.mGia = itemView.findViewById(R.id.tvGia);
+        this.iv_Hinh = itemView.findViewById(R.id.iv_hinh);
+        this.tv_Ten = itemView.findViewById(R.id.tv_ten);
+        this.tv_Thuong_Hieu = itemView.findViewById(R.id.tv_thuong_hieu);
+        this.tv_Gia = itemView.findViewById(R.id.tv_gia);
     }
 }

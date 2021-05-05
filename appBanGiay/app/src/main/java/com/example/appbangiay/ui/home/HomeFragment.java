@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.appbangiay.Giay;
+import com.example.appbangiay.ListProductItem;
 import com.example.appbangiay.MainActivity;
 import com.example.appbangiay.MyDatabaseHelper;
 import com.example.appbangiay.Product;
@@ -228,10 +229,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         bt_See_More = (Button) view.findViewById(R.id.bt_See_More);
     }
 
-    // nào có form thì chỉnh lại
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(context0, register_form.class);
+        Intent intent = new Intent(context0, ListProductItem.class);
         startActivity(intent);
     }
 

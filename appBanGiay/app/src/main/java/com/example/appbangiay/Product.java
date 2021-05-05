@@ -4,15 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Product extends AppCompatActivity {
 
     TextView tv_ID, tv_Ten, tv_Size, tv_MauSac, tv_SoLuong, tv_Gia, tv_CungCap, tv_ThuongHieu, tv_XuatXu;
     ImageView iv_Hinh;
+    FloatingActionButton bt_Them;
     MyDatabaseHelper db;
 
     int maG;
@@ -40,6 +45,13 @@ public class Product extends AppCompatActivity {
         tv_XuatXu.setText(giay.getXuatXu());
 
         Glide.with(this).load(giay.getHinh()).into(iv_Hinh);
+        bt_Them.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(Product.this, register_form.class);
+//                startActivity(intent);
+            }
+        });
     }
 
     private void AnhXa() {
@@ -54,5 +66,7 @@ public class Product extends AppCompatActivity {
         tv_XuatXu = findViewById(R.id.tv_xuat_xu);
 
         iv_Hinh = findViewById(R.id.iv_Hinh);
+
+        bt_Them = findViewById(R.id.bt_Them);
     }
 }

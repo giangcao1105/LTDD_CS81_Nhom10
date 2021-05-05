@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         edt_tk = findViewById(R.id.edt_tk);
         edt_mk = findViewById(R.id.edt_mk);
 
+        db.khoiTaoGiay();
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
