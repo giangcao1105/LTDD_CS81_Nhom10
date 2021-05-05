@@ -63,13 +63,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "DiaChi nvarchar)";
         db.execSQL(sql3);
 
-        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaGiay, MaKM, MaThanhToan, Tien)
+        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaKM, MaThanhToan, Tien)
         String sql4 = "CREATE TABLE  tb_donhang ("
                 + "MaDH INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "KH nvarchar NOT NULL,"
                 + "NgayDatHang DATETIME,"
                 + "NgayGiaoHang DATETIME,"
-                + "MaGiay INTEGER,"
                 + "MaKM nvarchar,"
                 + "MaThanhToan nvarchar NOT NULL,"
                 + "ThanhTien INTERGER)";
@@ -102,8 +101,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "MaKH nvarchar,"
                 + "MaSP INTEGER,"
                 + "SoLuong INTEGER,"
+                + "DonGia INTEGER,"
                 + "PRIMARY KEY (MaKH, MaSP))" ;
         db.execSQL(sql8);
+
+        // Khai báo bảng:ChiTietDonHang(MaDH,MaSP,SoLuong)
+        String sql9 = "CREATE TABLE  tb_chitietdonhang ("
+                + "MaDH INTEGER,"
+                + "MaSP INTEGER,"
+                + "SoLuong INTEGER,"
+                + "PRIMARY KEY (MaKH, MaSP))" ;
+        db.execSQL(sql9);
     }
 
     @Override
@@ -537,7 +545,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             don.setKH(cursor.getString(cursor.getColumnIndex("KH")));
             don.setMaKM(cursor.getString(cursor.getColumnIndex("MaKM")));
             don.setMaThanhToan(cursor.getString(cursor.getColumnIndex("MaThanhToan")));
-            don.setMaGiay(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay"))));
             don.setThanhTien(Integer.parseInt(cursor.getString(cursor.getColumnIndex("ThanhTien"))));
             don.setNgayDatHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayDatHang"))));
             don.setNgayGiaoHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayGiaoHang"))));
@@ -546,7 +553,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return don;
     }
     //thêm đơn hàng
-    public Boolean themDonHang(String maKH, String maKM, String maThanhToan, int maGiay, int thanhTien, Date ngayDatHang, Date ngayGiaoHang)
+    public Boolean themDonHang(String maKH, String maKM, String maThanhToan, int thanhTien, Date ngayDatHang, Date ngayGiaoHang)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -555,7 +562,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("MaKM", maKM);
         contentValues.put("NgayDatHang", ngayDatHang.toString());
         contentValues.put("NgayGiaoHang", ngayGiaoHang.toString());
-        contentValues.put("MaGiay", maGiay);
         contentValues.put("MaThanhToan", maThanhToan);
         contentValues.put("ThanhTien", thanhTien);
 
@@ -807,6 +813,41 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public Cursor layToanBoGioHangCuaKhach(String maKH){
         SQLiteDatabase db= getWritableDatabase();
         String sql = "Select * from tb_giohang where MaKH='" + maKH + "'";
+        return db.rawQuery(sql, null);
+    }
+
+//------------------------------Chi tiết đơn hàng--------------------------------------------------------
+// thêm
+    public Boolean themCTDH(int maDH, int maSP, int soLuong){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("MaDH", maDH);
+        contentValues.put("MaSP", maSP);
+        contentValues.put("SoLuong", soLuong);
+        long result = DB.insert("tb_chitietdonhang", null, contentValues);
+
+        return result != -1;
+    }
+
+    // xóa
+    public Boolean xoaCTDH(int maDH, int maSP, int soLuong){
+        boolean result = true ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try{
+            db.delete("tb_chitietdonhang", "MaDH = ? and MaSP = ?", new String[]{maDH + "", maSP + ""});
+        } catch (Exception ex) {
+            result = false;
+        } finally {
+            db.close();
+            return result;
+        }
+    }
+
+    public Cursor layToanBoCTDH(){
+        SQLiteDatabase db= getWritableDatabase();
+        String sql = "Select * from tb_chitietdonhang";
         return db.rawQuery(sql, null);
     }
 }
