@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class ListProductItem extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
     MyDatabaseHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class ListProductItem extends AppCompatActivity {
 
         myAdapter = new MyAdapter(this, db.layDSGiay1());
         mRecyclerView.setAdapter(myAdapter);
+
     }
 
 }

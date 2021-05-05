@@ -1,6 +1,7 @@
 package com.example.appbangiay;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, null);
-        view0 = view;
         return new MyHolder(view);
     }
 
@@ -36,7 +36,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.tv_Thuong_Hieu.setText("Thương hiệu: " + ds_giay.get(i).getThuongHieu());
         holder.tv_Gia.setText("Giá: " + ds_giay.get(i).getGia() + " VND");
 
-        Glide.with(view0).load(ds_giay.get(i).getHinh()).into(holder.iv_Hinh);
+        Glide.with(c).load(ds_giay.get(i).getHinh()).into(holder.ib_Hinh);
+        holder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                Intent intent = new Intent(c, Product.class);
+                intent.putExtra("MaGiay", ds_giay.get(i).getMaGiay());
+                c.startActivity(intent);
+            }
+        });
     }
 
     @Override
