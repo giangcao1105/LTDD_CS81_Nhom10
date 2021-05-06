@@ -17,9 +17,13 @@ public class GioHang extends AppCompatActivity {
         setContentView(R.layout.activity_giohang);
         db = new MyDatabaseHelper(this);
 
+//        db.themGioHang("123",1,1);
+        db.themGioHang("123",2,3);
+        db.themGioHang("123",3,2);
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        gioHangAdapter = new MyAdapter(this, db.);
+        gioHangAdapter = new GioHangAdapter(this, db.layDSGioHang("123"));
         mRecyclerView.setAdapter(gioHangAdapter);
+    }
 }

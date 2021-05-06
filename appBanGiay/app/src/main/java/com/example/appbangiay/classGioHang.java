@@ -9,13 +9,19 @@ public class classGioHang {
     private String Hinh;
 
 
+    public classGioHang(String maKH, int maSP, int soLuong, int gia)
+    {
+        this.maKH = maKH;
+        this.maSP = maSP;
+        this.soLuong = soLuong;
+        this.gia = gia;
+    }
     public classGioHang(String maKH, int maSP, int soLuong)
     {
         this.maKH = maKH;
         this.maSP = maSP;
         this.soLuong = soLuong;
-    }
-
+            }
     public classGioHang(String maKH, int maSP, int soLuong, String tenSP)
     {
         this.maKH = maKH;

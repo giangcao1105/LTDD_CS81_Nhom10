@@ -815,6 +815,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_giohang where MaKH='" + maKH + "'";
         return db.rawQuery(sql, null);
     }
+    public List<classGioHang> layDSGioHang(String maKH){
+        SQLiteDatabase db= getWritableDatabase();
+        List<classGioHang> ds = new ArrayList<>();
+        String sql = "Select *  from tb_gioHang Where MaKH = '"+ maKH +"'";
+        Cursor c = db.rawQuery(sql, null);
+        c.moveToFirst();
+        while(c != null && c.moveToNext()) {
+            classGioHang gh = new classGioHang(c.getString(c.getColumnIndex("MaKH")),c.getInt(c.getColumnIndex("MaSP")), c.getInt(c.getColumnIndex("SoLuong")));
+            ds.add(gh);
+        }
+
+        return ds;
+    }
 
 //------------------------------Chi tiết đơn hàng--------------------------------------------------------
 // thêm
