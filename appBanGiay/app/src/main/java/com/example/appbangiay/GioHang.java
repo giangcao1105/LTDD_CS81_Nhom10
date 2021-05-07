@@ -31,7 +31,7 @@ public class GioHang extends AppCompatActivity {
 
 //        db.themGioHang("123",1,1);
 //        db.themGioHang("123",2,3);
-//        db.themGioHang("123",3,2)
+//        db.themGioHang("123",3,2);
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         AnhXa();

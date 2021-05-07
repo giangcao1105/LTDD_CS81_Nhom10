@@ -92,6 +92,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
         holder.cb_tick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tongTien=0;
                 if(holder.cb_tick.isChecked())
                 {
                     vtTick.set(position,true);
