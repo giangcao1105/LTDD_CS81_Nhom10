@@ -23,6 +23,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.stream.BaseGlideUrlLoader;
 import com.example.appbangiay.Giay;
 import com.example.appbangiay.ListProductItem;
 import com.example.appbangiay.MainActivity;
@@ -37,6 +38,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.appbangiay.MainActivity.TAIKHOAN;
+
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
     TextView tv_BS_1, tv_BS_2, tv_BS_3, tv_BS_4, tv_BS_5, tv_BS2_1, tv_BS2_2, tv_BS2_3, tv_BS2_4, tv_BS2_5, tv_BS3_1, tv_BS3_2, tv_BS3_3, tv_BS3_4;
@@ -44,11 +47,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     Button bt_See_More;
     Context context0;
     MyDatabaseHelper db;
+    String taiKhoan;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        taiKhoan = TAIKHOAN;
         AnhXa(view);
         List<Giay> ds = db.lay5GiayBanChay();
         List<Giay> ds1 = db.lay5GiayMoi();

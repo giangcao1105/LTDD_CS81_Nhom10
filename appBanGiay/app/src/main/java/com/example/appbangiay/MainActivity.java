@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String TAIKHOAN;
     Button bt_register, bt_signIn;
     EditText edt_tk, edt_mk;
     MyDatabaseHelper db;
@@ -19,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new MyDatabaseHelper(this);
-//        db.onUpgrade(db.getWritableDatabase(), 1, 2);
+
+ //       db.onUpgrade(db.getWritableDatabase(), 1, 2);
+
         bt_register = findViewById(R.id.btn_register);
         bt_signIn = findViewById(R.id.btn_sign_in);
         edt_tk = findViewById(R.id.edt_tk);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }else {
                     if (db.ktraTaiKhoan(taiKhoan, matKhau)) {
+                        TAIKHOAN = taiKhoan;
                         openHomePage(taiKhoan);
                     } else {
                         Toast.makeText(MainActivity.this, "Tài khoản hoặc mật khẩu không chính xác, vui lòng thử lại!", Toast.LENGTH_SHORT).show();
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void openHomePage(String tk) {
         Intent intent = new Intent(this, homepage_form.class);
-        intent.putExtra("TaiKhoan", tk);
+        intent.putExtra("TaiKhoan",tk);
         startActivity(intent);
     }
 }

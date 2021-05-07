@@ -18,10 +18,10 @@ import com.example.appbangiay.ui.home.HomeFragment;
 import com.example.appbangiay.ui.user.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import static com.example.appbangiay.MainActivity.TAIKHOAN;
+
 public class homepage_form extends AppCompatActivity {
 
-    // tài khoản truyền từ form login
-    String maKH;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +29,7 @@ public class homepage_form extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(navListener);
-        Intent intent = getIntent();
-        maKH = intent.getStringExtra("TaiKhoan");
+
 //        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
