@@ -14,19 +14,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/recyclerView"/>
     <TextView
+        android:id="@+id/tv_tongTien"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tổng tiền"
         android:textSize="25dp"
         android:gravity="left"/>
-    <TextView
-        android:layout_marginTop="5dp"
+    <Button
+        android:id="@+id/bt_tinhTien"
+        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thành tiền"
-        android:textSize="25dp"
-        android:gravity="left"/>
+        android:text="Tính tiền"/>
     <Button
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
