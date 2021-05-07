@@ -689,7 +689,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         while (cursor != null && cursor.moveToNext()) {
             List<ChiTietDonHang> ctdh = xemChiTietDonHang(cursor.getInt(cursor.getColumnIndex("MaDH")));
             for(int i = 0; i < ctdh.size(); i++) {
-                PurchaseHistoryModel rmm = new PurchaseHistoryModel(xemCTGiay(ctdh.get(i).getMaGiay()).getTenGiay(),ctdh.get(i).getSoLuong(),xemCTGiay(ctdh.get(i).getMaGiay()).getGia(),"");
+                PurchaseHistoryModel rmm = new PurchaseHistoryModel(xemCTGiay(ctdh.get(i).getMaGiay()).getTenGiay(),ctdh.get(i).getSoLuong(),xemCTGiay(ctdh.get(i).getMaGiay()).getGia(),cursor.getString(cursor.getColumnIndex("NgayGiaoHang")));
 
                 list.add(rmm);
             }
