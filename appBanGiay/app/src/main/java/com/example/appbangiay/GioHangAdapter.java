@@ -45,7 +45,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
         holder.edtSoLuong.setText(ds_gioHang.get(position).getSoLuong() + "");
         Glide.with(c).load(db.xemCTGiay(ds_gioHang.get(position).getMaSP()).getHinh()).into(holder.ib_Hinh);
         soLuongToiDa.add(db.xemCTGiay(ds_gioHang.get(position).getMaSP()).getSoLuong());
-        soLuongHienTai.add(1);
+        soLuongHienTai.add(ds_gioHang.get(position).getSoLuong());
         vtTick.add(false);
 
         holder.setItemClickListener(new ItemClickListener() {
