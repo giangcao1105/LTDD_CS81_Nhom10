@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class PurchaseHistoryAdapter extends RecyclerView.Adapter<PurchaseHistoryAdapter.ViewHolder>  {
+public class PurchaseHistoryAdapter extends RecyclerView.Adapter<PurchaseHistoryHolder>  {
 
     Context context;
     List<PurchaseHistoryModel> RMList;
@@ -24,20 +24,20 @@ public class PurchaseHistoryAdapter extends RecyclerView.Adapter<PurchaseHistory
 
     @NonNull
     @Override
-    public PurchaseHistoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PurchaseHistoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_purchase_history,parent,false);
-        return new ViewHolder(view);
+        return new PurchaseHistoryHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PurchaseHistoryAdapter.ViewHolder holder, int position) {
-        if(RMList != null && RMList.size() > 0)
+    public void onBindViewHolder(@NonNull PurchaseHistoryHolder holder, int position) {
+        if(RMList != null && RMList.size() > position)
         {
             PurchaseHistoryModel model = RMList.get(position);
             holder.tenSP.setText(model.getTenSP());
-            holder.soLuong.setText(model.getSoLuong());
-            holder.gia.setText(model.getGia());
-            holder.ngayMua.setText(model.getNgayMua().toString());
+            holder.soLuong.setText(model.getSoLuong() + "");
+            holder.gia.setText(model.getGia() + "");
+            holder.ngayMua.setText(model.getNgayMua());
         }
     }
 
@@ -46,16 +46,5 @@ public class PurchaseHistoryAdapter extends RecyclerView.Adapter<PurchaseHistory
         return RMList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tenSP,soLuong,gia,ngayMua;
-        public ViewHolder (@NonNull View itemview)
-        {
-            super(itemview);
 
-            tenSP = itemview.findViewById(R.id.tenSP);
-            soLuong = itemview.findViewById(R.id.soLuong);
-            gia = itemview.findViewById(R.id.tongTien);
-            ngayMua = itemview.findViewById(R.id.txtNgayMua);
-        }
-    }
 }

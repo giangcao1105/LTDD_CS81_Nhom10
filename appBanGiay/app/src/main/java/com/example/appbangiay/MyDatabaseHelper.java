@@ -689,7 +689,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         while (cursor != null && cursor.moveToNext()) {
             List<ChiTietDonHang> ctdh = xemChiTietDonHang(cursor.getInt(cursor.getColumnIndex("MaDH")));
             for(int i = 0; i < ctdh.size(); i++) {
-                PurchaseHistoryModel rmm = new PurchaseHistoryModel(xemCTGiay(ctdh.get(i).getMaGiay()).getTenGiay(),ctdh.get(i).getSoLuong(),xemCTGiay(ctdh.get(i).getMaGiay()).getGia(),(cursor.getString(cursor.getColumnIndex("NgayMua"))));
+                PurchaseHistoryModel rmm = new PurchaseHistoryModel(xemCTGiay(ctdh.get(i).getMaGiay()).getTenGiay(),ctdh.get(i).getSoLuong(),xemCTGiay(ctdh.get(i).getMaGiay()).getGia(),"");
 
                 list.add(rmm);
             }
@@ -894,9 +894,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         List<ChiTietDonHang> list = new ArrayList<>();
         String sql = "Select * from tb_chitietdonhang where MaDH='" + maDH + "'";
         Cursor cursor = db.rawQuery(sql, null);
-        ChiTietDonHang c;
-        while (cursor != null && cursor.moveToFirst()) {
-            c = new ChiTietDonHang(cursor.getInt(cursor.getColumnIndex("MaDH")),cursor.getInt(cursor.getColumnIndex("MaGiay")),cursor.getInt(cursor.getColumnIndex("SoLuong")));
+        while (cursor != null && cursor.moveToNext()) {
+            ChiTietDonHang c = new ChiTietDonHang(cursor.getInt(cursor.getColumnIndex("MaDH")),cursor.getInt(cursor.getColumnIndex("MaGiay")),cursor.getInt(cursor.getColumnIndex("SoLuong")));
             list.add(c);
         }
         cursor.close();
