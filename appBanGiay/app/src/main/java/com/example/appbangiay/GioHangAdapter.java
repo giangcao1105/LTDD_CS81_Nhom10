@@ -18,8 +18,9 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     Context c;
     List<classGioHang> ds_gioHang;
     View view0;
-
+    MyDatabaseHelper db;
     public GioHangAdapter(Context c, List<classGioHang> ds) {
+        db = new MyDatabaseHelper(c);
         this.c = c;
         this.ds_gioHang = ds;
     }
@@ -32,10 +33,10 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GioHangHolder holder, int position) {
-        holder.tv_Ten.setText(ds_gioHang.get(position).getTenSP());
+        holder.tv_Ten.setText(db.xemCTGiay(ds_gioHang.get(position).getMaSP()).getTenGiay());
         holder.tv_Gia.setText("Giá: " + ds_gioHang.get(position).getGia() + " VND");
 
-        Glide.with(c).load(ds_gioHang.get(position).getHinh()).into(holder.ib_Hinh);
+        Glide.with(c).load(db.xemCTGiay(ds_gioHang.get(position).getMaSP()).getHinh()).into(holder.ib_Hinh);
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
