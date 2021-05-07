@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import static com.example.appbangiay.MainActivity.TAIKHOAN;
+
 public class Product extends AppCompatActivity {
 
     TextView tv_ID, tv_Ten, tv_Size, tv_MauSac, tv_SoLuong, tv_Gia, tv_CungCap, tv_ThuongHieu, tv_XuatXu;
@@ -21,11 +23,12 @@ public class Product extends AppCompatActivity {
     MyDatabaseHelper db;
 
     int maG;
+    String taiKhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-
+        taiKhoan = TAIKHOAN;
         db = new MyDatabaseHelper(this);
 
         Intent intent = getIntent();
@@ -48,8 +51,10 @@ public class Product extends AppCompatActivity {
         bt_Them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Product.this, register_form.class);
-//                startActivity(intent);
+                db.themGioHang(taiKhoan, maG, 1);
+
+                Intent intent = new Intent(Product.this, GioHang.class);
+                startActivity(intent);
             }
         });
     }

@@ -106,11 +106,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(sql8);
 
         // Khai báo bảng:ChiTietDonHang(MaDH,MaSP,SoLuong)
-        String sql9 = "CREATE TABLE  tb_chitietdonhang ("
+        String sql9 = "CREATE TABLE tb_chitietdonhang ("
                 + "MaDH INTEGER,"
-                + "MaSP INTEGER,"
+                + "MaGiay INTEGER,"
                 + "SoLuong INTEGER,"
-                + "PRIMARY KEY (MaKH, MaSP))" ;
+                + "PRIMARY KEY (MaDH, MaGiay))" ;
         db.execSQL(sql9);
     }
 
@@ -124,6 +124,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS tb_hinhthucthanhtoan");
         db.execSQL("DROP TABLE IF EXISTS tb_loi");
         db.execSQL("DROP TABLE IF EXISTS tb_giohang");
+        db.execSQL("DROP TABLE IF EXISTS tb_chitietdonhang");
 
         onCreate(db);
     }
@@ -238,7 +239,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void khoiTaoGiay(){
         SQLiteDatabase db= getWritableDatabase();
         boolean result;
-        String sql = "select * from tb_giay where TenGiay not in ()";
+        String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
         Cursor c = db.rawQuery(sql ,null);
         if(c == null) {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
@@ -260,7 +261,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             result = themGiay("Adidas ultraboost 20 city pack Tokyo", 39, "đen", 3, 3000000, "Adidas", "Adidas", "VietNam", "https://adidasstore.vn/wp-content/uploads/2020/12/FX7811-1.jpg");
             result = themGiay("Adidas ultraboost 4 dna 5th anniversary", 39, "đen", 3, 5100000, "Adidas", "Adidas", "VietNam", "https://adidasstore.vn/wp-content/uploads/2021/03/ultraboost-dna-shoes-black-fu9993-01-standard.jpg");
             result = themGiay("Adidas ultraboost 20 Cloud White", 39, "đen", 3, 3000000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/04/zz-EG0713-standard-side_lateral_center_view.jpg");
-            result = themGiay("Adidas }ultraboost 20 Triple Black", 39, "đen", 3, 5100000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/12/FU8498-01.jpg");
+            result = themGiay("Adidas ultraboost 20 Triple Black", 39, "đen", 3, 5100000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/12/FU8498-01.jpg");
         }
     }
 
@@ -270,7 +271,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String id = "";
         SQLiteDatabase db= getWritableDatabase();
 
-        String sql = "Select MaGiay, count(*) from tb_donhang group by MaGiay order by count(*) desc limit 5";
+        String sql = "Select MaGiay, count(*) from tb_chitietdonhang group by MaGiay order by count(*) desc limit 5";
         Cursor cursor = db.rawQuery(sql, null);
         while (cursor != null && cursor.moveToNext()) {
             int mg = Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaGiay")));
