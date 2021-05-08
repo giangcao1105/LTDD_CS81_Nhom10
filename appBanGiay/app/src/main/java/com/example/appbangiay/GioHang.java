@@ -1,11 +1,13 @@
 package com.example.appbangiay;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,8 +19,9 @@ public class GioHang extends AppCompatActivity {
     MyDatabaseHelper db;
     TextView tvtongTien;
     EditText edt_SoLuong;
-    Button btCong, btTru,btTinhTien;
+    Button btCong, btTru,btTinhTien,btDatHang;
     CheckBox cb_tick;
+    boolean flag = false;
 
     int soLuong;
     int  soLuongHienCo;
@@ -41,7 +44,18 @@ public class GioHang extends AppCompatActivity {
         btTinhTien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 tvtongTien.setText("Tổng tiền: "+ gioHangAdapter.tongTien + "VND");
+                flag = true;
+            }
+        });
+        btDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(flag)
+                    openDatHang();
+                else
+                    Toast.makeText(GioHang.this, "Vui lòng tính tiền trước khi đặt hàng", Toast.LENGTH_SHORT).show();
             }
         });
         mRecyclerView.setAdapter(gioHangAdapter);
@@ -57,5 +71,11 @@ public class GioHang extends AppCompatActivity {
         cb_tick = findViewById(R.id.cb_tick);
         tvtongTien = findViewById(R.id.tv_tongTien);
         btTinhTien = findViewById(R.id.bt_tinhTien);
+        btDatHang = findViewById(R.id.bt_datHang);
+    }
+
+    private void openDatHang() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

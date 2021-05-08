@@ -8,17 +8,15 @@ public class DonHang {
     private Date NgayDatHang;
     private Date NgayGiaoHang;
     private int MaGiay;
-    private String MaKM;
     private String MaThanhToan;
     private int ThanhTien;
 
     public DonHang(){}
-    public DonHang(String kh, Date ngayDatHang, Date ngayGiaoHang, int maGiay, String maKM, String maThanhToan, int thanhTien){
+    public DonHang(String kh, Date ngayDatHang, Date ngayGiaoHang, int maGiay, String maThanhToan, int thanhTien){
         this.setKH(kh);
         this.setNgayDatHang(ngayDatHang);
         this.setNgayGiaoHang(ngayGiaoHang);
         this.setMaGiay(maGiay);
-        this.setMaKM(maKM);
         this.setMaThanhToan(maThanhToan);
         this.setThanhTien(thanhTien);
     }
@@ -68,13 +66,6 @@ public class DonHang {
         MaGiay = maGiay;
     }
 
-    public String getMaKM() {
-        return MaKM;
-    }
-
-    public void setMaKM(String maKM) {
-        MaKM = maKM;
-    }
 
     public String getMaThanhToan() {
         return MaThanhToan;

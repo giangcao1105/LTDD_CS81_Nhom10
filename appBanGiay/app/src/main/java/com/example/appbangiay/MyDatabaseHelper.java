@@ -65,22 +65,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "DiaChi nvarchar)";
         db.execSQL(sql3);
 
-        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaKM, MaThanhToan, Tien)
+        // Khai báo bảng: ĐơnHàng(MaDH, KH, NgayDatHang, NgayGiaoHang, MaThanhToan, Tien)
         String sql4 = "CREATE TABLE  tb_donhang ("
                 + "MaDH INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "KH nvarchar NOT NULL,"
                 + "NgayDatHang DATETIME,"
                 + "NgayGiaoHang DATETIME,"
-                + "MaKM nvarchar,"
                 + "MaThanhToan nvarchar NOT NULL,"
                 + "ThanhTien INTERGER)";
         db.execSQL(sql4);
 
-        // Khai báo bảng: Khuyến Mãi(MaKM, TenKM)
-        String sql5 = "CREATE TABLE  tb_khuyenmai ("
-                + "MaKM nvarchar PRIMARY KEY,"
-                + "TenKM nvarchar)";
-        db.execSQL(sql5);
 
         // Khai báo bảng: HinhThucThanhToan(MaThanhToan, LoaiThanhToan)
         String sql6 = "CREATE TABLE  tb_hinhthucthanhtoan ("
@@ -244,7 +238,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         boolean result;
         String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
         Cursor c = db.rawQuery(sql, null);
-        if (c == null) {
+        if (c == null)
+        {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
             result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
             result = themGiay("Adidas core black", 39, "đen", 3, 1800000, "Adidas", "Adidas", "China", "https://giayadidas.com.vn/wp-content/uploads/2021/02/EG9627-1.jpg");
@@ -547,7 +542,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             don.setMaDH(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaDH"))));
             don.setKH(cursor.getString(cursor.getColumnIndex("KH")));
-            don.setMaKM(cursor.getString(cursor.getColumnIndex("MaKM")));
             don.setMaThanhToan(cursor.getString(cursor.getColumnIndex("MaThanhToan")));
             don.setThanhTien(Integer.parseInt(cursor.getString(cursor.getColumnIndex("ThanhTien"))));
             don.setNgayDatHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayDatHang"))));
@@ -558,12 +552,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //thêm đơn hàng
-    public Boolean themDonHang(String maKH, Date ngayDatHang, Date ngayGiaoHang, String maKM, String maThanhToan, int thanhTien) {
+    public Boolean themDonHang(String maKH, Date ngayDatHang, Date ngayGiaoHang, String maThanhToan, int thanhTien) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("KH", maKH);
-        contentValues.put("MaKM", maKM);
         contentValues.put("NgayDatHang", ngayDatHang.toString());
         contentValues.put("NgayGiaoHang", ngayGiaoHang.toString());
         contentValues.put("MaThanhToan", maThanhToan);
@@ -628,56 +621,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    //------------------------------Khuyến Mãi--------------------------------------------------------
-    // thêm
-    public Boolean themKhuyenMai(String maKM, String tenKM) {
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("MaKM", maKM);
-        contentValues.put("TenKM", tenKM);
-
-        long result = DB.insert("tb_khuyenmai", null, contentValues);
-        return result != -1;
-    }
-
-    // sửa
-    public Boolean suaKhuyenMai(String maKM, String tenKM) {
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("TenKM", tenKM);
-
-        Cursor cursor = DB.rawQuery("Select * from tb_khuyenmai where MaKM = ?", new String[]{maKM});
-        if (cursor != null && cursor.moveToFirst()) {
-            long result = DB.update("tb_khuyenmai", contentValues, "MaKM=?", new String[]{maKM});
-            cursor.close();
-            return result != -1;
-        } else {
-            cursor.close();
-            return false;
-        }
-    }
-
-    // xóa
-    public Boolean xoaKhuyenMai(String maKM) {
-        boolean result = true;
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try {
-            db.delete("tb_khuyenmai", "MaKM=?", new String[]{maKM});
-        } catch (Exception ex) {
-            result = false;
-        } finally {
-            db.close();
-            return result;
-        }
-    }
-
-    // hiển thị danh sách
-    public Cursor layDSKhuyenMai() {
-        SQLiteDatabase db = getWritableDatabase();
-        String sql = "Select * from tb_khuyenmai";
-        return db.rawQuery(sql, null);
-    }
 
     public List<PurchaseHistoryModel> lichSuMuaHang(String maKH){
         List<PurchaseHistoryModel> list = new ArrayList<>();
