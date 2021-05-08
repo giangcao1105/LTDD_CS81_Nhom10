@@ -605,20 +605,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public List<RevenuewManagementModel> layThongTinDonHang(String thoiGian1, String thoiGian2) {
         List<RevenuewManagementModel> list = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang where " + thoiGian2 + " < NgayGiaoHang AND NgayGiaoHang > " + thoiGian1 + " GROUP BY MaGiay";
+        String sql = "Select MaDH from tb_donhang where " + thoiGian2 + " < NgayGiaoHang AND NgayGiaoHang > " + thoiGian1 + " GROUP BY MaDH";
 //        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang GROUP BY MaGiay";
         Cursor cursor = db.rawQuery(sql, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-            RevenuewManagementModel rmm = new RevenuewManagementModel((cursor.getString(cursor.getColumnIndex("MaGiay"))), (cursor.getString(cursor.getColumnIndex("SoLuong"))), (cursor.getString(cursor.getColumnIndex("TongTien"))));
-            list.add(rmm);
-            while (cursor.moveToNext()) {
-                rmm = new RevenuewManagementModel((cursor.getString(cursor.getColumnIndex("MaGiay"))), (cursor.getString(cursor.getColumnIndex("SoLuong"))), (cursor.getString(cursor.getColumnIndex("TongTien"))));
-                list.add(rmm);
+//        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
+        String sql2  = "SELECT MaGiay, SUM(SoLuong) as 'SoLuong' from tb_chitietdonhang where";
+        boolean flag = true;
+        if(cursor != null && cursor.moveToNext()) {
+            while (cursor != null && flag == true) {
+                sql2 += " MaDH = " + cursor.getInt(cursor.getColumnIndex("MaDH"));
+                if (cursor.moveToNext())
+                    sql2 += " AND ";
+                else
+                    flag = false;
             }
-            return list;
         }
-        return null;
+        sql2 += " GROUP BY MaGiay";
+        cursor.close();
+        cursor = db.rawQuery(sql2,null);
+        while(cursor != null && cursor.moveToNext())
+        {
+            int sl = cursor.getInt(cursor.getColumnIndex("SoLuong"));
+            RevenuewManagementModel rmm = new RevenuewManagementModel(xemCTGiay(cursor.getInt(cursor.getColumnIndex("MaGiay"))).getTenGiay(), sl, sl * xemCTGiay(cursor.getInt(cursor.getColumnIndex("MaGiay"))).getGia());
+            list.add(rmm);
+        }
+        return list;
     }
 
 

@@ -34,8 +34,8 @@ public class RevenueManagementAdapter extends RecyclerView.Adapter<RevenueManage
         {
             RevenuewManagementModel model = RMList.get(position);
             holder.tenSP.setText(model.getTenSP());
-            holder.soLuong.setText(model.getSoLuong());
-            holder.gia.setText(model.getTongTien());
+            holder.soLuong.setText(model.getSoLuong()+"");
+            holder.gia.setText(model.getTongTien()+"");
 
         }
 
