@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CustomerCare">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nội dung lỗi"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:hint="Nội dung lỗi ở đây"/>
+    <!-- Sửa thành textview nếu edittext không tràn chữ xuống dòng dưới-->
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:text="Phản hồi người dùng"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:hint="Nội dung phản hồi ở đây"/>
+    <!-- Sửa thành textview nếu edittext không tràn chữ xuống dòng dưới-->
+    <!-- Chỗ này t không chắc nên để edittext hay là textview-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:layout_marginLeft="60dp"
+            android:id="@+id/btGui"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Gửi"/>
+
+        <Button
+            android:layout_marginLeft="20dp"
+            android:id="@+id/btThoat"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Thoát"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

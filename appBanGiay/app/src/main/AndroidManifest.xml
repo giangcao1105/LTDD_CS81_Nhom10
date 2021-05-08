@@ -17,8 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBanGiay"
         android:usesCleartextTraffic="true">
-
-        <!-- Nhờ fix chỗ này, không load lên form -->
+        <activity android:name=".AddItemToDepot"></activity>
+        <activity android:name=".ReportError" /> <!-- Nhờ fix chỗ này, không load lên form -->
         <activity android:name=".ListProductItem">
             <intent-filter>
                 <action android:name="android.intent.action.ListProductItem" />
@@ -26,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".CustomerFeedback">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
