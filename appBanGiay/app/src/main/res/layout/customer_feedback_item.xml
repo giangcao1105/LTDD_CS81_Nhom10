@@ -8,11 +8,6 @@ android:stretchColumns="*"
     android:background="#FFFFFF"
     android:paddingTop="5dp"
     android:layout_marginTop="5dp">
-    <CheckBox
-        android:id="@+id/cb_tick"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"/>
 
     <TextView
         android:id="@+id/tv_ma_sp"

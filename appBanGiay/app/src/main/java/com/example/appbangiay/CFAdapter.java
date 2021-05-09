@@ -15,8 +15,8 @@ import java.util.List;
 public class CFAdapter extends RecyclerView.Adapter<CFHolder>{
     Context context;
     List<Loi> dsLoi;
-    List<Boolean> cb_ticked = new ArrayList<>();
     MyDatabaseHelper db;
+
     public CFAdapter(Context context, List<Loi> ds)
     {
         db = new MyDatabaseHelper(context);
@@ -47,26 +47,10 @@ public class CFAdapter extends RecyclerView.Adapter<CFHolder>{
             holder.tv_ngayphanhoi.setText(" ");
         }
 
-        holder.cb_tick.setChecked(false);
-        cb_ticked.add(false);
-        holder.cb_tick.setOnClickListener(new View.OnClickListener() {
+        holder.bt_phanhoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(holder.cb_tick.isChecked())
-                {
-                    cb_ticked.set(position,true);
-                }
-                else
-                {
-                    cb_ticked.set(position,false);
-                }
-            }
-        });
-
-        holder.setItemClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                Intent intent = new Intent(context, Product.class);
+                Intent intent = new Intent(context, register_form.class);
                 intent.putExtra("MaLoi", dsLoi.get(position).getMaLoi());
                 context.startActivity(intent);
             }

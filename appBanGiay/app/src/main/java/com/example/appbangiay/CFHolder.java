@@ -8,9 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CFHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+public class CFHolder extends RecyclerView.ViewHolder{
     TextView tv_masp, tv_makh, tv_noidungloi, tv_phanhoi, tv_ngayphanhoi;
-    CheckBox cb_tick;
     Button bt_phanhoi;
     private ItemClickListener itemClickListener;
 
@@ -23,24 +22,6 @@ public class CFHolder extends RecyclerView.ViewHolder implements View.OnClickLis
         tv_phanhoi = itemView.findViewById(R.id.tv_phan_hoi);
         tv_ngayphanhoi = itemView.findViewById(R.id.tv_ngay_phan_hoi);
 
-        cb_tick = itemView.findViewById(R.id.cb_tick);
-
         bt_phanhoi = itemView.findViewById(R.id.bt_phan_hoi);
-    }
-
-    public void setItemClickListener(ItemClickListener itemClickListener)
-    {
-        this.itemClickListener = itemClickListener;
-    }
-
-    @Override
-    public void onClick(View v) {
-        itemClickListener.onClick(v, getAdapterPosition(),false);
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        itemClickListener.onClick(v,getAdapterPosition(),true);
-        return true;
     }
 }
