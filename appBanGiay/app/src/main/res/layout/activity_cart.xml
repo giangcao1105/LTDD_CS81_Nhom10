@@ -17,33 +17,11 @@
         android:layout_height="wrap_content"
         android:text="Thanh Toán"
         android:textSize="40sp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textStyle="bold"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="45dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Địa chỉ: "
-            android:textSize="30sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:text=""/>
-
-    </LinearLayout>
-
     <TextView
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Phương thức thanh toán"
@@ -51,7 +29,7 @@
         android:textStyle="bold"/>
 
     <RadioGroup
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="105dp"
         android:layout_width="wrap_content"
         android:layout_height="140dp">
         <RadioButton
@@ -59,68 +37,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="COD"/>
+            android:text="Trực tiếp tại shop"/>
         <RadioButton
             android:layout_marginTop="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="VISA"/>
+            android:text="Giao tận nhà"/>
     </RadioGroup>
-
-    <TextView
-        android:layout_marginTop="235dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Phương thức vận chuyển"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
-    <RadioGroup
-        android:layout_marginTop="240dp"
-        android:layout_width="wrap_content"
-        android:layout_height="160dp">
-        <RadioButton
-            android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nhanh (3-5h nội thành)"
-            android:textSize="20sp"/>
-        <RadioButton
-            android:layout_marginTop="0dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bình Thường (3-5 ngày tỉnh lẻ)"
-            android:textSize="20sp"/>
-    </RadioGroup>
-
-    <EditText
-        android:layout_marginTop="380dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mã giảm giá:"
-        android:textSize="25sp"
-        android:background="@drawable/bg_edt"
-        android:gravity="center"
-        android:textStyle="italic"/>
 
     <LinearLayout
-        android:layout_marginTop="440dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="250dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thành tiền: "
-            android:textSize="25sp"
+            android:text="Địa chỉ: "
+            android:textSize="30sp"
             android:textStyle="bold"/>
 
-        <TextView
+        <EditText
             android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:text=""
+            android:hint="Nhập địa chỉ"/>
 
     </LinearLayout>
 
