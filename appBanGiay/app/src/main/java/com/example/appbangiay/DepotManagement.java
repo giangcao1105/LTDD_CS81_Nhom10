@@ -25,8 +25,6 @@ public class DepotManagement extends AppCompatActivity {
 
         Adapter = new DepotManagementAdapter(this, db.layDSGiay1());
         them = findViewById(R.id.btn_Them);
-        xoa = findViewById(R.id.btn_Sua);
-        sua = findViewById(R.id.btn_Xoa);
 
         them.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +33,7 @@ public class DepotManagement extends AppCompatActivity {
             }
         });
 
-        them.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openXoa();
-            }
-        });
+
 
         mRecyclerView.setAdapter(Adapter);
 
@@ -50,8 +43,5 @@ public class DepotManagement extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openXoa() {
-        Intent intent = new Intent(this, AddItemToDepot.class);
-        startActivity(intent);
-    }
+
 }
