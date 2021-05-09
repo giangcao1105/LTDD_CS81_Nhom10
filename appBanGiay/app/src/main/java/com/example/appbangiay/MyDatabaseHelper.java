@@ -740,7 +740,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         String sql = "Select * from tb_loi";
         Cursor c = db.rawQuery(sql, null);
         while (c != null && c.moveToNext()) {
-            Loi loi = new Loi(c.getInt(c.getColumnIndex("MaLoi")), c.getInt(c.getColumnIndex("MaDH")), c.getString(c.getColumnIndex("MaKH")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")), c.getString(c.getColumnIndex("NgayPhanHoi")));
+            Loi loi = new Loi(c.getInt(c.getColumnIndex("MaDH")), c.getInt(c.getColumnIndex("MaDH")), c.getString(c.getColumnIndex("MaKH")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")), c.getString(c.getColumnIndex("NgayPhanHoi")));
             ds.add(loi);
         }
 

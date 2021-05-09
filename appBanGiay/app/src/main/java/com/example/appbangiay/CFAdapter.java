@@ -33,7 +33,7 @@ public class CFAdapter extends RecyclerView.Adapter<CFHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull CFHolder holder, int position) {
-        holder.tv_masp.setText(db.xemCTDH(dsLoi.get(position).getMaDH()).getMaGiay() + "");
+        holder.tv_masp.setText((dsLoi.get(position).getMaDH()) + "");
         holder.tv_makh.setText(dsLoi.get(position).getMaKH());
         holder.tv_noidungloi.setText(dsLoi.get(position).getNoiDungLoi());
         if(dsLoi.get(position).getTraLoi() != null){

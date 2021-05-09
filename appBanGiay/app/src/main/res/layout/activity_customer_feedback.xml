@@ -48,7 +48,7 @@
                                 android:textStyle="bold"
                                 android:gravity="center"
                                 android:layout_weight="3"
-                                android:text="Mã sản phẩm"
+                                android:text="Mã đơn hàng"
                                 android:layout_marginLeft="5dp"/>
 
                             <TextView
