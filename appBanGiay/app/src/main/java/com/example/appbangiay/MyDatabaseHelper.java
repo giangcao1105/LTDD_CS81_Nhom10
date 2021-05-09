@@ -703,7 +703,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("TraLoi", traLoi);
         contentValues.put("NgayPhanHoi", ngayPhanHoi.toString());
 
-        Cursor cursor = DB.rawQuery("Select * from tb_loi where MaLoi", new String[]{maLoi + ""});
+        Cursor cursor = DB.rawQuery("Select * from tb_loi where MaLoi=" + maLoi, null);
         if (cursor != null && cursor.moveToFirst()) {
             long result = DB.update("tb_loi", contentValues, "MaLoi = ?", new String[]{maLoi + ""});
             cursor.close();
@@ -712,6 +712,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor.close();
             return false;
         }
+    }
+
+    // Xem chi tiết lỗi
+    public Loi xemCTLoi(int maLoi) {
+        SQLiteDatabase db = getWritableDatabase();
+        Loi l = new Loi();
+        String sql = "Select * from tb_loi where MaLoi= " + maLoi;
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            l.setMaLoi(cursor.getInt(cursor.getColumnIndex("MaLoi")));
+            l.setMaDH(cursor.getInt(cursor.getColumnIndex("MaDH")));
+            l.setMaKH(cursor.getString(cursor.getColumnIndex("MaKH")));
+            l.setNoiDungLoi(cursor.getString(cursor.getColumnIndex("NoiDungLoi")));
+            l.setTraLoi(cursor.getString(cursor.getColumnIndex("TraLoi")));
+            l.setNgayPhanHoi(cursor.getString(cursor.getColumnIndex("NgayPhanHoi")));
+        }
+        cursor.close();
+        return l;
     }
 
     // lấy ds lỗi
@@ -726,7 +745,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
         return ds;
-
     }
     //------------------------------GioHang----------------------------------------------------------
     // thêm

@@ -50,7 +50,7 @@ public class CFAdapter extends RecyclerView.Adapter<CFHolder>{
         holder.bt_phanhoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, register_form.class);
+                Intent intent = new Intent(context, ReportError.class);
                 intent.putExtra("MaLoi", dsLoi.get(position).getMaLoi());
                 context.startActivity(intent);
             }

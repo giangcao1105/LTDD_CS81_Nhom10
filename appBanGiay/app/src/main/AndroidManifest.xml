@@ -18,7 +18,12 @@
         android:theme="@style/Theme.AppBanGiay"
         android:usesCleartextTraffic="true">
         <activity android:name=".AddItemToDepot"></activity>
-        <activity android:name=".ReportError" /> <!-- Nhờ fix chỗ này, không load lên form -->
+        <activity android:name=".ReportError">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ListProductItem">
             <intent-filter>
                 <action android:name="android.intent.action.ListProductItem" />
