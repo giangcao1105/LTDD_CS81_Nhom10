@@ -6,6 +6,33 @@
     >
     <TableRow android:background="#0079D6" android:padding="5dp" android:layout_marginTop="15dp">
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_column="1"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_column="2"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_column="3"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_column="4"
+            android:gravity="center"/>
+    </TableRow>
+
+    <TableRow android:background="#FFFFFF" android:padding="5dp" android:layout_marginTop="15dp">
+        <TextView
             android:id="@+id/txtTenSp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,5 +61,6 @@
             android:layout_column="4"
             android:gravity="center"/>
     </TableRow>
+
 
 </TableLayout>
