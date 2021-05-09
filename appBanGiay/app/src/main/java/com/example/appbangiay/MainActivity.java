@@ -21,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = new MyDatabaseHelper(this);
 
- //       db.onUpgrade(db.getWritableDatabase(), 1, 2);
+//        db.onUpgrade(db.getWritableDatabase(), 1, 2);
 
         bt_register = findViewById(R.id.btn_register);
         bt_signIn = findViewById(R.id.btn_sign_in);
         edt_tk = findViewById(R.id.edt_tk);
         edt_mk = findViewById(R.id.edt_mk);
+<<<<<<< HEAD
+=======
+//        db.onCreate(db.getWritableDatabase());
+>>>>>>> 79de3b03bcbb512a04102bf3e8692996fefdad91
 //        db.khoiTaoGiay();
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
