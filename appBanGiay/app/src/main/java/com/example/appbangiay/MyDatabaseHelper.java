@@ -746,6 +746,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         return ds;
     }
+
+    // lấy ds lỗi
+    public List<classTinNhan> layDSLoi(int maKH){
+        SQLiteDatabase db = getWritableDatabase();
+        List<classTinNhan> ds = new ArrayList<>();
+        String sql = "Select MaLoi, NoiDungLoi, TraLoi, MaDH from tb_loi where MaKH="+maKH;
+        Cursor c = db.rawQuery(sql, null);
+        while (c != null && c.moveToNext()) {
+            classTinNhan t = new classTinNhan(c.getInt(c.getColumnIndex("MaLoi")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")),c.getInt(c.getColumnIndex("MaDH")));
+            ds.add(t);
+        }
+
+        return ds;
+    }
+    public classTinNhan layLoi(int maLoi){
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "Select MaLoi, NoiDungLoi, TraLoi, MaDH from tb_loi where MaLoi="+maLoi;
+        Cursor c = db.rawQuery(sql, null);
+        classTinNhan t = null;
+        if(c != null && c.moveToNext()) {
+             t = new classTinNhan(c.getInt(c.getColumnIndex("MaLoi")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")),c.getInt(c.getColumnIndex("MaDH")));
+        }
+        return t;
+
+    }
     //------------------------------GioHang----------------------------------------------------------
     // thêm
     public Boolean themGioHang(String maKH, int maSP, int soLuong) {
