@@ -28,6 +28,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etTenGiay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -48,6 +49,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etKichThuoc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -68,6 +70,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etMauSac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -88,6 +91,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etSoLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -108,6 +112,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etGia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -128,6 +133,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etNCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -148,6 +154,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etThuongHieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -168,6 +175,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etXuatXu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -188,6 +196,7 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/etLinkAnh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -202,20 +211,13 @@
         android:layout_marginTop="30dp">
 
         <Button
+
             android:layout_marginLeft="60dp"
             android:id="@+id/btnAdd"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="Thêm"/>
-
-        <Button
-            android:layout_marginLeft="20dp"
-            android:id="@+id/btnThoat"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Trở về"
-            android:textSize="20sp"/>
 
     </LinearLayout>
 
