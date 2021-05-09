@@ -41,12 +41,21 @@ public class DepotManagementAdapter extends RecyclerView.Adapter<DepotManagement
         holder.thuongHieu.setText(RMList.get(position).getThuongHieu());
         holder.xuatXu.setText(RMList.get(position).getXuatXu());
         holder.linkAnh.setText(RMList.get(position).getHinh());
+        holder.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onClick(View view, int position, boolean isLongClick) {
+                Intent intent = new Intent(context, SuaItemDepot.class);
+                intent.putExtra("MaGiay", RMList.get(position).getMaGiay());
+                context.startActivity(intent);
+            }
+        } );
     }
 
     @Override
     public int getItemCount() {
         return RMList.size();
     }
+
 
 
 }
