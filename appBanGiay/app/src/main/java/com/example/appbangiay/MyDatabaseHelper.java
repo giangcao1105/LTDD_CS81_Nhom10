@@ -75,7 +75,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "ThanhTien INTERGER)";
         db.execSQL(sql4);
 
-
         // Khai báo bảng: HinhThucThanhToan(MaThanhToan, LoaiThanhToan)
         String sql6 = "CREATE TABLE  tb_hinhthucthanhtoan ("
                 + "MaThanhToan nvarchar PRIMARY KEY,"
@@ -116,7 +115,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS tb_taikhoan");
         db.execSQL("DROP TABLE IF EXISTS tb_khachhang");
         db.execSQL("DROP TABLE IF EXISTS tb_donhang");
-        db.execSQL("DROP TABLE IF EXISTS tb_khuyenmai");
         db.execSQL("DROP TABLE IF EXISTS tb_hinhthucthanhtoan");
         db.execSQL("DROP TABLE IF EXISTS tb_loi");
         db.execSQL("DROP TABLE IF EXISTS tb_giohang");
@@ -716,6 +714,20 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // lấy ds lỗi
+    public List<Loi> layDSLoi(){
+        SQLiteDatabase db = getWritableDatabase();
+        List<Loi> ds = new ArrayList<>();
+        String sql = "Select * from tb_loi";
+        Cursor c = db.rawQuery(sql, null);
+        while (c != null && c.moveToNext()) {
+            Loi loi = new Loi(c.getInt(c.getColumnIndex("MaLoi")), c.getInt(c.getColumnIndex("MaDH")), c.getString(c.getColumnIndex("MaKH")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")), c.getString(c.getColumnIndex("NgayPhanHoi")));
+            ds.add(loi);
+        }
+
+        return ds;
+
+    }
     //------------------------------GioHang----------------------------------------------------------
     // thêm
     public Boolean themGioHang(String maKH, int maSP, int soLuong) {

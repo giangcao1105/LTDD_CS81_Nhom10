@@ -4,23 +4,23 @@ import java.util.Date;
 
 public class Loi {
     private int maLoi;
-    private int maSp;
+    private int MaDH;
     private String maKH;
     private String noiDungLoi;
-    private String noiDungTraLoi;
-    private Date ngayPhanHoi;
+    private String TraLoi;
+    private String ngayPhanHoi;
 
     public Loi()
     {
 
     }
-    public Loi(int maLoi, int maSp, String maKH, String noiDungLoi, String noiDungTraLoi, Date ngayPhanHoi)
+    public Loi(int maLoi, int maDH, String maKH, String noiDungLoi, String noiDungTraLoi, String ngayPhanHoi)
     {
         this.setMaKH(maKH);
         this.setMaLoi(maLoi);
-        this.setMaSp(maSp);
+        this.setMaDH(maDH);
         this.setNgayPhanHoi(ngayPhanHoi);
-        this.setNoiDungTraLoi(noiDungTraLoi);
+        this.setTraLoi(noiDungTraLoi);
         this.setNoiDungLoi(noiDungLoi);
     }
 
@@ -32,12 +32,12 @@ public class Loi {
         this.maLoi = maLoi;
     }
 
-    public int getMaSp() {
-        return maSp;
+    public int getMaDH() {
+        return MaDH;
     }
 
-    public void setMaSp(int maSp) {
-        this.maSp = maSp;
+    public void setMaDH(int maDH) {
+        MaDH = maDH;
     }
 
     public String getMaKH() {
@@ -56,19 +56,19 @@ public class Loi {
         this.noiDungLoi = noiDungLoi;
     }
 
-    public String getNoiDungTraLoi() {
-        return noiDungTraLoi;
+    public String getTraLoi() {
+        return TraLoi;
     }
 
-    public void setNoiDungTraLoi(String noiDungTraLoi) {
-        this.noiDungTraLoi = noiDungTraLoi;
+    public void setTraLoi(String traLoi) {
+        TraLoi = traLoi;
     }
 
-    public Date getNgayPhanHoi() {
+    public String getNgayPhanHoi() {
         return ngayPhanHoi;
     }
 
-    public void setNgayPhanHoi(Date ngayPhanHoi) {
+    public void setNgayPhanHoi(String ngayPhanHoi) {
         this.ngayPhanHoi = ngayPhanHoi;
     }
 }

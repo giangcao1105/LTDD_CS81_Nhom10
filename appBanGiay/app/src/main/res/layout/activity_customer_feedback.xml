@@ -43,20 +43,12 @@
                         <TableRow android:padding="5dp" android:background="#f1f1f1">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="30dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:text="Mã lỗi"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="70dp"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:gravity="center"
@@ -65,312 +57,50 @@
                                 android:layout_marginLeft="5dp"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:gravity="center"
                                 android:layout_weight="3"
                                 android:text="Mã khách hàng"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="10dp"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:gravity="center"
                                 android:layout_weight="5"
                                 android:text="Nội dung lỗi"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="10dp"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:gravity="center"
                                 android:layout_weight="5"
                                 android:text="Nội dung phản hồi"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="10dp"/>
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="120dp"
                                 android:layout_height="wrap_content"
                                 android:textStyle="bold"
                                 android:gravity="center"
                                 android:layout_weight="3"
                                 android:text="Ngày phản hồi"
-                                android:layout_marginLeft="5dp"/>
+                                android:layout_marginLeft="10dp"/>
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content" />
 
                         </TableRow>
 
-                        <TableRow >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/>
-
-                           <!-- <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/> -->
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sửa"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-                        </TableRow>
-
-                        <TableRow >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/>
-
-                            <!-- <TextView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:textStyle="bold"
-                                 android:gravity="center"
-                                 android:layout_weight="5"/> -->
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sửa"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-                        </TableRow>
-
-                        <TableRow >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/>
-
-                            <!-- <TextView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:textStyle="bold"
-                                 android:gravity="center"
-                                 android:layout_weight="5"/> -->
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sửa"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-                        </TableRow>
-
-                        <TableRow >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/>
-
-                            <!-- <TextView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:textStyle="bold"
-                                 android:gravity="center"
-                                 android:layout_weight="5"/> -->
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sửa"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-                        </TableRow>
-
-                        <TableRow >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:textStyle="bold"
-                                android:gravity="center"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="5"/>
-
-                            <!-- <TextView
-                                 android:layout_width="wrap_content"
-                                 android:layout_height="wrap_content"
-                                 android:textStyle="bold"
-                                 android:gravity="center"
-                                 android:layout_weight="5"/> -->
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sửa"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:layout_weight="3"/>
-                        </TableRow>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/recyclerView"/>
 
                     </TableLayout>
 
@@ -383,7 +113,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/btn_Xoa"
+                    android:id="@+id/btn_xoa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="240dp"
