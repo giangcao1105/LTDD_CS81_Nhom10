@@ -16,18 +16,17 @@
         android:textStyle="bold"
         android:layout_gravity="center"/>
 
-    <EditText
+    <TextView
+        android:id="@+id/tv_noidungloi"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:textSize="25sp"
         android:layout_gravity="center"
-        android:hint="Nội dung lỗi ở đây"/>
-    <!-- Sửa thành textview nếu edittext không tràn chữ xuống dòng dưới-->
+        android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -36,15 +35,14 @@
         android:layout_gravity="center"/>
 
     <EditText
+        android:id="@+id/edt_phanhoi"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:textSize="25sp"
         android:layout_gravity="center"
-        android:hint="Nội dung phản hồi ở đây"/>
-    <!-- Sửa thành textview nếu edittext không tràn chữ xuống dòng dưới-->
-    <!-- Chỗ này t không chắc nên để edittext hay là textview-->
+        android:hint="Nội dung phản hồi ở đây"
+        android:layout_marginLeft="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +52,7 @@
 
         <Button
             android:layout_marginLeft="60dp"
-            android:id="@+id/btGui"
+            android:id="@+id/bt_gui"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -62,7 +60,7 @@
 
         <Button
             android:layout_marginLeft="20dp"
-            android:id="@+id/btThoat"
+            android:id="@+id/bt_thoat"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Thoát"
