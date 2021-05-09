@@ -27,10 +27,9 @@ public class MainActivity extends AppCompatActivity {
         bt_signIn = findViewById(R.id.btn_sign_in);
         edt_tk = findViewById(R.id.edt_tk);
         edt_mk = findViewById(R.id.edt_mk);
-<<<<<<< HEAD
-=======
+
 //        db.onCreate(db.getWritableDatabase());
->>>>>>> 79de3b03bcbb512a04102bf3e8692996fefdad91
+
 //        db.khoiTaoGiay();
         bt_register.setOnClickListener(new View.OnClickListener() {
             @Override
