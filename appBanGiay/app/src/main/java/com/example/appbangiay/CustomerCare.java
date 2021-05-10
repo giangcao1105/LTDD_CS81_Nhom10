@@ -1,5 +1,6 @@
 package com.example.appbangiay;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appbangiay.ui.user.UserFragment;
+
 import java.sql.Date;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ import java.util.List;
 public class CustomerCare extends AppCompatActivity {
 
     EditText edtMoTaLoi,edtMaDH;
-    Button btGui, btThoat;
+    Button btGui;
     private List<String> list;
     MyDatabaseHelper dbh;
     @Override
@@ -31,15 +34,16 @@ public class CustomerCare extends AppCompatActivity {
         anhXa();
         dbh = new MyDatabaseHelper(this);
         Date sqlDate = new  Date(System.currentTimeMillis());
-//        boolean check = dbh.themDonHang("123","1","1",1,111111, sqlDate,sqlDate);
+
         btGui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dbh.kiemTraDonHangTonTai(Integer.parseInt(edtMaDH.getText().toString())))
+                if(dbh.kiemTraDonHangTonTai(Integer.parseInt(edtMaDH.getText().toString()),MainActivity.TAIKHOAN))
                 {
-                    dbh.themLoi(Integer.parseInt(edtMaDH.getText().toString()), "123",edtMoTaLoi.getText().toString());
+                    dbh.themLoi(Integer.parseInt(edtMaDH.getText().toString()), MainActivity.TAIKHOAN,edtMoTaLoi.getText().toString());
                     Toast.makeText(CustomerCare.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-
+                    edtMoTaLoi.setText("");
+                    edtMaDH.setText("");
                 }
                 else
                 {
@@ -47,12 +51,18 @@ public class CustomerCare extends AppCompatActivity {
                 }
             }
         });
+
     }
     private void anhXa()
     {
         edtMaDH = findViewById(R.id.edtMaDH);
         edtMoTaLoi = findViewById(R.id.edtMoTaLoi);
         btGui = findViewById(R.id.btGui);
-        btThoat = findViewById(R.id.btThoat);
+
+    }
+
+    private void openUser() {
+        Intent intent = new Intent(this, UserFragment.class);
+        startActivity(intent);
     }
 }

@@ -81,18 +81,10 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <Button
-                android:layout_marginStart="50dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quên mật khẩu?"
-                android:background="@android:color/transparent"
-                android:textColor="@color/black"
-                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_register"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="150dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đăng ký"

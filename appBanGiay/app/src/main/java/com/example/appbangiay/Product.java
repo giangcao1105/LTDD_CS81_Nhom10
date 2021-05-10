@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.appbangiay.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.appbangiay.MainActivity.TAIKHOAN;
@@ -51,10 +52,16 @@ public class Product extends AppCompatActivity {
         bt_Them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.themGioHang(taiKhoan, maG, 1);
+                if(db.layLoaiTaiKhoan(TAIKHOAN).equals("user")) {
+                    db.themGioHang(taiKhoan, maG, 1);
 
-                Intent intent = new Intent(Product.this, GioHang.class);
-                startActivity(intent);
+                    Intent intent = new Intent(Product.this, HomeFragment.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(Product.this, "Bạn đang là admin. Không thể thêm sản phẩm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

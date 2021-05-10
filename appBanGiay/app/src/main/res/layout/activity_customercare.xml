@@ -47,13 +47,5 @@
         android:textSize="20dp"
         android:text="Gửi"
         android:background="@drawable/bg_edt"/>
-    <Button
-        android:id="@+id/btThoat"
-        android:layout_marginTop="7dp"
-        android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:background="@drawable/bg_edt"
-        android:text="Thoát"
-        android:textSize="20dp"/>
+
 </LinearLayout>

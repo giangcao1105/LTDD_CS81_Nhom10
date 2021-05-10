@@ -10,17 +10,17 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation">
+        android:layout_height="match_parent">
+<!--        android:layout_above="@+id/bottom_navigation">-->
     </FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_navigation"
-        android:background="?android:attr/windowBackground"
-        android:id="@+id/bottom_navigation"/>
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:menu="@menu/bottom_navigation"-->
+<!--        android:background="?android:attr/windowBackground"-->
+<!--        android:id="@+id/bottom_navigation"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,6 @@
             android:id="@+id/txt_User"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Bui Xuan Hieu"
             android:textSize="25sp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="15dp"/>
@@ -64,8 +63,22 @@
         android:text="Chăm sóc khách hàng"
         android:textSize="20sp"/>
     <Button
-        android:id="@+id/btn_DangXuat1"
+        android:id="@+id/btn_thongTin"
         android:layout_marginTop="410dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Thay đổi thông tin"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/btn_tinNhan"
+        android:layout_marginTop="480dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Tin nhắn"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/btn_DangXuat1"
+        android:layout_marginTop="550dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Đăng xuất"

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,10 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     View view0;
     MyDatabaseHelper db;
     int soLuong;
-    int tongTien;
+    public static ThongTinDonHang thongTinDonHang;
+    private int tongTien;
+    private List <Giay> dsGiay = new ArrayList<>();
+    private DonHang dh;
     List <Integer> soLuongToiDa = new ArrayList<>();
     List<Integer> soLuongHienTai = new ArrayList<>();
     List<Boolean> vtTick = new ArrayList<>();
@@ -92,7 +96,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
         holder.cb_tick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tongTien=0;
+                setTongTien(0);
                 if(holder.cb_tick.isChecked())
                 {
                     vtTick.set(position,true);
@@ -102,8 +106,14 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
                     vtTick.set(position,false);
                 }
                 for (int i = 0;i < soLuongToiDa.size(); i++)
-                    if(vtTick.get(i))
-                        tongTien += (db.xemCTGiay(ds_gioHang.get(i).getMaSP()).getGia()) * soLuongHienTai.get(i);
+                    if(vtTick.get(i)) {
+                        java.sql.Date sqlDate = new Date(System.currentTimeMillis());
+                        setTongTien(getTongTien() + (db.xemCTGiay(ds_gioHang.get(i).getMaSP()).getGia()) * soLuongHienTai.get(i));
+                        getDsGiay().add(new Giay(ds_gioHang.get(i).getMaSP(),soLuongHienTai.get(i)));
+                        setDh(new DonHang(MainActivity.TAIKHOAN,sqlDate,sqlDate, getTongTien()));
+
+                    }
+                thongTinDonHang = new ThongTinDonHang(getTongTien(),getDsGiay());
             }
         });
     }
@@ -111,5 +121,29 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     @Override
     public int getItemCount() {
         return this.ds_gioHang.size();
+    }
+
+    public int getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public List<Giay> getDsGiay() {
+        return dsGiay;
+    }
+
+    public void setDsGiay(List<Giay> dsGiay) {
+        this.dsGiay = dsGiay;
+    }
+
+    public DonHang getDh() {
+        return dh;
+    }
+
+    public void setDh(DonHang dh) {
+        this.dh = dh;
     }
 }

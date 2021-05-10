@@ -21,7 +21,8 @@ public class SettingInUser extends AppCompatActivity {
     EditText edtHoVaTen, edtNgaySinh, edtDiaChi, edtSDT, edtEmail;
     Button btnSua;
     MyDatabaseHelper db;
-    String maKH = "123";
+    String maKH = MainActivity.TAIKHOAN;
+//    String maKH = "123";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +94,7 @@ public class SettingInUser extends AppCompatActivity {
                                             result1 = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
                                             if (result1) {
                                                 Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                                                MainActivity.TAIKHOAN = edtSDT.getText().toString();
                                                 maKH = edtSDT.getText().toString();
 
                                             } else {
@@ -116,6 +118,7 @@ public class SettingInUser extends AppCompatActivity {
                         result = db.suaKhachHang(maKH, txtHoTen, txtSDT, dateNgaySinh, txtEmail, txtDiaChi);
                         if (result) {
                             Toast.makeText(SettingInUser.this, "Đã cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                            MainActivity.TAIKHOAN = edtSDT.getText().toString();
                             maKH = edtSDT.getText().toString();
                         } else {
                             Toast.makeText(SettingInUser.this, "Cập nhật thất bại, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
@@ -127,7 +130,7 @@ public class SettingInUser extends AppCompatActivity {
         });
     }
 
-// chưa fix dòng 66, 86
+
     private void AnhXa()
     {
         edtHoVaTen = findViewById(R.id.edt_HoVaTen);

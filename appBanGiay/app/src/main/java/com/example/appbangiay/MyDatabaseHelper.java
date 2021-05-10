@@ -71,15 +71,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "KH nvarchar NOT NULL,"
                 + "NgayDatHang DATETIME,"
                 + "NgayGiaoHang DATETIME,"
-                + "MaThanhToan nvarchar NOT NULL,"
                 + "ThanhTien INTERGER)";
         db.execSQL(sql4);
 
-        // Khai báo bảng: HinhThucThanhToan(MaThanhToan, LoaiThanhToan)
-        String sql6 = "CREATE TABLE  tb_hinhthucthanhtoan ("
-                + "MaThanhToan nvarchar PRIMARY KEY,"
-                + "LoaiThanhToan nvarchar)";
-        db.execSQL(sql6);
 
         // Khai báo bảng: Lỗi(MãLỗi, MaDH, MaKH, NộiDungLỗi, Trả lời, NgayPhanHoi)
         String sql7 = "CREATE TABLE  tb_loi ("
@@ -107,7 +101,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "SoLuong INTEGER,"
                 + "PRIMARY KEY (MaDH, MaGiay))";
         db.execSQL(sql9);
+
+        // Khai báo bảnh: HinhThucLayHang(MaDH, DiaChi,HinhThucGiaoHang)
+        String sql10 = "CREATE TABLE tb_hinhthuclayhang("
+                + "MaDH INTEGER,"
+                + "DiaChi String,"
+                + "HinhThucGiaoHang String,"
+                + "PRIMARY KEY (MaDH))";
+        db.execSQL(sql10);
     }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -119,6 +123,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS tb_loi");
         db.execSQL("DROP TABLE IF EXISTS tb_giohang");
         db.execSQL("DROP TABLE IF EXISTS tb_chitietdonhang");
+        db.execSQL("DROP TABLE IF EXISTS tb_hinhthuclayhang");
 
         onCreate(db);
     }
@@ -236,7 +241,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         boolean result;
         String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
         Cursor c = db.rawQuery(sql, null);
-        if (c == null)
+//        if (c == null)
         {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
             result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
@@ -378,6 +383,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             db.close();
             return result;
         }
+    }
+    public String layLoaiTaiKhoan(String tk)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        KhachHang k = new KhachHang();
+        String sql = "Select * from tb_taikhoan where TK ='" + tk + "'";
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor != null && cursor.moveToNext())
+            return cursor.getString(cursor.getColumnIndex("LoaiTK"));
+        return null;
     }
 
     // ktra tài khoản đăng nhập
@@ -540,7 +555,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         if (cursor != null && cursor.moveToFirst()) {
             don.setMaDH(Integer.parseInt(cursor.getString(cursor.getColumnIndex("MaDH"))));
             don.setKH(cursor.getString(cursor.getColumnIndex("KH")));
-            don.setMaThanhToan(cursor.getString(cursor.getColumnIndex("MaThanhToan")));
+
             don.setThanhTien(Integer.parseInt(cursor.getString(cursor.getColumnIndex("ThanhTien"))));
             don.setNgayDatHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayDatHang"))));
             don.setNgayGiaoHang(Date.valueOf(cursor.getString(cursor.getColumnIndex("NgayGiaoHang"))));
@@ -550,14 +565,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //thêm đơn hàng
-    public Boolean themDonHang(String maKH, Date ngayDatHang, Date ngayGiaoHang, String maThanhToan, int thanhTien) {
+    public Boolean themDonHang(String maKH, Date ngayDatHang, Date ngayGiaoHang, int thanhTien) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("KH", maKH);
         contentValues.put("NgayDatHang", ngayDatHang.toString());
         contentValues.put("NgayGiaoHang", ngayGiaoHang.toString());
-        contentValues.put("MaThanhToan", maThanhToan);
         contentValues.put("ThanhTien", thanhTien);
 
         long result = DB.insert("tb_donhang", null, contentValues);
@@ -572,9 +586,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Kiểm tra đơn hàng tồn tại
-    public boolean kiemTraDonHangTonTai(int MaDH) {
+    public boolean kiemTraDonHangTonTai(int MaDH, String taiKhoan) {
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "Select * from tb_donhang WHERE MaDH = " + MaDH;
+        String sql = "Select * from tb_donhang WHERE MaDH = " + MaDH + " AND KH = '" +taiKhoan+"'";
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null && cursor.moveToFirst()) {
             cursor.close();
@@ -600,10 +614,40 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     //truy xuat don hang theo thang/nam
-    public List<RevenuewManagementModel> layThongTinDonHang(String thoiGian1, String thoiGian2) {
+//    public List<RevenuewManagementModel> layThongTinDonHang(String thoiGian1, String thoiGian2) {
+//        List<RevenuewManagementModel> list = new ArrayList<>();
+//        SQLiteDatabase db = getWritableDatabase();
+//        String sql = "Select MaDH from tb_donhang where " + thoiGian2 + " < NgayGiaoHang AND NgayGiaoHang > " + thoiGian1 + " GROUP BY MaDH";
+////        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang GROUP BY MaGiay";
+//        Cursor cursor = db.rawQuery(sql, null);
+////        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
+//        String sql2  = "SELECT MaGiay, SUM(SoLuong) as 'SoLuong' from tb_chitietdonhang where";
+//        boolean flag = true;
+//        if(cursor != null && cursor.moveToNext()) {
+//            while (cursor != null && flag == true) {
+//                sql2 += " MaDH = " + cursor.getInt(cursor.getColumnIndex("MaDH"));
+//                if (cursor.moveToNext())
+//                    sql2 += " AND ";
+//                else
+//                    flag = false;
+//            }
+//        }
+//        sql2 += " GROUP BY MaGiay";
+//        cursor.close();
+//        cursor = db.rawQuery(sql2,null);
+//        while(cursor != null && cursor.moveToNext())
+//        {
+//            int sl = cursor.getInt(cursor.getColumnIndex("SoLuong"));
+//            RevenuewManagementModel rmm = new RevenuewManagementModel(xemCTGiay(cursor.getInt(cursor.getColumnIndex("MaGiay"))).getTenGiay(), sl, sl * xemCTGiay(cursor.getInt(cursor.getColumnIndex("MaGiay"))).getGia());
+//            list.add(rmm);
+//        }
+//        return list;
+//    }
+
+    public List<RevenuewManagementModel> layThongTinDonHang() {
         List<RevenuewManagementModel> list = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "Select MaDH from tb_donhang where " + thoiGian2 + " < NgayGiaoHang AND NgayGiaoHang > " + thoiGian1 + " GROUP BY MaDH";
+        String sql = "Select MaDH from tb_donhang ";
 //        String sql = "Select MaGiay, count(*) as 'SoLuong', SUM(ThanhTien) as 'TongTien' from tb_donhang GROUP BY MaGiay";
         Cursor cursor = db.rawQuery(sql, null);
 //        SimpleDateFormat f = new SimpleDateFormat("dd/mm/yyyy");
@@ -648,7 +692,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return list;
     }
-
+    //Lay Don hamg moi them gan nhat
+    public int layMaDHMoiThem()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "SELECT MaDH FROM tb_donHang ORDER BY MaDH DESC";
+        Cursor c = db.rawQuery(sql, null);
+        if(c != null && c.moveToNext())
+            return c.getInt(c.getColumnIndex("MaDH"));
+        return 0;
+    }
     //------------------------------HinhThucThanhToan----------------------------------------------------------
     // Thêm
     public Boolean themHTTT(String maTT, String loaiTT) {
@@ -911,5 +964,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+//-----------------------------Hình thức lấy hàng-----------------------------------------------------
+public Boolean themHinhThucLayHang(int maDH, String diaChi,  String hinhThucGiaoHang) {
+    SQLiteDatabase DB = this.getWritableDatabase();
+    ContentValues contentValues = new ContentValues();
 
+    contentValues.put("MaDH", maDH);
+    contentValues.put("DiaChi", diaChi);
+    contentValues.put("HinhThucGiaoHang", hinhThucGiaoHang);
+    long result = DB.insert("tb_hinhthuclayhang", null, contentValues);
+
+    return result != -1;
+}
 }

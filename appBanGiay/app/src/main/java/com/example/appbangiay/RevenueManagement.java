@@ -38,9 +38,8 @@ public class RevenueManagement extends AppCompatActivity {
     {
         List<RevenuewManagementModel> RMList = new ArrayList<>();
         MyDatabaseHelper db = new MyDatabaseHelper(this);
-        String thoiGian1 = "2021/04/04";
-        String thoiGian2 = "2021/06/01";
-        RMList = db.layThongTinDonHang(thoiGian1,thoiGian2);
+
+        RMList = db.layThongTinDonHang();
         java.sql.Date sqlDate = new Date(System.currentTimeMillis());
 //        db.themDonHang("1","0","1",1,100000,sqlDate,sqlDate);
 //        db.themDonHang("1","0","1",1,200000,sqlDate,sqlDate);

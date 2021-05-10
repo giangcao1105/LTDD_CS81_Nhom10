@@ -17,17 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppBanGiay"
         android:usesCleartextTraffic="true">
-<<<<<<< HEAD
-        <activity android:name=".ReportError" /> <!-- Nhờ fix chỗ này, không load lên form -->
-=======
-        <activity android:name=".AddItemToDepot"></activity>
+
         <activity android:name=".ReportError">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> d4a1a1aa2fb98eec581b046c0e9b44638e82a8ac
         <activity android:name=".ListProductItem">
             <intent-filter>
                 <action android:name="android.intent.action.ListProductItem" />
@@ -93,14 +89,14 @@
         </activity>
         <activity android:name=".SettingInUser">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
+                <action android:name="android.intent.action.Main" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".CustomerCare">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
+                <action android:name="android.intent.action.User" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -147,6 +143,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TinNhan">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChiTietPhanHoi">
+            <intent-filter>
+                <action android:name="android.intent.action.homepage_form" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

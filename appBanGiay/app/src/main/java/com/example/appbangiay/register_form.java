@@ -44,6 +44,11 @@ public class register_form extends AppCompatActivity {
                     Toast.makeText(register_form.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else
+                    if(!matKhauTxt.equals(nhapLaiMatKhauTxt))
+                    {
+                        Toast.makeText(register_form.this, "Mật khẩu và nhập lại mật khẩu không giống nhau", Toast.LENGTH_SHORT).show();
+                    }
+                    else
                 {
                     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
                     java.util.Date date = null;

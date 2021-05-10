@@ -14,7 +14,11 @@ public class Giay {
 
     public  Giay(){
     }
-
+    public Giay(int maGiay, int soLuong)
+    {
+        this.setMaGiay(maGiay);
+        this.setSoLuong(soLuong);
+    }
     public Giay(int maGiay, String tenGiay, int size, String mau, int sl, int gia, String nhacc, String thuonghieu, String xuatxu, String hinh){
         this.setMaGiay(maGiay);
         this.setTenGiay(tenGiay);
