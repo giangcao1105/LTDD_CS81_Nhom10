@@ -35,7 +35,9 @@ public class SettingInUser extends AppCompatActivity {
         KhachHang k = db.xemCTKhach(maKH);
         String txtHoTen0 = k.getHoTen();
         String txtSDT0 = k.getSDT();
-        String txtNgaySinh0 = k.getNgaySinh().toString();
+        String txtNgaySinh0 = "";
+        if(k.getNgaySinh() != null)
+            txtNgaySinh0 = k.getNgaySinh().toString();
         String txtDiaChi0 = k.getDiaChi();
         String txtEmail0 = k.getEmail();
 
@@ -70,8 +72,12 @@ public class SettingInUser extends AppCompatActivity {
                 } catch (ParseException e) {
                     flag = false;
                 }
-
-                if(txtHoTen.isEmpty() || txtDiaChi.isEmpty() || txtEmail.isEmpty() || txtNgaySinh.isEmpty() || txtSDT.isEmpty() || flag == false)
+                if(flag == false)
+                {
+                    Toast.makeText(SettingInUser.this, "Ngày không hợp lệ, vui lòng kiểm tra lại (dd-MM-yyyy).", Toast.LENGTH_SHORT).show();
+                }
+                else
+                if(txtHoTen.isEmpty() || txtDiaChi.isEmpty() || txtEmail.isEmpty() || txtNgaySinh.isEmpty() || txtSDT.isEmpty())
                 {
                     Toast.makeText(SettingInUser.this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
                 }else {
