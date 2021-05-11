@@ -75,6 +75,24 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
                     holder.bt_tru.setEnabled(true);
                     holder.edtSoLuong.setText(soLuong + 1 +"");
                     soLuongHienTai.set(position,soLuongHienTai.get(position)+1);
+                    setTongTien(0);
+                    if(holder.cb_tick.isChecked())
+                    {
+                        vtTick.set(position,true);
+                    }
+                    else
+                    {
+                        vtTick.set(position,false);
+                    }
+                    for (int i = 0;i < soLuongToiDa.size(); i++)
+                        if(vtTick.get(i)) {
+                            java.sql.Date sqlDate = new Date(System.currentTimeMillis());
+                            setTongTien(getTongTien() + (db.xemCTGiay(ds_gioHang.get(i).getMaSP()).getGia()) * soLuongHienTai.get(i));
+                            getDsGiay().add(new Giay(ds_gioHang.get(i).getMaSP(),soLuongHienTai.get(i)));
+                            setDh(new DonHang(MainActivity.TAIKHOAN,sqlDate,sqlDate, getTongTien()));
+
+                        }
+                    thongTinDonHang = new ThongTinDonHang(getTongTien(),getDsGiay());
                 }
 
 
@@ -121,6 +139,24 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
                             holder.edtSoLuong.setText(soLuong - 1+"");
                             soLuongHienTai.set(position,soLuongHienTai.get(position)-1);
                             holder.bt_cong.setEnabled(true);
+                            setTongTien(0);
+                            if(holder.cb_tick.isChecked())
+                            {
+                                vtTick.set(position,true);
+                            }
+                            else
+                            {
+                                vtTick.set(position,false);
+                            }
+                            for (int i = 0;i < soLuongToiDa.size(); i++)
+                                if(vtTick.get(i)) {
+                                    java.sql.Date sqlDate = new Date(System.currentTimeMillis());
+                                    setTongTien(getTongTien() + (db.xemCTGiay(ds_gioHang.get(i).getMaSP()).getGia()) * soLuongHienTai.get(i));
+                                    getDsGiay().add(new Giay(ds_gioHang.get(i).getMaSP(),soLuongHienTai.get(i)));
+                                    setDh(new DonHang(MainActivity.TAIKHOAN,sqlDate,sqlDate, getTongTien()));
+
+                                }
+                            thongTinDonHang = new ThongTinDonHang(getTongTien(),getDsGiay());
                         }
 
                     }

@@ -53,10 +53,16 @@ public class Product extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(db.layLoaiTaiKhoan(taiKhoan).equals("user")) {
-                    db.themGioHang(taiKhoan, maG, 1);
+                    if(giay.getSoLuong()<= 0)
+                    {
+                        Toast.makeText(Product.this, "Sản phẩm đã hết", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        db.themGioHang(taiKhoan, maG, 1);
 
-                    Intent intent = new Intent(Product.this, homepage_form.class);
-                    startActivity(intent);
+                        Intent intent = new Intent(Product.this, homepage_form.class);
+                        startActivity(intent);
+                    }
                 }
                 else
                 {

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn mã sản phẩm bị lỗi"
+        android:text="Nhập mã sản phẩm bị lỗi"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_gravity="center"/>

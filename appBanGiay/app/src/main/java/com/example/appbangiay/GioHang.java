@@ -34,12 +34,7 @@ public class GioHang extends AppCompatActivity {
         setContentView(R.layout.activity_giohang);
         db = new MyDatabaseHelper(this);
         java.sql.Date sqlDate = new Date(System.currentTimeMillis());
-//        db.themGioHang("123",1,1);
-//        db.themGioHang("123",2,1);
-//        db.themGioHang("0123456789",4,1);
-//        db.themCTDH(1,1,2);
-//        db.themCTDH(1,2,4);
-//        db.themCTDH(1,4,1);
+
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         AnhXa();
