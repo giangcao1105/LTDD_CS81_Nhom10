@@ -23,11 +23,13 @@ import com.example.appbangiay.MyDatabaseHelper;
 import com.example.appbangiay.PurchaseHistory;
 import com.example.appbangiay.R;
 import com.example.appbangiay.RevenueManagement;
+import com.example.appbangiay.SettingInUser;
+import com.example.appbangiay.TinNhan;
 
 public class UserFragment extends Fragment implements View.OnClickListener{
 
     Context context0;
-    Button btn_LichSuMuaHang, btn_DangXuat1, btn_ChamSocKhachHang;
+    Button btn_LichSuMuaHang, btn_DangXuat1, btn_ChamSocKhachHang, btnThongTin, btTinNhan;
     TextView txt_User;
     MyDatabaseHelper db;
     Button btn_QuanLyDoanhThu, btn_PhanHoiTuKhachHang, btn_QuanLyKhoHang, btn_DangXuat;
@@ -56,6 +58,18 @@ public class UserFragment extends Fragment implements View.OnClickListener{
                 @Override
                 public void onClick(View v) {
                     openLichSuMuaHang();
+                }
+            });
+            btnThongTin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openSettingInUser();
+                }
+            });
+            btTinNhan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openTinNhan();
                 }
             });
             return view;
@@ -103,6 +117,8 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         btn_ChamSocKhachHang = view.findViewById(R.id.btn_ChamSocKhachHang);
         btn_DangXuat1 = view.findViewById(R.id.btn_DangXuat1);
         txt_User = view.findViewById(R.id.txt_User);
+        btnThongTin = view.findViewById(R.id.btThongTin);
+        btTinNhan = view.findViewById(R.id.btn_tinNhan);
     }
     @Override
     public void onAttach(@NonNull Context context) {
@@ -124,7 +140,16 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         Intent intent = new Intent(context0, MainActivity.class);
         startActivity(intent);
     }
-
+    private void openSettingInUser()
+    {
+        Intent intent = new Intent(context0, SettingInUser.class);
+        startActivity(intent);
+    }
+    private void openTinNhan()
+    {
+        Intent intent = new Intent(context0, TinNhan.class);
+        startActivity(intent);
+    }
     //admin=-----------------------------------------------------------------
     private void AnhXa2(View view)
     {
@@ -146,4 +171,5 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         Intent intent = new Intent(context0, DepotManagement.class);
         startActivity(intent);
     }
+
 }
