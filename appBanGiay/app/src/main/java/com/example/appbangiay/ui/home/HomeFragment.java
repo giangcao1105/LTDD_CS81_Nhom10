@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.example.appbangiay.MainActivity;
 import com.example.appbangiay.MyDatabaseHelper;
 import com.example.appbangiay.Product;
 import com.example.appbangiay.R;
+import com.example.appbangiay.Search;
 import com.example.appbangiay.homepage_form;
 import com.example.appbangiay.register_form;
 
@@ -44,7 +46,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     TextView tv_BS_1, tv_BS_2, tv_BS_3, tv_BS_4, tv_BS_5, tv_BS2_1, tv_BS2_2, tv_BS2_3, tv_BS2_4, tv_BS2_5, tv_BS3_1, tv_BS3_2, tv_BS3_3, tv_BS3_4;
     ImageButton ib_BS_1, ib_BS_2, ib_BS_3, ib_BS_4, ib_BS_5, ib_BS2_1, ib_BS2_2, ib_BS2_3, ib_BS2_4, ib_BS2_5, ib_BS3_1, ib_BS3_2, ib_BS3_3, ib_BS3_4;
-    Button bt_See_More;
+    EditText edt_Search;
+    Button bt_See_More, bt_Search;
     Context context0;
     MyDatabaseHelper db;
     String taiKhoan;
@@ -98,6 +101,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         bt_See_More.setOnClickListener(this);
 
+        bt_Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSearch(edt_Search.getText().toString());
+            }
+        });
         ib_BS_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -232,6 +241,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         ib_BS3_4 = (ImageButton) view.findViewById(R.id.ib_Best_Sale3_4);
 
         bt_See_More = (Button) view.findViewById(R.id.bt_See_More);
+        bt_Search = (Button) view.findViewById(R.id.bt_search);
+
+        edt_Search = (EditText) view.findViewById(R.id.edt_search);
     }
 
     @Override
@@ -243,6 +255,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private void openProduct(int maG) {
         Intent intent = new Intent(context0, Product.class);
         intent.putExtra("MaGiay", maG);
+        startActivity(intent);
+    }
+
+    private void openSearch(String tenGiay) {
+        Intent intent = new Intent(context0, Search.class);
+        intent.putExtra("TenGiay", tenGiay);
         startActivity(intent);
     }
 }

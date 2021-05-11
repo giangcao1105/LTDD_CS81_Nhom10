@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true">
 
         <EditText
-            android:id="@+id/edit_search"
+            android:id="@+id/edt_search"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Search"
@@ -23,11 +23,12 @@
             android:layout_marginTop="5dp"/>
 
         <Button
+            android:id="@+id/bt_search"
             android:layout_width="60dp"
             android:layout_height="35dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/edit_search"
+            android:layout_toRightOf="@+id/edt_search"
             android:background="@drawable/ic_search" />
 
     </RelativeLayout>

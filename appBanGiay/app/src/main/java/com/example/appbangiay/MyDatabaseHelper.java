@@ -273,6 +273,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return ds;
     }
 
+    // Tìm kiếm giày
+    public List<Giay> timGiay(String ten) {
+        SQLiteDatabase db = getWritableDatabase();
+        List<Giay> ds = new ArrayList<>();
+        String sql = "Select * from tb_giay where TenGiay like '%" + ten + "%'";
+        Cursor c = db.rawQuery(sql, null);
+        while (c != null && c.moveToNext()) {
+            Giay giay = xemCTGiay(Integer.parseInt(c.getString(c.getColumnIndex("MaGiay"))));
+            ds.add(giay);
+        }
+
+        return ds;
+    }
     //Khởi tạo 20 giày
     public void khoiTaoGiay() {
         SQLiteDatabase db = getWritableDatabase();
