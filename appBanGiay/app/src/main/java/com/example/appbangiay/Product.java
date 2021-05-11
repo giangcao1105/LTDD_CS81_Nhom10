@@ -52,10 +52,10 @@ public class Product extends AppCompatActivity {
         bt_Them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(db.layLoaiTaiKhoan(TAIKHOAN).equals("user")) {
+                if(db.layLoaiTaiKhoan(taiKhoan).equals("user")) {
                     db.themGioHang(taiKhoan, maG, 1);
 
-                    Intent intent = new Intent(Product.this, HomeFragment.class);
+                    Intent intent = new Intent(Product.this, homepage_form.class);
                     startActivity(intent);
                 }
                 else

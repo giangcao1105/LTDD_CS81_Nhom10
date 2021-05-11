@@ -20,42 +20,31 @@
 
         <activity android:name=".ReportError">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ListProductItem">
             <intent-filter>
-                <action android:name="android.intent.action.ListProductItem" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".CustomerFeedback">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".DepotManagement">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Product">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".homepage_form">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -68,92 +57,66 @@
         </activity>
         <activity android:name=".register_form">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".User">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".RevenueManagement">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SettingInUser">
             <intent-filter>
-                <action android:name="android.intent.action.Main" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".CustomerCare">
             <intent-filter>
-                <action android:name="android.intent.action.User" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".UserAdmin">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".PurchaseHistory">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Cart">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".GioHang">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".AddItemToDepot">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SuaItemDepot">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".TinNhan">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ChiTietPhanHoi">
             <intent-filter>
-                <action android:name="android.intent.action.homepage_form" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

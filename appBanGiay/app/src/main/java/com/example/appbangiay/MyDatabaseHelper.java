@@ -21,7 +21,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     // Khai báo tên và phiên bản database
     final static int DATABASE_VERSION = 1;
     final static String DATABASE_NAME = "app_ban_giay.db";
-
+    private SQLiteDatabase mDefaultWritableDatabase = null;
     // Khai báo biến Context
     Context context;
 
@@ -31,7 +31,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    public SQLiteDatabase getWritableDatabase() {
+        final SQLiteDatabase db;
+        if (mDefaultWritableDatabase != null) {
+            db = mDefaultWritableDatabase;
+        } else {
+            db = super.getWritableDatabase();
+        }
+        return db;
+    }
+
+    @Override
     public void onCreate(SQLiteDatabase db) {
+        this.mDefaultWritableDatabase = db;
         // Khai báo bảng: Giày (MaGiay, TenGiay, Size giay, MauSac, SoLuong, Gia, CungCapBoi, ThuongHieu, XuatXu, Hinh)
         String sql1 = "CREATE TABLE  tb_giay ("
                 + "MaGiay INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -115,6 +127,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        this.mDefaultWritableDatabase = db;
         db.execSQL("DROP TABLE IF EXISTS tb_giay");
         db.execSQL("DROP TABLE IF EXISTS tb_taikhoan");
         db.execSQL("DROP TABLE IF EXISTS tb_khachhang");
@@ -387,10 +400,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public String layLoaiTaiKhoan(String tk)
     {
         SQLiteDatabase db = getWritableDatabase();
-        KhachHang k = new KhachHang();
         String sql = "Select * from tb_taikhoan where TK ='" + tk + "'";
         Cursor cursor = db.rawQuery(sql, null);
-        if(cursor != null && cursor.moveToNext())
+        if(cursor != null && cursor.moveToFirst())
             return cursor.getString(cursor.getColumnIndex("LoaiTK"));
         return null;
     }
@@ -838,6 +850,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             contentValues.put("MaKH", maKH);
             contentValues.put("MaSP", maSP);
             contentValues.put("SoLuong", soLuong);
+            contentValues.put("DonGia", xemCTGiay(maSP).getGia());
             long result2 = DB.insert("tb_giohang", null, contentValues);
             result = result2 != -1;
         }
