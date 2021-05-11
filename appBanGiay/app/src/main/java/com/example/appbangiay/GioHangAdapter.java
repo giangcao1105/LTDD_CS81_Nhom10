@@ -1,12 +1,16 @@
 package com.example.appbangiay;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,7 +23,6 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
 
     Context c;
     List<classGioHang> ds_gioHang;
-    View view0;
     MyDatabaseHelper db;
     int soLuong;
     public static ThongTinDonHang thongTinDonHang;
@@ -82,8 +85,37 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
             public void onClick(View v) {
 
                 soLuong = Integer.parseInt(holder.edtSoLuong.getText().toString());
-                        if(soLuong <= 0)
+                        if(soLuong <= 0) {
                             holder.bt_tru.setEnabled(false);
+                            if (soLuong == 0)
+                            {
+                                AlertDialog.Builder builder1 = new AlertDialog.Builder(c);
+                                builder1.setMessage("Bạn có muốn xóa sản phẩm khỏi giỏ hàng.");
+                                builder1.setCancelable(true);
+
+                                builder1.setPositiveButton(
+                                        "Yes",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                db.xoaGioHang(MainActivity.TAIKHOAN,ds_gioHang.get(position).getMaSP());
+                                                        Intent intent = new Intent(c, GioHang.class);
+                                                        c.startActivity(intent);
+                                            }
+                                        });
+
+                                builder1.setNegativeButton(
+                                        "No",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                                holder.edtSoLuong.setText(1+"");
+                                            }
+                                        });
+
+                                AlertDialog alert11 = builder1.create();
+                                alert11.show();
+                            }
+                        }
                         else {
 
                             holder.edtSoLuong.setText(soLuong - 1+"");
@@ -146,4 +178,5 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     public void setDh(DonHang dh) {
         this.dh = dh;
     }
+
 }

@@ -21,10 +21,7 @@ public class CustomerFeedback extends AppCompatActivity {
         setContentView(R.layout.activity_customer_feedback);
         db = new MyDatabaseHelper(this);
 
-//        java.sql.Date sqlDate = new Date(System.currentTimeMillis());
-//        db.themLoi(1, "1234","Loi 1 test test test test");
-//        db.themLoi(1, "1234","Loi 2");
-//        db.themLoi(1, "1234","Loi 3");
+
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

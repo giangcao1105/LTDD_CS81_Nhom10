@@ -1,5 +1,6 @@
 package com.example.appbangiay;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,13 +47,24 @@ public class Cart extends AppCompatActivity {
                 boolean checkThemDonHang = db.themDonHang(MainActivity.TAIKHOAN,sqlDate,sqlDate, GioHangAdapter.thongTinDonHang.getTongTien());
                 int dhMoi = db.layMaDHMoiThem();
                 List<Giay> listGiay = GioHangAdapter.thongTinDonHang.getDsGiay();
-                for (int i = 0; i < listGiay.size(); i++)
-                    db.themCTDH(dhMoi,listGiay.get(i).getMaGiay(),listGiay.get(i).getSoLuong());
+                for (int i = 0; i < listGiay.size(); i++) {
+                    db.themCTDH(dhMoi, listGiay.get(i).getMaGiay(), listGiay.get(i).getSoLuong());
+                    db.xoaGioHang(MainActivity.TAIKHOAN,listGiay.get(i).getMaGiay());
+                    int soLuongGiayTrongKho = db.laySoLuongGiay(listGiay.get(i).getMaGiay());
+                    int soLuongGiayDonHang = listGiay.get(i).getSoLuong();
+                    db.giamSoLuongGiay(listGiay.get(i).getMaGiay(),soLuongGiayTrongKho - soLuongGiayDonHang);
+                }
                 if(r2.isChecked())
                     db.themHinhThucLayHang(dhMoi,edtDiaChi.getText().toString(),"Giao tận nhà");
                 else
                     db.themHinhThucLayHang(dhMoi,"Shop","Trực tiếp tại shop");
-                Toast.makeText(Cart.this, "Mua thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cart.this, "Mua thành công. Chuyển về giỏ hàng trong 2s", Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                openGioHang();
             }
         });
     }
@@ -65,5 +77,9 @@ public class Cart extends AppCompatActivity {
         r1 = findViewById(R.id.rbR1);
         r2 = findViewById(R.id.rbR2);
 
+    }
+    private void openGioHang() {
+        Intent intent = new Intent(this, GioHang.class);
+        startActivity(intent);
     }
 }

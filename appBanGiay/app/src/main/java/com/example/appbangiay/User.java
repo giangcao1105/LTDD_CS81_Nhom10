@@ -56,7 +56,7 @@ public class User extends AppCompatActivity {
         btn_LichSuMuaHang = findViewById(R.id.btn_LichSuMuaHang);
         btn_ChamSocKhachHang = findViewById(R.id.btn_ChamSocKhachHang);
         btn_DangXuat1 = findViewById(R.id.btn_DangXuat1);
-        btnThongTin = findViewById(R.id.btn_thongTin);
+        btnThongTin = findViewById(R.id.btThongTin);
         btTinNhan = findViewById(R.id.btn_tinNhan);
         txt_User = findViewById(R.id.txt_User);
     }

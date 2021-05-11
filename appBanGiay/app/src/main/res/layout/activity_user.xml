@@ -63,7 +63,7 @@
         android:text="Chăm sóc khách hàng"
         android:textSize="20sp"/>
     <Button
-        android:id="@+id/btn_thongTin"
+        android:id="@+id/btThongTin"
         android:layout_marginTop="410dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"

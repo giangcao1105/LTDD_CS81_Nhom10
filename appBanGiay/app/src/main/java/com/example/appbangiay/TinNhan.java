@@ -21,7 +21,7 @@ public class TinNhan extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Adapter = new TinNhanAdapter(this, db.layDSLoi(123));
+        Adapter = new TinNhanAdapter(this, db.layDSLoi(MainActivity.TAIKHOAN));
         mRecyclerView.setAdapter(Adapter);
     }
 

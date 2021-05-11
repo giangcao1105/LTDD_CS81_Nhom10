@@ -23,6 +23,7 @@ public class register_form extends AppCompatActivity {
     EditText diaChi, email, sdt, matKhau, nhapLaiMatKhau, ngaySinh, hoTen;
     Button taoTaiKhoan;
     MyDatabaseHelper dbh;
+    boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +53,17 @@ public class register_form extends AppCompatActivity {
                 {
                     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
                     java.util.Date date = null;
+                    java.sql.Date sqlStartDate = null;
                     try {
                         date = sdf1.parse(ngaySinhTxt);
+                        sqlStartDate = new java.sql.Date(date.getTime());
                     } catch (ParseException e) {
-                        e.printStackTrace();
+                        Toast.makeText(register_form.this, "Ngày không hợp lệ, vui lòng kiểm tra lại (dd-MM-yyyy).", Toast.LENGTH_SHORT).show();
+                        flag = false;
                     }
-                    java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());
 
-                    if(dbh.kiemTraKhachHangTonTai(sdtTxt)==false) {
+
+                    if(dbh.kiemTraKhachHangTonTai(sdtTxt)==false &&flag==true) {
                         boolean checkThemTaiKhoan = dbh.themTaiKhoan(sdtTxt,matKhauTxt,"user");
                         boolean checkThemThongTin = dbh.themKhachHang(sdtTxt,hoTenTxt,sdtTxt, sqlStartDate,emailTxt,diaChiTxt);
 
@@ -76,6 +80,8 @@ public class register_form extends AppCompatActivity {
                             Toast.makeText(register_form.this, "Đăng kí không thành công. Vui lòng kiểm tra lại thông tin tài khoản.", Toast.LENGTH_SHORT).show();
                         }
                     }
+                    else if(flag == false)
+                    {}
                     else
                     {
                         Toast.makeText(register_form.this, "SĐT đã được đăng kí. Vui lòng sử dụng SĐT khác.", Toast.LENGTH_SHORT).show();

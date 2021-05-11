@@ -204,6 +204,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             return result;
         }
     }
+    public int laySoLuongGiay(int maGiay)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "Select * from tb_giay where MaGiay=" + maGiay;
+        Cursor cursor = db.rawQuery(sql,null);
+        int soLuong = 0;
+        if(cursor != null && cursor.moveToNext())
+         soLuong = cursor.getInt(cursor.getColumnIndex("SoLuong"));
+        return soLuong;
+    }
+    public Boolean giamSoLuongGiay(int maGiay, int soLuong)
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("SoLuong", soLuong);
+        Cursor cursor = DB.rawQuery("Select * from tb_giay where MaGiay = ?", new String[]{maGiay + ""});
+        if (cursor != null && cursor.moveToFirst()) {
+            long result = DB.update("tb_giay", contentValues, "MaGiay=?", new String[]{maGiay + ""});
+            cursor.close();
+            return result != -1;
+        } else {
+            cursor.close();
+            return false;
+        }
+    }
 
     // Xem chi tiết
     public Giay xemCTGiay(int maGiay) {
@@ -254,7 +279,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         boolean result;
         String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
         Cursor c = db.rawQuery(sql, null);
-//        if (c == null)
+        if (c == null)
         {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
             result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
@@ -813,10 +838,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // lấy ds lỗi
-    public List<classTinNhan> layDSLoi(int maKH){
+    public List<classTinNhan> layDSLoi(String maKH){
         SQLiteDatabase db = getWritableDatabase();
         List<classTinNhan> ds = new ArrayList<>();
-        String sql = "Select MaLoi, NoiDungLoi, TraLoi, MaDH from tb_loi where MaKH="+maKH;
+        String sql = "Select MaLoi, NoiDungLoi, TraLoi, MaDH from tb_loi where MaKH='"+maKH+"'";
         Cursor c = db.rawQuery(sql, null);
         while (c != null && c.moveToNext()) {
             classTinNhan t = new classTinNhan(c.getInt(c.getColumnIndex("MaLoi")), c.getString(c.getColumnIndex("NoiDungLoi")), c.getString(c.getColumnIndex("TraLoi")),c.getInt(c.getColumnIndex("MaDH")));
@@ -876,7 +901,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // xóa
-    public Boolean xoaGioHang(String maKH, int maSP, int soLuong) {
+    public Boolean xoaGioHang(String maKH, int maSP) {
         boolean result = true;
         SQLiteDatabase db = this.getWritableDatabase();
 
