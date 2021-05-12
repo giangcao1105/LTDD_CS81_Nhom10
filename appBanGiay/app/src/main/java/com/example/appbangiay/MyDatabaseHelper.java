@@ -707,7 +707,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             while (cursor != null && flag == true) {
                 sql2 += " MaDH = " + cursor.getInt(cursor.getColumnIndex("MaDH"));
                 if (cursor.moveToNext())
-                    sql2 += " AND ";
+                    sql2 += " OR ";
                 else
                     flag = false;
             }

@@ -38,14 +38,7 @@ public class RevenueManagement extends AppCompatActivity {
     {
         List<RevenuewManagementModel> RMList = new ArrayList<>();
         MyDatabaseHelper db = new MyDatabaseHelper(this);
-
         RMList = db.layThongTinDonHang();
-        java.sql.Date sqlDate = new Date(System.currentTimeMillis());
-//        db.themDonHang("1","0","1",1,100000,sqlDate,sqlDate);
-//        db.themDonHang("1","0","1",1,200000,sqlDate,sqlDate);
-//        db.themDonHang("1","0","1",1,300000,sqlDate,sqlDate);
-//        db.themDonHang("1","0","1",1,400000,sqlDate,sqlDate);
-//        RMList.add(new RevenuewManagementModel("Adidas","10","100000"));
         return RMList;
     }
 }

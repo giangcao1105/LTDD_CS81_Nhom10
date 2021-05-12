@@ -71,10 +71,20 @@
     <Button
         android:id="@+id/btXacNhan"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="470dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="XÁC NHẬN"
+        android:textSize="20dp"
+        android:background="@drawable/bg_edt"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/btBack"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="530dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRỞ VỀ TRANG CHỦ"
         android:textSize="20dp"
         android:background="@drawable/bg_edt"
         android:gravity="center"/>

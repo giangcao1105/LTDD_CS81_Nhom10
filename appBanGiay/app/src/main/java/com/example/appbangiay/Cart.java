@@ -17,7 +17,7 @@ import java.util.List;
 public class Cart extends AppCompatActivity {
     RadioGroup rdThanhToan;
     EditText edtDiaChi;
-    Button xacNhan;
+    Button xacNhan,back;
     GioHangAdapter gioHangAdapter;
     MyDatabaseHelper db;
     RadioButton r1,r2;
@@ -67,6 +67,12 @@ public class Cart extends AppCompatActivity {
                 openGioHang();
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHomePage();
+            }
+        });
     }
 
     private void AnhXa()
@@ -76,10 +82,16 @@ public class Cart extends AppCompatActivity {
         xacNhan = findViewById(R.id.btXacNhan);
         r1 = findViewById(R.id.rbR1);
         r2 = findViewById(R.id.rbR2);
+        back = findViewById(R.id.btBack);
 
     }
     private void openGioHang() {
-        Intent intent = new Intent(this, GioHang.class);
+        Intent intent = new Intent(this, homepage_form.class);
+        startActivity(intent);
+    }
+
+    private void openHomePage() {
+        Intent intent = new Intent(this, homepage_form.class);
         startActivity(intent);
     }
 }

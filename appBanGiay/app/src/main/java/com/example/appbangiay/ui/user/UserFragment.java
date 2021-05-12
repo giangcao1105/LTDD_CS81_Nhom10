@@ -42,6 +42,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
             View view = inflater.inflate(R.layout.activity_user, container, false);
 
             AnhXa(view);
+            txt_User.setText(db.xemCTKhach(MainActivity.TAIKHOAN).getHoTen());
             btn_ChamSocKhachHang.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
