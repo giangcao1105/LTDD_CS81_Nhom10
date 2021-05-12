@@ -51,6 +51,7 @@ public class CFAdapter extends RecyclerView.Adapter<CFHolder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ReportError.class);
+                int i = dsLoi.get(position).getMaLoi();
                 intent.putExtra("MaLoi", dsLoi.get(position).getMaLoi());
                 context.startActivity(intent);
             }
