@@ -288,10 +288,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
     //Khởi tạo 20 giày
     public void khoiTaoGiay() {
-        SQLiteDatabase db = getWritableDatabase();
         boolean result;
-        String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
-        Cursor c = db.rawQuery(sql, null);
+//        SQLiteDatabase db = getWritableDatabase();
+//
+//        String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
+//        Cursor c = db.rawQuery(sql, null);
 //        if (c == null)
         {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
