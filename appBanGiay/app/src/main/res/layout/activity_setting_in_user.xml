@@ -52,9 +52,9 @@
             android:textColor="@color/black"
             android:textSize="30sp"/>
 
-        <EditText
-            android:id="@+id/edt_NgaySinh"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_NgaySinh"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:background="@drawable/bg_edt"
@@ -62,6 +62,16 @@
             android:textColor="#FFFB"
             android:textAlignment="center"
             android:textSize="25dp"/>
+
+        <Button
+            android:id="@+id/btn_ChonNgay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn ngày"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"/>
+
     </LinearLayout>
 
     <LinearLayout

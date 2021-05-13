@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -18,8 +19,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SettingInUser extends AppCompatActivity {
-    EditText edtHoVaTen, edtNgaySinh, edtDiaChi, edtSDT, edtEmail;
-    Button btnSua;
+    EditText edtHoVaTen, edtDiaChi, edtSDT, edtEmail;
+    Button btnSua, btnChonNgay;
+    TextView tvNgaySinh;
     MyDatabaseHelper db;
     String maKH = MainActivity.TAIKHOAN;
 //    String maKH = "123";
@@ -42,11 +44,11 @@ public class SettingInUser extends AppCompatActivity {
         String txtEmail0 = k.getEmail();
 
         edtHoVaTen.setText(txtHoTen0);
-        edtNgaySinh.setText(txtNgaySinh0);
+        tvNgaySinh.setText(txtNgaySinh0);
         edtDiaChi.setText(txtDiaChi0);
         edtSDT.setText(txtSDT0);
         edtEmail.setText(txtEmail0);
-        edtNgaySinh.setOnClickListener(new View.OnClickListener() {
+        btnChonNgay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chonNgay();
@@ -62,7 +64,7 @@ public class SettingInUser extends AppCompatActivity {
                 String txtSDT = edtSDT.getText().toString();
                 String txtDiaChi = edtDiaChi.getText().toString();
                 String txtEmail = edtEmail.getText().toString();
-                String txtNgaySinh = edtNgaySinh.getText().toString();
+                String txtNgaySinh = tvNgaySinh.getText().toString();
                 SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
                 Date date = null;
                 boolean flag = true;
@@ -140,11 +142,12 @@ public class SettingInUser extends AppCompatActivity {
     private void AnhXa()
     {
         edtHoVaTen = findViewById(R.id.edt_HoVaTen);
-        edtNgaySinh = findViewById(R.id.edt_NgaySinh);
+        tvNgaySinh = findViewById(R.id.tv_NgaySinh);
         edtDiaChi = findViewById(R.id.edt_DiaChi);
         edtSDT = findViewById(R.id.edt_SDT);
         edtEmail = findViewById(R.id.edt_Email);
         btnSua = findViewById(R.id.btn_Sua);
+        btnChonNgay = findViewById(R.id.btn_ChonNgay);
     }
 
     private void chonNgay() {
@@ -158,7 +161,7 @@ public class SettingInUser extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                edtNgaySinh.setText(simpleDateFormat.format(calendar.getTime()));
+                tvNgaySinh.setText(simpleDateFormat.format(calendar.getTime()));
             }
         }, nam, thang, ngay);
         datePickerDialog.show();
