@@ -292,7 +292,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         boolean result;
         String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
         Cursor c = db.rawQuery(sql, null);
-        if (c == null)
+//        if (c == null)
         {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
             result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
