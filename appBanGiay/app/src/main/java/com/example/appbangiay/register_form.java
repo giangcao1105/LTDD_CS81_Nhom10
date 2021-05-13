@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
@@ -20,8 +21,9 @@ import java.util.Calendar;
 
 public class register_form extends AppCompatActivity {
 
-    EditText diaChi, email, sdt, matKhau, nhapLaiMatKhau, ngaySinh, hoTen;
-    Button taoTaiKhoan;
+    EditText diaChi, email, sdt, matKhau, nhapLaiMatKhau, hoTen;
+    TextView tvNgaySinh;
+    Button taoTaiKhoan, btnNgaySinh;
     MyDatabaseHelper dbh;
     boolean flag = true;
     @Override
@@ -39,7 +41,7 @@ public class register_form extends AppCompatActivity {
                 String nhapLaiMatKhauTxt = nhapLaiMatKhau.getText().toString();
                 String sdtTxt = sdt.getText().toString();
                 String hoTenTxt = hoTen.getText().toString();
-                String ngaySinhTxt = ngaySinh.getText().toString();
+                String ngaySinhTxt = tvNgaySinh.getText().toString();
 
                 if (diaChiTxt.equals("") || emailTxt.equals("") || matKhauTxt.equals("") ||nhapLaiMatKhauTxt.equals("") || sdtTxt.equals("") || hoTenTxt.equals("")||ngaySinhTxt.equals("")) {
                     Toast.makeText(register_form.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
@@ -91,7 +93,7 @@ public class register_form extends AppCompatActivity {
         });
 
         //chon ngay sinh
-        ngaySinh.setOnClickListener(new View.OnClickListener() {
+        btnNgaySinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chonNgay();
@@ -107,8 +109,9 @@ public class register_form extends AppCompatActivity {
         matKhau = findViewById(R.id.txtMatKhau);
         nhapLaiMatKhau = findViewById(R.id.txtNhapLaiMatKhau);
         taoTaiKhoan = findViewById(R.id.btTaoTaiKhoan);
-        ngaySinh = findViewById(R.id.txtNgaySinh);
+        tvNgaySinh = findViewById(R.id.txtNgaySinh);
         hoTen = findViewById(R.id.txtHoTen);
+        btnNgaySinh = findViewById(R.id.btn_layNgay);
     }
 
     private void dangNhap() {
@@ -127,7 +130,7 @@ public class register_form extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(year, month, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-                ngaySinh.setText(simpleDateFormat.format(calendar.getTime()));
+                tvNgaySinh.setText(simpleDateFormat.format(calendar.getTime()));
             }
         }, nam, thang, ngay);
         datePickerDialog.show();
