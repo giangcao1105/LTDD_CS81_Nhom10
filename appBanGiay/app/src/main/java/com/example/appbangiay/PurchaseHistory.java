@@ -38,14 +38,8 @@ public class PurchaseHistory extends AppCompatActivity {
         List<PurchaseHistoryModel> RMList = new ArrayList<>();
         MyDatabaseHelper db = new MyDatabaseHelper(this);
 
-        java.sql.Date sqlDate = new Date(System.currentTimeMillis());
-//        db.themDonHang("123",sqlDate,sqlDate,null,"1",111111);
-//        db.themCTDH(1,1,2);
-//        db.themCTDH(1,2,4);
-//        db.themCTDH(2,3,3);
-//        db.themCTDH(1,4,1);
 
-        RMList = db.lichSuMuaHang("123");
+        RMList = db.lichSuMuaHang(MainActivity.TAIKHOAN);
 
         return RMList;
     }

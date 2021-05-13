@@ -27,20 +27,15 @@ public class DepotManagementHodel extends RecyclerView.ViewHolder implements Vie
         sua = (Button) itemView.findViewById(R.id.btnSua);
         sua.setOnClickListener(this);
         sua.setOnLongClickListener(this);
-
-
     }
-
     public void setItemClickListener(ItemClickListener itemClickListener)
     {
         this.itemClickListener = itemClickListener;
     }
-
     @Override
     public void onClick(View v) {
         itemClickListener.onClick(v, getAdapterPosition(),false);
     }
-
     @Override
     public boolean onLongClick(View v) {
         itemClickListener.onClick(v,getAdapterPosition(),true);
