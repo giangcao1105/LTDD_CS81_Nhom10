@@ -65,7 +65,27 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + "MK nvarchar NOT NUll,"
                 + "LoaiTK nvarchar NOT NULL)";
         db.execSQL(sql2);
-        boolean result0 = themTaiKhoan("0123456789", "1", "user");
+        boolean result0 = themTaiKhoan("0123456789", "admin", "admin");
+        boolean result = themGiay("Adidas advantage", 39, "đen", 30, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
+        result = themGiay("Adidas andridge", 39, "đen", 33, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
+        result = themGiay("Adidas core black", 39, "đen", 23, 1800000, "Adidas", "Adidas", "China", "https://giayadidas.com.vn/wp-content/uploads/2021/02/EG9627-1.jpg");
+        result = themGiay("Adidas day jogger", 39, "đen", 42, 1000000, "Adidas", "Adidas", "VietNam", "https://sneakerdaily.vn/wp-content/uploads/2021/04/adidas-day-jogger-black-blue-fw4041.png");
+        result = themGiay("Adidas galaxy 5", 39, "đen", 15, 6000000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/09/FW5705-01.jpg");
+        result = themGiay("Adidas niteball", 39, "đen", 13, 3500000, "Adidas", "Adidas", "UK", "https://www.elleman.vn/wp-content/uploads/2020/06/26/180122/gi%C3%A0y-th%E1%BB%83-thao-elle-man-11.jpg");
+        result = themGiay("Adidas originals flex", 39, "đen", 23, 4900000, "Adidas", "Adidas", "China", "https://assets.gy.digital/q-WDonRUudrg9wUW7Cvrn3lT4xo=/fit-in/650x650/filters:fill(white)/s3.gy.digital%2Ffamousports%2Fuploads%2Fasset%2Fdata%2F217837%2FAD-FX5321_1.jpg");
+        result = themGiay("Adidas ozweego", 39, "đen", 24, 5500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/09/EE7002-01-2.jpg");
+        result = themGiay("Adidas pureboost rbl clear brown", 39, "đen", 35, 2500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/02/F35782-01.png");
+        result = themGiay("Adidas runfalco w real magenta", 39, "đen", 36, 2500000, "Adidas", "Adidas", "UK", "https://giayadidas.com.vn/wp-content/uploads/2021/02/F36219-1.jpg");
+        result = themGiay("Adidas runfalco legend ink", 39, "đen", 37, 1900000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/08/EG8626-01.jpg");
+        result = themGiay("Adidas sc prermiere", 39, "đen", 18, 1800000, "Adidas", "Adidas", "VietNam", "https://product.hstatic.net/1000282067/product/ee6327_4fd55b6ae7f645c3957c10d7b814d740_master.png");
+        result = themGiay("Adidas silverred boost", 39, "đen", 27, 4500000, "Adidas", "Adidas", "UK", "https://adidasstore.vn/wp-content/uploads/2021/03/x9000l3-shoes-grey-eh0053-01-standard.jpg");
+        result = themGiay("Adidas stansmith green", 39, "đen", 28, 3500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/05/M20605_00-1.png");
+        result = themGiay("Adidas superstar", 39, "đen", 29, 1700000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/04/zz-FV3284-standard-side_lateral_center_view.jpg");
+        result = themGiay("Adidas superstar bold", 39, "đen", 30, 2500000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/1024x1024/100/340/361/products/giay-superstar-bold-mau-trang-fv3336-06-standard.jpg");
+        result = themGiay("Adidas ultraboost 20 city pack Tokyo", 39, "đen", 31, 3000000, "Adidas", "Adidas", "VietNam", "https://adidasstore.vn/wp-content/uploads/2020/12/FX7811-1.jpg");
+        result = themGiay("Adidas ultraboost 4 dna 5th anniversary", 39, "đen", 32, 5100000, "Adidas", "Adidas", "VietNam", "https://adidasstore.vn/wp-content/uploads/2021/03/ultraboost-dna-shoes-black-fu9993-01-standard.jpg");
+        result = themGiay("Adidas ultraboost 20 Cloud White", 39, "đen", 33, 3000000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/04/zz-EG0713-standard-side_lateral_center_view.jpg");
+        result = themGiay("Adidas ultraboost 20 Triple Black", 39, "đen", 34, 5100000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2020/12/FU8498-01.jpg");
 
         // Khai báo bảng: KhachHang(MaKH, HoTen, SDT, NgaySinh, Email, DiaChi) //KH cũng đóng vai trò như quản trị
         String sql3 = "CREATE TABLE  tb_khachhang ("
@@ -289,11 +309,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     //Khởi tạo 20 giày
     public void khoiTaoGiay() {
         boolean result;
-//        SQLiteDatabase db = getWritableDatabase();
-//
-//        String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
-//        Cursor c = db.rawQuery(sql, null);
-//        if (c == null)
+        SQLiteDatabase db = getWritableDatabase();
+
+        String sql = "select * from tb_giay where TenGiay not in ('Adidas advantage', 'Adidas andridge', 'Adidas core black', 'Adidas day jogger')";
+        Cursor c = db.rawQuery(sql, null);
+        if (c == null)
         {
             result = themGiay("Adidas advantage", 39, "đen", 3, 1500000, "Adidas", "Adidas", "VietNam", "https://giayadidas.com.vn/wp-content/uploads/2019/11/EE7690_01_standard.jpg");
             result = themGiay("Adidas andridge", 39, "đen", 3, 1600000, "Adidas", "Adidas", "UK", "https://bizweb.dktcdn.net/thumb/large/100/378/584/products/giay-sl-andridge-trang-fu7212-01-standard.jpg");
